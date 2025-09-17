@@ -1,11 +1,18 @@
 import { Controller, Get, Module } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 
+const mockDataArray = [
+  { id: 1, name: "POURYA" },
+  { id: 2, name: "MAMAD" },
+];
 @Controller()
 class AppController {
   @Get("/")
   getRootRoute() {
-    return { message: "THE FIRST NEST__JS RESPONSE" };
+    return {
+      message: "THE FIRST NEST__JS RESPONSE",
+      data: mockDataArray,
+    };
   }
 }
 
