@@ -1,13 +1,11 @@
 import { Controller, Get, Module } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 
-// DATA
 const mockDataArray = [
   { id: 1, name: "POURYA" },
   { id: 2, name: "MAMAD" },
 ];
 
-// CONTROLLER
 @Controller()
 class AppController {
   @Get("/")
@@ -19,7 +17,6 @@ class AppController {
   }
 }
 
-// MODULE
 @Module({
   controllers: [AppController], // DEFINE THE CONTROLLER HERE
 })
