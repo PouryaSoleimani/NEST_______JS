@@ -19,7 +19,6 @@ export class UserController {
       ok: true,
       message: "SINGLE USER POST ROUTE",
       data: data,
-      id: "1",
     };
   }
 }
