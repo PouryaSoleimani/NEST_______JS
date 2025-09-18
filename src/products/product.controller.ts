@@ -1,6 +1,7 @@
 import { Controller, Get } from "@nestjs/common";
+import { ContextCreator } from "@nestjs/core/helpers/context-creator";
 
-@Controller()
+@Controller("/api")
 export class ProductController {
   @Get("/products")
   getAllProducts() {
@@ -10,7 +11,6 @@ export class ProductController {
   getSingleProduct(id: any) {
     return {
       message: " SINGLE PRODUCT ROUTE",
-      ID: id,
     };
   }
 }
