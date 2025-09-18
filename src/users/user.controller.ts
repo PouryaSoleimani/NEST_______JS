@@ -2,12 +2,12 @@ import { Controller, Get } from "@nestjs/common";
 
 @Controller()
 export class UserController {
-  @Get("/user")
-  getAllUsers() {
-    return "ALL USERS ROUTE";
+  @Get("/users")
+  getAllUser() {
+    return "HELLO FROM USERS";
   }
-  @Get(`/user/:id`)
+  @Get("/users/:id")
   getSingleUser() {
-    return "SINGLE USER PAGE";
+    return "SINGLE USER ROUTE";
   }
 }
