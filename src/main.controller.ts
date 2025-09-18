@@ -2,11 +2,11 @@ import { Controller, Get } from "@nestjs/common";
 
 @Controller()
 export class AppController {
-  @Get("/")
+  @Get()
   getAllDatas() {
     return {
-      message: "MY FIRST RETURN",
-      data: [{ id: 1, name: "POURYA", job: " DEVELOPER " }],
+      message: "HELLO FROM NEST__JS",
+      data: { id: 1, name: "POURYA", job: "DEVELOPER" },
     };
   }
 }
