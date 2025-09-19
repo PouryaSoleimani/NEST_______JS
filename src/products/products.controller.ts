@@ -27,9 +27,10 @@ export class ProductsController {
   @Post("/:id")
   POST__SINGLE__PRODUCT(@Body() postReqBody: createSingleProductDTO) {
     _Products.push(postReqBody);
+    console.log(_Products);
     return {
       ok: true,
-      message: "NEW USER ADDDED",
+      message: "NEW PRODUCT ADDDED",
       data: _Products,
     };
   }
