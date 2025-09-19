@@ -1,15 +1,15 @@
-import { IsString, IsInt, IsBoolean, Length, IsNumber } from "class-validator";
+import { IsBoolean, IsNumber, IsString, Length } from "class-validator";
 
 export class CreatePostDto {
   @IsString()
   @Length(3, 20)
   name: string;
 
-  @IsNumber()
-  age: number;
-
   @IsString()
   job: string;
+
+  @IsNumber()
+  age: number;
 
   @IsBoolean()
   isValid: boolean;
