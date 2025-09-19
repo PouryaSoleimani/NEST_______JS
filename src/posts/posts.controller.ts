@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post, Query } from "@nestjs/common";
+import { CreatePostDto } from "./create-post.dto";
 
 @Controller("/api/posts")
 export class PostsController {
@@ -16,18 +17,20 @@ export class PostsController {
     };
   }
 
-  @Post("/:id")
+  @Post(":id")
   POST_SINGLE_POST(
-    @Body() single_post_datas: any,
-    @Query() single_post_query: { [name: string]: string },
-    @Param() single_post_param: number,
+    @Body() single_post_body: CreatePostDto,
+    @Param() single_post_param: any,
+    @Query() single_post_query: any,
   ) {
     return {
       ok: true,
-      message: "POST SINGLE ROUTE ==POST==",
-      data: single_post_datas,
-      query: single_post_query,
-      param: single_post_param,
+      message: "SINGLE POST ==POST== ROUTE ",
+      data: {
+        body: single_post_body,
+        params: [single_post_param],
+        query: { single_post_query },
+      },
     };
   }
 }
