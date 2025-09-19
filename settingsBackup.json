@@ -389,10 +389,7 @@
           }
         },
         {
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.readwrite.alias"
-          ],
+          "scope": ["variable.other.object.property", "variable.other.readwrite.alias"],
           "settings": {
             "foreground": "#E6EDF3"
           }
@@ -456,10 +453,7 @@
           }
         },
         {
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.readwrite.alias"
-          ],
+          "scope": ["variable.other.object.property", "variable.other.readwrite.alias"],
           "settings": {
             "foreground": "#E6EDF3"
           }
@@ -602,13 +596,7 @@
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
 
-  "RainbowBrackets.consecutivePairColors": [
-    "()",
-    "[]",
-    "{}",
-    ["yellow", "#D55FDE", "#2b7fff"],
-    "Revioletd"
-  ],
+  "RainbowBrackets.consecutivePairColors": ["()", "[]", "{}", ["yellow", "hotpink", "dodgerblue"]],
   "prettier.bracketSameLine": true,
   "terminal.integrated.defaultProfile.windows": "Git Bash",
   "git.autofetch": true,

@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Query } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Query } from "@nestjs/common";
 
 @Controller("/api/posts")
 export class PostsController {
@@ -8,11 +8,11 @@ export class PostsController {
   }
 
   @Get("/:id")
-  GET_SINGLE_POST(@Param() single_post_get_param) {
+  GET_SINGLE_POST(@Param("id", ParseIntPipe) single_post_get_param) {
     return {
       ok: true,
       message: "GET_SINGLE_POST_ROUTE",
-      params: [single_post_get_param],
+      params: [{ id: single_post_get_param }],
     };
   }
 
