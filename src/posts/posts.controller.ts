@@ -8,7 +8,7 @@ export class PostsController {
   }
 
   @Get("/:id")
-  GET_SINGLE_POST(@Param("id") single_post_get_param) {
+  GET_SINGLE_POST(@Param() single_post_get_param) {
     return {
       ok: true,
       message: "GET_SINGLE_POST_ROUTE",
