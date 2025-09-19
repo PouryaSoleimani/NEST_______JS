@@ -15,7 +15,9 @@ export class ProductsController {
 
   @Get("/:id")
   GET__SINGLE__PRODUCT(@Param() single_product_id) {
-    const singleProduct = _Products.find((item: any) => item.id === Number(single_product_id.id));
+    const singleProduct = _Products.find((item: any) => {
+      item.id === Number(single_product_id.id);
+    });
     return {
       ok: singleProduct ? true : false,
       message: singleProduct ? "PRODUCT__FOUND ==200==" : "PRODUCT__NOT__FOUND ==400==",
@@ -27,7 +29,7 @@ export class ProductsController {
   @Post("/:id")
   POST__SINGLE__PRODUCT(@Body() postReqBody: createSingleProductDTO) {
     _Products.push(postReqBody);
-    console.log(_Products);
+    console.log("NEW DATAS ==>", _Products);
     return {
       ok: true,
       message: "NEW PRODUCT ADDDED",
