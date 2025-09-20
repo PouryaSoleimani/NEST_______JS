@@ -5,12 +5,19 @@ import { _Users } from "./../../__data__/db.js";
 export class UserController {
   @Get("/users")
   getAllUser() {
-    return "HELLO FROM USERS";
+    return {
+      message: "ALL USERS ==GET== ROUTE",
+      data: _Users,
+    };
   }
 
   @Get("/users/:id")
-  getSingleUser() {
-    return "SINGLE USER ROUTE";
+  GET_SINGLE_USER(@Param("id") single_user_id) {
+    const _User = _Users.find((item: SingleUserDTO) => item.id == single_user_id);
+    return {
+      message: _User ? "SINGLE USER ==GET== ROUTE" : "ERROR ...",
+      user: _User ? _User : "USER NOT FOUND",
+    };
   }
 
   @Post("/users/:id")
