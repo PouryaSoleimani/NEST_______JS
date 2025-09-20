@@ -18,7 +18,7 @@ export class PostsController {
   }
 
   @Post(":id")
-  POST_SINGLE_POST(
+  CREATE_SINGLE_POST(
     @Body() single_post_body: CreatePostDto,
     @Param() single_post_param: any,
     @Query() single_post_query: any,

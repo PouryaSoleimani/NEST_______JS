@@ -12,6 +12,7 @@ export class CategoriesController {
       data: _Categories,
     };
   }
+
   @Get("/:id")
   GET__SINGLE__CATEGORY(@Param("id") single_category_id) {
     const _Category = _Categories.find((item: CategoriesPostDTO) => item.id == single_category_id);
@@ -21,8 +22,9 @@ export class CategoriesController {
       data: _Category ? _Category : null,
     };
   }
+
   @Post("/create")
-  POST_SINGLE_CATEGORY(@Body() single_category_req_body: CategoriesPostDTO) {
+  CREATE_SINGLE_CATEGORY(@Body() single_category_req_body: CategoriesPostDTO) {
     _Categories.push(single_category_req_body);
     return {
       ok: true,
