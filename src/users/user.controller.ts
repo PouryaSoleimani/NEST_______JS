@@ -1,5 +1,6 @@
-import { Controller, Get, Post } from "@nestjs/common";
-
+import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { SingleUserDTO } from "./user.dto";
+import { _Users } from "./../../__data__/db.js";
 @Controller("/api")
 export class UserController {
   @Get("/users")
@@ -13,12 +14,14 @@ export class UserController {
   }
 
   @Post("/users/:id")
-  PostSingleUser() {
-    const data = { id: 1, name: "POURYA", job: "DEVELOPER" };
+  PostSingleUser(@Body() single_user_body: SingleUserDTO, @Param("id") single_user_param) {
+    _Users.push(single_user_body);
     return {
       ok: true,
       message: "SINGLE USER POST ROUTE",
-      data: data,
+      data: single_user_body,
+      allUsers: _Users,
+      param: single_user_param,
     };
   }
 }
