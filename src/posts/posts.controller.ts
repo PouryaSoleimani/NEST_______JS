@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, Query, ValidationPipe, } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Query } from "@nestjs/common";
 import { CreatePostDto } from "./create-post.dto";
 
 @Controller("/api/posts")

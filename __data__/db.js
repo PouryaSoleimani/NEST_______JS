@@ -9,3 +9,9 @@ export const _Users = [
   { id: 2, name: "REZA", price: 26, job: "DEVELOPER", isAdmin: false },
   { id: 3, name: "MOHSEN", price: 27, job: "ADMIN", isAdmin: false },
 ];
+
+export const _Categories = [
+  { id: 1, name: "SHOES", priority: 1, isShowOnMenu: true },
+  { id: 2, name: "BAGS", priority: 2, isShowOnMenu: true },
+  { id: 3, name: "PANTS", priority: 3, isShowOnMenu: true },
+];
