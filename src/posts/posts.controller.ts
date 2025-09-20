@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Post, Query } from "@nestjs/common";
-import { CreatePostDto } from "./create-post.dto";
+import { CreatePostDto } from "./posts.pipe";
 
 @Controller("/api/posts")
 export class PostsController {

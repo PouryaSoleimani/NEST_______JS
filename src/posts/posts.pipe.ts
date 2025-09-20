@@ -1,8 +1,16 @@
-import { ArgumentMetadata, Injectable, PipeTransform } from "@nestjs/common";
+import { IsBoolean, IsNumber, IsString, Length } from "class-validator";
 
-@Injectable()
-export class PostsPipe implements PipeTransform {
-  transform(value: any, metadata: ArgumentMetadata) {
-    return value;
-  }
+export class CreatePostDto {
+  @IsString()
+  @Length(3, 20)
+  name: string;
+
+  @IsString()
+  job: string;
+
+  @IsNumber()
+  age: number;
+
+  @IsBoolean()
+  isValid: boolean;
 }
