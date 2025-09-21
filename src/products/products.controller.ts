@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { _Products } from "./../../__data__/db.js";
-import { createSingleProductDTO } from "./product.dto.js";
+import { createSingleProductDTO } from "./product.pipe.js";
 
 @Controller("/api/products")
 export class ProductsController {
