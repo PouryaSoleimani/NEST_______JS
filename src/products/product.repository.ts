@@ -3,9 +3,9 @@ import { readFile } from "fs/promises";
 
 export class ProductRepository {
   async FIND__ALL__PRODUCTS() {
-    const allProducts = await readFile("/__data__/db.js", "utf-8");
-    const allProductsParsed = JSON.parse(allProducts);
-    return allProductsParsed;
+    const _Products = await readFile("/__data__/data.json", "utf-8");
+    const Products = JSON.parse(_Products);
+    return Products;
   }
 
   async FIND__SINGLE__PRODUCT(@Param("id") single_product_id) {

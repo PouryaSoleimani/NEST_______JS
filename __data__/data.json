@@ -1,0 +1,7 @@
+{
+  "PRODUCTS": [
+    { "id": 1, "title": "SHOE", "price": 232, "isAvailable": true },
+    { "id": 2, "title": "T-SHIRT", "price": 136, "isAvailable": false },
+    { "id": 3, "title": "PANTS", "price": 468, "isAvailable": true }
+  ]
+}
