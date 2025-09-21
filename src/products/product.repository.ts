@@ -9,10 +9,10 @@ export class ProductRepository {
   }
 
   async FIND__SINGLE__PRODUCT(@Param("id") single_product_id) {
-    const allProducts = await readFile("/__data__/db.js", "utf-8");
+    const allProducts = await readFile("./../../__data__/data.json", "utf-8");
     const allProductsParsed = JSON.parse(allProducts);
-    const single_product = allProductsParsed.find((item) => item.id == single_product_id);
-    return single_product_id;
+    const single_product = allProductsParsed.find((item: any) => item.id == single_product_id);
+    return single_product;
   }
 
   CREATE__SINGLE__PRODUCT() {}

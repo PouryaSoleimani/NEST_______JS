@@ -12,12 +12,11 @@ export class ProductsController {
 
   @Get("/")
   GET__ALL__PRODUCTS() {
-    // return {
-    //   ok: true,
-    //   message: "ALL PRODUCTS ROUTE ==GET==",
-    //   allProducts: this.productRepo.FIND__ALL__PRODUCTS(),
-    // };
-    return this.productRepo.FIND__ALL__PRODUCTS();
+    return {
+      ok: true,
+      message: "ALL PRODUCTS ROUTE ==GET==",
+      allProducts: this.productRepo.FIND__ALL__PRODUCTS(),
+    };
   }
 
   @Get("/:id")
