@@ -1,8 +1,8 @@
 {
-  "editor.fontFamily": "Consolas, Vazir",
+  "editor.fontFamily": "Consolas,Vazir",
   "editor.fontWeight": "600",
-  "editor.letterSpacing": 0,
-  "editor.lineHeight": 1.7,
+  "editor.letterSpacing": 0.1,
+  "editor.lineHeight": 1.8,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
@@ -12,7 +12,7 @@
   "window.zoomLevel": -1,
   "editor.minimap.enabled": false,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "Geist Mono",
+  "terminal.integrated.fontFamily": "Roboto Mono",
   "terminal.integrated.fontWeight": "600",
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.drawBoldTextInBrightColors": true,
@@ -404,13 +404,13 @@
             "entity.name.function"
           ],
           "settings": {
-            "foreground": "#B392F0"
+            "foreground": "#d2a8ff"
           }
         },
         {
           "scope": [],
           "settings": {
-            "foreground": "#d2a8ff"
+            "foreground": "#B392F0"
           }
         },
         {
@@ -430,7 +430,7 @@
             "variable.other.readwrite.alias"
           ],
           "settings": {
-            "foreground": "#ccc",
+            "foreground": "#E6EDF3",
             "fontStyle": ""
           }
         },
@@ -653,5 +653,5 @@
     }
   },
   "terminal.integrated.fontSize": 13,
-  "workbench.colorTheme": "GitHub Dark Default"
+  "workbench.colorTheme": "Meteora"
 }
