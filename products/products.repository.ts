@@ -34,7 +34,10 @@ export class ProductsRepository {
   CREATE__PRODUCT(req_body: SingleProductType) {
     const content = readFileSync("__data__\\products.json", "utf-8");
     const parsedContent = JSON.parse(content);
-    const newData = writeFileSync(parsedContent, JSON.stringify(req_body));
+    const newData = writeFileSync(
+      parsedContent,
+      JSON.stringify({ id: parsedContent.length + 1, ...req_body }),
+    );
     return {
       ok: true,
       message: "NEW PRODUCT CREATED",

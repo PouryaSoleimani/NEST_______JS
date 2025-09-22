@@ -1,6 +1,7 @@
-import { IsBoolean, IsNumber, IsString } from "class-validator";
+import { IsBoolean, IsNumber, IsOptional, IsString } from "class-validator";
 
 export class CreateSingleProductDTO {
+  @IsOptional()
   @IsNumber()
   id: number;
 
