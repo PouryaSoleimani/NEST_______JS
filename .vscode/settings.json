@@ -1,7 +1,7 @@
 {
-  "editor.fontFamily": "Consolas,Vazir",
-  "editor.fontWeight": "600",
-  "editor.letterSpacing": 0.1,
+  "editor.fontFamily": "Recursive Monospace Mono Linear",
+  "editor.fontWeight": "500",
+  "editor.letterSpacing": 0,
   "editor.lineHeight": 1.8,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,

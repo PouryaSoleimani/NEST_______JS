@@ -1,39 +1,27 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { SingleUserDTO } from "./user.dto";
-import { ALL__DATAS } from "../../__data__/db.js";
-@Controller("/api")
-export class UserController {
-  @Get("/users")
-  getAllUser() {
-    return {
-      message: "ALL USERS ==GET== ROUTE",
-      data: ALL__DATAS._Users,
-    };
+import { CreateSingleUserDTO } from "src/users/users.pipe";
+import { UsersService } from "./user.service";
+
+@Controller("/api/users")
+export class UsersController {
+  usersService: UsersService;
+
+  constructor() {
+    this.usersService = new UsersService();
   }
 
-  @Get("/users/:id")
-  GET_SINGLE_USER(@Param("id") single_user_id) {
-    const _User = ALL__DATAS._Users.find(
-      (item: SingleUserDTO) => item.id == single_user_id,
-    );
-    return {
-      message: _User ? "SINGLE USER ==GET== ROUTE" : "ERROR ...",
-      user: _User ? _User : "USER NOT FOUND",
-    };
+  @Get("/")
+  GET__ALL__USERS() {
+    return this.usersService.GET__ALL__USERS();
   }
 
-  @Post("/users/:id")
-  PostSingleUser(
-    @Body() single_user_body: SingleUserDTO,
-    @Param("id") single_user_param,
-  ) {
-    ALL__DATAS._Users.push(single_user_body);
-    return {
-      ok: true,
-      message: "SINGLE USER POST ROUTE",
-      data: single_user_body,
-      allUsers: ALL__DATAS._Users,
-      param: single_user_param,
-    };
+  @Get("/:id")
+  GET__SINGLE__USERS(@Param("id") single_user_param: any) {
+    return this.usersService.GET__SINGLE__USER(+single_user_param);
+  }
+
+  @Post("/")
+  CREATE__SINGLE__USER(@Body() single_user_req_body: CreateSingleUserDTO) {
+    return this.usersService.CREATE__SINGLE__USER(single_user_req_body);
   }
 }
