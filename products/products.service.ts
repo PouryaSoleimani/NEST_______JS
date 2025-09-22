@@ -24,11 +24,14 @@ export class ProductsService {
     return this.productsRepo.FIND__SINGLE__PRODUCT(+single_product_id);
   }
 
-  update(id: number, updateProductsDto: UpdateSingleProductDTO) {
+  UPDATE__SINGLE__PRODUCT(
+    id: number,
+    updateProductsDto: UpdateSingleProductDTO,
+  ) {
     return `This action updates a #id products`;
   }
 
-  remove(id: number) {
+  REMOVE__SINGLE__PRODUCT(id: number) {
     return `This action removes a #id products`;
   }
 }

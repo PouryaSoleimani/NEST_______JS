@@ -1,6 +1,5 @@
-import { Param, ParseIntPipe } from "@nestjs/common";
 import { readFileSync, writeFileSync } from "fs";
-import { readFile } from "fs/promises";
+
 type SingleProductType = {
   id?: number;
   title: string;
@@ -17,6 +16,7 @@ export class ProductsRepository {
       data: parsedContent,
     };
   }
+
   FIND__SINGLE__PRODUCT(ID: number) {
     const content = readFileSync("__data__\\products.json", "utf-8");
     const parsedContent = JSON.parse(content);
