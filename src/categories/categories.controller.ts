@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { _Categories } from "./../../__data__/db.js";
+import { ALL__DATAS } from "../../__data__/db.js";
 import { CategoriesPostDTO } from "./categories.pipe.js";
 
 @Controller("/api/categories")
@@ -9,13 +9,13 @@ export class CategoriesController {
     return {
       ok: true,
       message: "GET ALL CATEGORIES ==GET== ROUTE",
-      data: _Categories,
+      data: ALL__DATAS._Categories,
     };
   }
 
   @Get("/:id")
   GET__SINGLE__CATEGORY(@Param("id") single_category_id) {
-    const _Category = _Categories.find(
+    const _Category = ALL__DATAS._Categories.find(
       (item: CategoriesPostDTO) => item.id == single_category_id,
     );
     return {
@@ -29,12 +29,12 @@ export class CategoriesController {
 
   @Post("/create")
   CREATE_SINGLE_CATEGORY(@Body() single_category_req_body: CategoriesPostDTO) {
-    _Categories.push(single_category_req_body);
+    ALL__DATAS._Categories.push(single_category_req_body);
     return {
       ok: true,
       message: "201 - CATEGORY CREATED SUCCESSFULLY",
       body: single_category_req_body,
-      data: _Categories,
+      data: ALL__DATAS._Categories,
     };
   }
 }

@@ -1,6 +1,6 @@
 import { Param } from "@nestjs/common";
 import { readFile } from "fs/promises";
-
+import { ALL__DATAS } from "../../__data__/db.js";
 export class ProductRepository {
   async FIND__ALL__PRODUCTS() {
     const _Products = await readFile("./../../__data__/db.js", "utf-8");
