@@ -1,1 +1,6 @@
-[{"id":1,"title":"T-SHIRTS","price":320,"isAvailable":true},{"id":2,"title":"PANTS","price":115,"isAvailable":false},{"id":3,"title":"SNEAKERS","price":554,"isAvailable":true},{"id":6,"title":"JACKET","price":234,"isAvailable":true}]
+[
+  { "id": 1, "title": "T-SHIRTS", "price": 320, "isAvailable": true },
+  { "id": 2, "title": "PANTS", "price": 115, "isAvailable": false },
+  { "id": 3, "title": "SNEAKERS", "price": 554, "isAvailable": true },
+  { "id": 6, "title": "JACKET", "price": 234, "isAvailable": true }
+]
