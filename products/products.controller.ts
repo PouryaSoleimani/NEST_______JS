@@ -25,7 +25,7 @@ export class ProductsController {
     return this.productsRepo.FIND__SINGLE__PRODUCT(+single_product_id);
   }
 
-  @Post("/:id")
+  @Post("/")
   CREATE__NEW__POST(@Body() single_product_req_body: CreateSingleProductDTO) {
     return this.productsRepo.CREATE__PRODUCT(single_product_req_body);
   }
