@@ -1,7 +1,7 @@
 {
-  "editor.fontFamily": "Consolas",
-  "editor.fontWeight": "700",
-  "editor.letterSpacing": 0.3,
+  "editor.fontFamily": "Consolas, Vazir",
+  "editor.fontWeight": "600",
+  "editor.letterSpacing": 0.2,
   "editor.lineHeight": 1.7,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": true,
@@ -163,14 +163,14 @@
       "gitDecoration.modifiedResourceForeground": "#ccb576"
     },
     "[Min Theme+]": {
-      "editor.background": "#0D1117",
-      "breadcrumb.background": "#0D1117",
-      "editorGutter.background": "#0D1117",
-      "tab.activeBackground": "#0D1117",
-      "input.background": "#0D1117",
-      "tab.activeBorder": "#0D1117",
-      "editorGroup.emptyBackground": "#0D1117",
-      "tab.hoverBorder": "#0D111700",
+      "editor.background": "#0b0e12",
+      "breadcrumb.background": "#0b0e12",
+      "editorGutter.background": "#0b0e12",
+      "tab.activeBackground": "#0b0e12",
+      "input.background": "#0b0e12",
+      "tab.activeBorder": "#0b0e12",
+      "editorGroup.emptyBackground": "#0b0e12",
+      "tab.hoverBorder": "#0b0e1200",
       "editorLineNumber.foreground": "#898989bf",
       "editorLineNumber.activeForeground": "#afafaf",
       "editorIndentGuide.background1": "#484848",
@@ -260,7 +260,7 @@
       "statusBar.border": "#707070",
       "activityBarTop.activeBackground": "#707070",
       "tab.lastPinnedBorder": "#707070",
-      "tab.activeBorder": "#0d1117",
+      "tab.activeBorder": "#0D1017",
       "titleBar.inactiveForeground": "#cecece",
       "editor.foldBackground": "#010509db"
     },
@@ -641,5 +641,5 @@
     }
   },
   "terminal.integrated.fontSize": 12,
-  "workbench.colorTheme": "GitHub Dark Default"
+  "workbench.colorTheme": "Min Theme+"
 }
