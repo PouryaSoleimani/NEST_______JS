@@ -2,7 +2,7 @@ import { Param, ParseIntPipe } from "@nestjs/common";
 import { readFileSync, writeFileSync } from "fs";
 import { readFile } from "fs/promises";
 type SingleProductType = {
-  id: number;
+  id?: number;
   title: string;
   price: number;
   isAvailable: boolean;
