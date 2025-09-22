@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { _Products } from "./../../__data__/db.js";
-import { createSingleProductDTO } from "./product.pipe.js";
+import { CreateSingleProductDTO } from "./product.pipe.js";
 import { ProductRepository } from "./product.repository.js";
 @Controller("/api/products")
 export class ProductsController {
@@ -21,19 +21,21 @@ export class ProductsController {
 
   @Get("/:id")
   GET__SINGLE__PRODUCT(@Param() single_product_id) {
-    const singleProduct = _Products.find((item: any) => {
-      item.id === Number(single_product_id.id);
-    });
+    const SingleProduct = _Products.find(
+      (item: any) => item.id === +single_product_id.id,
+    );
     return {
-      ok: singleProduct ? true : false,
-      message: singleProduct ? "PRODUCT__FOUND ==200==" : "PRODUCT__NOT__FOUND ==400==",
-      product: singleProduct ? singleProduct : undefined,
+      ok: SingleProduct ? true : false,
+      message: SingleProduct
+        ? "PRODUCT__FOUND ==200=="
+        : "PRODUCT__NOT__FOUND ==400==",
+      product: SingleProduct ? SingleProduct : undefined,
       param: single_product_id,
     };
   }
 
   @Post("/:id")
-  POST__SINGLE__PRODUCT(@Body() postReqBody: createSingleProductDTO) {
+  POST__SINGLE__PRODUCT(@Body() postReqBody: CreateSingleProductDTO) {
     _Products.push(postReqBody);
     console.log("NEW DATAS ==>", _Products);
     return {

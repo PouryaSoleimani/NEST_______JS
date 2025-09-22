@@ -12,8 +12,8 @@
   "window.zoomLevel": -1,
   "editor.minimap.enabled": false,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font Propo",
-  "terminal.integrated.fontWeight": "700",
+  "terminal.integrated.fontFamily": "Geist Mono",
+  "terminal.integrated.fontWeight": "500",
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.drawBoldTextInBrightColors": true,
   "terminal.integrated.cursorBlinking": true,
@@ -163,14 +163,14 @@
       "gitDecoration.modifiedResourceForeground": "#ccb576"
     },
     "[Min Theme+]": {
-      "editor.background": "#0b0e12",
-      "breadcrumb.background": "#0b0e12",
-      "editorGutter.background": "#0b0e12",
-      "tab.activeBackground": "#0b0e12",
-      "input.background": "#0b0e12",
-      "tab.activeBorder": "#0b0e12",
-      "editorGroup.emptyBackground": "#0b0e12",
-      "tab.hoverBorder": "#0b0e1200",
+      "editor.background": "#0D1117",
+      "breadcrumb.background": "#0D1117",
+      "editorGutter.background": "#0D1117",
+      "tab.activeBackground": "#0D1117",
+      "input.background": "#0D1117",
+      "tab.activeBorder": "#0D1117",
+      "editorGroup.emptyBackground": "#0D1117",
+      "tab.hoverBorder": "#0D111700",
       "editorLineNumber.foreground": "#898989bf",
       "editorLineNumber.activeForeground": "#afafaf",
       "editorIndentGuide.background1": "#484848",
@@ -219,6 +219,9 @@
       "editorGroup.border": "#696969",
       "tab.border": "#696969",
       "button.foreground": "#000",
+      "button.background": "#ccc",
+      "button.hoverBackground": "#fff",
+      "button.secondaryForeground": "#000",
       "editorSuggestWidget.selectedBackground": "#323232",
       "editorInfo.background": "#000000d0",
       "terminal.background": "#000",
@@ -640,6 +643,6 @@
       "args": ["-d", "Ubuntu"]
     }
   },
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 13,
   "workbench.colorTheme": "Min Theme+"
 }

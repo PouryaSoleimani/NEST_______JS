@@ -11,7 +11,9 @@ export class ProductRepository {
   async FIND__SINGLE__PRODUCT(@Param("id") single_product_id) {
     const allProducts = await readFile("./../../__data__/data.json", "utf-8");
     const allProductsParsed = JSON.parse(allProducts);
-    const single_product = allProductsParsed.find((item: any) => item.id == single_product_id);
+    const single_product = allProductsParsed.find(
+      (item: any) => item.id == single_product_id,
+    );
     return single_product;
   }
 
