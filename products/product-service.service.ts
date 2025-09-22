@@ -3,26 +3,27 @@ import {
   CreateSingleProductDTO,
   UpdateSingleProductDTO,
 } from "src/products/product.pipe";
+import { ProductRepository } from "src/products/product.repository";
 
 @Injectable()
 export class ProductServiceService {
-  create(createProductServiceDto: CreateSingleProductDTO) {
-    return "This action adds a new product-service";
+  productRepo = new ProductRepository();
+
+  CREATE(createProductServiceDto: CreateSingleProductDTO) {}
+
+  FIND__ALL() {
+    return this.productRepo.FIND__ALL__PRODUCTS();
   }
 
-  findAll() {
-    return `This action returns all product-services`;
-  }
-
-  findOne(id: number) {
+  FIND__ONE(id: number) {
     return `This action returns a #id product-service`;
   }
 
-  update(id: number, updateProductServiceDto: UpdateSingleProductDTO) {
+  UPDATE(id: number, updateProductServiceDto: UpdateSingleProductDTO) {
     return `This action updates a #id product-service`;
   }
 
-  remove(id: number) {
+  DELETE(id: number) {
     return `This action removes a #id product-service`;
   }
 }

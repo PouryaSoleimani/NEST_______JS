@@ -15,10 +15,14 @@ export class CategoriesController {
 
   @Get("/:id")
   GET__SINGLE__CATEGORY(@Param("id") single_category_id) {
-    const _Category = _Categories.find((item: CategoriesPostDTO) => item.id == single_category_id);
+    const _Category = _Categories.find(
+      (item: CategoriesPostDTO) => item.id == single_category_id,
+    );
     return {
       ok: true,
-      message: _Category ? "GET ALL CATEGORIES ==GET== ROUTE" : "CATEGORY NOT FOUND !",
+      message: _Category
+        ? "GET ALL CATEGORIES ==GET== ROUTE"
+        : "CATEGORY NOT FOUND !",
       data: _Category ? _Category : null,
     };
   }

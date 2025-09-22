@@ -2,12 +2,13 @@ import { Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { _Products } from "./../../__data__/db.js";
 import { CreateSingleProductDTO } from "./product.pipe.js";
 import { ProductRepository } from "./product.repository.js";
+import { ProductServiceService } from "products/product-service.service.js";
 @Controller("/api/products")
 export class ProductsController {
-  productRepo: ProductRepository;
+  productService: ProductServiceService;
 
   constructor() {
-    this.productRepo = new ProductRepository();
+    this.productService = new ProductServiceService();
   }
 
   @Get("/")
@@ -15,7 +16,7 @@ export class ProductsController {
     return {
       ok: true,
       message: "ALL PRODUCTS ROUTE ==GET==",
-      allProducts: this.productRepo.FIND__ALL__PRODUCTS(),
+      allProducts: this.productService.FIND__ALL(),
     };
   }
 
