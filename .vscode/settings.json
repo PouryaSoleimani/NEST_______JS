@@ -1,7 +1,7 @@
 {
-  "editor.fontFamily": "Recursive Monospace Mono Linear",
-  "editor.fontWeight": "500",
-  "editor.letterSpacing": 0,
+  "editor.fontFamily": "Consolas",
+  "editor.fontWeight": "600",
+  "editor.letterSpacing": 0.3,
   "editor.lineHeight": 1.8,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
@@ -34,14 +34,14 @@
   },
   "workbench.colorCustomizations": {
     "[Default Dark Modern]": {
-      "editor.background": "#0D1117",
-      "breadcrumb.background": "#0D1117",
-      "editorGutter.background": "#0D1117",
-      "tab.activeBackground": "#0D1117",
-      "input.background": "#0D1117",
-      "tab.activeBorder": "#0D1117",
-      "editorGroup.emptyBackground": "#0D1117",
-      "tab.hoverBorder": "#0D111700",
+      "editor.background": "#131313",
+      "breadcrumb.background": "#131313",
+      "editorGutter.background": "#131313",
+      "tab.activeBackground": "#131313",
+      "input.background": "#131313",
+      "tab.activeBorder": "#131313",
+      "editorGroup.emptyBackground": "#131313",
+      "tab.hoverBorder": "#13131300",
       "editorLineNumber.foreground": "#898989bf",
       "editorLineNumber.activeForeground": "#afafaf",
       "editorIndentGuide.background1": "#000",
@@ -653,5 +653,5 @@
     }
   },
   "terminal.integrated.fontSize": 13,
-  "workbench.colorTheme": "Min Theme+"
+  "workbench.colorTheme": "Min Dark"
 }

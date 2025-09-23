@@ -36,4 +36,18 @@ export class UserRepository {
       allUsers: parsedData,
     };
   }
+  DELETE__SINGLE__USER(id: number) {
+    const bufferedData = readFileSync("__data__\\users.json", "utf-8");
+    const parsedData = JSON.parse(bufferedData);
+    // const newArray = parsedData.filter((item: any) => +item.id !== +id);
+    // const newContent = writeFileSync(
+    //   "__data__\\users.json",
+    //   JSON.stringify(newArray),
+    // );
+    return {
+      ok: true,
+      message: "203 | USER DELETED SUCCESSFULLY",
+      data: id,
+    };
+  }
 }

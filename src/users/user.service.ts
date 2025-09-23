@@ -14,4 +14,7 @@ export class UsersService {
   CREATE__SINGLE__USER(body: any) {
     return this.usersRepo.CREATE__SINGLE__USER(body);
   }
+  DELETE__SINGLE__USER(id: number) {
+    return this.usersRepo.DELETE__SINGLE__USER(id);
+  }
 }

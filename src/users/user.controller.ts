@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
 import { CreateSingleUserDTO } from "src/users/users.pipe";
 import { UsersService } from "./user.service";
 
@@ -23,5 +23,10 @@ export class UsersController {
   @Post("/")
   CREATE__SINGLE__USER(@Body() single_user_req_body: CreateSingleUserDTO) {
     return this.usersService.CREATE__SINGLE__USER(single_user_req_body);
+  }
+
+  @Delete("/:id")
+  DELETE__SINGLE__USERS(@Param("id") single_user_id: any) {
+    return this.usersService.DELETE__SINGLE__USER(+single_user_id.id);
   }
 }
