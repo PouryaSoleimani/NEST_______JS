@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  NotFoundException,
+  Param,
+  Post,
+} from "@nestjs/common";
 import { CreateSingleUserDTO } from "src/users/users.pipe";
 import { UsersService } from "./user.service";
 
@@ -17,7 +25,11 @@ export class UsersController {
 
   @Get("/:id")
   GET__SINGLE__USERS(@Param("id") single_user_param: any) {
-    return this.usersService.GET__SINGLE__USER(+single_user_param);
+    const _user = this.usersService.GET__SINGLE__USER(+single_user_param);
+    if (!_user) {
+      throw new NotFoundException("USER NOT FOUND");
+    }
+    return _user;
   }
 
   @Post("/")
@@ -26,7 +38,12 @@ export class UsersController {
   }
 
   @Delete("/:id")
-  DELETE__SINGLE__USERS(@Param("id") single_user_id: any) {
-    return this.usersService.DELETE__SINGLE__USER(+single_user_id);
+  async DELETE__SINGLE__USERS(@Param("id") single_user_id: any) {
+    const result = this.usersService.DELETE__SINGLE__USER(single_user_id);
+    if (!result) {
+      throw new NotFoundException("USER NOT FOUND");
+    } else {
+      return result;
+    }
   }
 }

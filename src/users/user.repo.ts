@@ -14,11 +14,13 @@ export class UserRepository {
     const bufferedData = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(bufferedData);
     const single__user = parsedData.find((item: any) => item.id === Number(id));
-    return {
-      ok: true,
-      message: "USER__SINGLE__GET__ROUTE",
-      data: single__user,
-    };
+    if (single__user) {
+      return {
+        ok: true,
+        message: "USER__SINGLE__GET__ROUTE",
+        data: single__user,
+      };
+    }
   }
   CREATE__SINGLE__USER(body: any) {
     const bufferedData = readFileSync("__data__\\users.json", "utf-8");
@@ -45,13 +47,12 @@ export class UserRepository {
       "__data__\\users.json",
       JSON.stringify(newArray),
     );
-    return {
-      ok: isUserAvailabe ? true : false,
-      message:
-        isUserAvailabe == true
-          ? "203 | USER DELETED SUCCESSFULLY"
-          : "400 | USER NOT FOUND",
-      data: newArray,
-    };
+    if (isUserAvailabe) {
+      return {
+        ok: true,
+        message: "203 | USER DELETED SUCCESSFULLY",
+        data: newArray,
+      };
+    }
   }
 }

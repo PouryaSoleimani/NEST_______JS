@@ -1,5 +1,1 @@
-[
-  { "id": 1, "name": "POURYA", "age": 32, "job": "DEVELOPER" },
-  { "id": 2, "name": "ALI", "age": 26, "job": "DEVELOPER" },
-  { "id": 4, "name": "HAMED", "age": 32, "job": "DEVELOPER" }
-]
+[{"id":1,"name":"POURYA","age":32,"job":"DEVELOPER"},{"id":2,"name":"ALI","age":26,"job":"DEVELOPER"},{"id":4,"name":"HAMED","age":32,"job":"DEVELOPER"}]
