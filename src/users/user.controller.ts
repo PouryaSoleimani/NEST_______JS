@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  NotAcceptableException,
   NotFoundException,
   Param,
   Post,
@@ -19,8 +20,15 @@ export class UsersController {
   }
 
   @Get("/")
-  GET__ALL__USERS() {
-    return this.usersService.GET__ALL__USERS();
+  async GET__ALL__USERS() {
+    const result = this.usersService.GET__ALL__USERS();
+    if (!result) {
+      throw new NotAcceptableException(
+        "THE REQUEST YOU ARE TRYING TO SEND IS NOT ACCEPTABLE",
+      );
+    } else {
+      return result;
+    }
   }
 
   @Get("/:id")

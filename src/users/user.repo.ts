@@ -4,12 +4,16 @@ export class UserRepository {
   FIND__ALL__USERS() {
     const usersBuffer = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(usersBuffer);
-    return {
-      ok: true,
-      message: "ALL__USERS__GET__ROUTE",
-      data: parsedData,
-    };
+    const isAllowed = true;
+    if (isAllowed) {
+      return {
+        ok: true,
+        message: "ALL__USERS__GET__ROUTE",
+        data: parsedData,
+      };
+    }
   }
+
   FIND__SINGLE__USER(id: number) {
     const bufferedData = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(bufferedData);
@@ -22,6 +26,7 @@ export class UserRepository {
       };
     }
   }
+
   CREATE__SINGLE__USER(body: any) {
     const bufferedData = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(bufferedData);
@@ -38,6 +43,7 @@ export class UserRepository {
       allUsers: parsedData,
     };
   }
+
   DELETE__SINGLE__USER(id: number) {
     const bufferedData = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(bufferedData);
