@@ -39,15 +39,19 @@ export class UserRepository {
   DELETE__SINGLE__USER(id: number) {
     const bufferedData = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(bufferedData);
-    // const newArray = parsedData.filter((item: any) => +item.id !== +id);
-    // const newContent = writeFileSync(
-    //   "__data__\\users.json",
-    //   JSON.stringify(newArray),
-    // );
+    const isUserAvailabe = parsedData.some((item: any) => item.id == id);
+    const newArray = parsedData.filter((item: any) => +item.id !== +id);
+    const newContent = writeFileSync(
+      "__data__\\users.json",
+      JSON.stringify(newArray),
+    );
     return {
-      ok: true,
-      message: "203 | USER DELETED SUCCESSFULLY",
-      data: id,
+      ok: isUserAvailabe ? true : false,
+      message:
+        isUserAvailabe == true
+          ? "203 | USER DELETED SUCCESSFULLY"
+          : "400 | USER NOT FOUND",
+      data: newArray,
     };
   }
 }

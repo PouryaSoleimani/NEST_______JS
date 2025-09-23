@@ -27,6 +27,6 @@ export class UsersController {
 
   @Delete("/:id")
   DELETE__SINGLE__USERS(@Param("id") single_user_id: any) {
-    return this.usersService.DELETE__SINGLE__USER(+single_user_id.id);
+    return this.usersService.DELETE__SINGLE__USER(+single_user_id);
   }
 }
