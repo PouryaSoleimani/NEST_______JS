@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "Roboto Mono",
   "editor.fontWeight": "500",
-  "editor.letterSpacing": 0,
+  "editor.letterSpacing": -0.1,
   "editor.lineHeight": 1.7,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
