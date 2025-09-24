@@ -1,8 +1,8 @@
 {
   "editor.fontFamily": "Roboto Mono",
-  "editor.fontWeight": "500",
-  "editor.letterSpacing": -0.1,
-  "editor.lineHeight": 1.7,
+  "editor.fontWeight": "600",
+  "editor.letterSpacing": 0,
+  "editor.lineHeight": 1.6,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
@@ -508,7 +508,7 @@
       "args": ["-d", "Ubuntu"]
     }
   },
-  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontSize": 15,
   "workbench.colorTheme": "GitHub Dark Default",
   "postman.settings.dotenv-detection-notification-visibility": false
 }
