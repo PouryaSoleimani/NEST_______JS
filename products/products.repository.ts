@@ -1,3 +1,4 @@
+import { Injectable } from "@nestjs/common";
 import { readFileSync, writeFileSync } from "fs";
 
 type SingleProductType = {
@@ -6,6 +7,7 @@ type SingleProductType = {
   price: number;
   isAvailable: boolean;
 };
+@Injectable()
 export class ProductsRepository {
   FIND__ALL__PRODUCTS() {
     const content = readFileSync("__data__\\products.json", "utf-8");

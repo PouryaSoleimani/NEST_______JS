@@ -6,16 +6,15 @@ import {
   ParseIntPipe,
   Post,
 } from "@nestjs/common";
-import { ProductsRepository } from "./products.repository";
 import { CreateSingleProductDTO } from "./products.pipe";
 import { ProductsService } from "./products.service";
 
 @Controller("/api/products")
 export class ProductsController {
   productServive: ProductsService;
-  constructor() {
-    this.productServive = new ProductsService();
-  }
+
+  constructor(public repo: ProductsService) {}
+
   @Get("/")
   GET__ALL__PRODUCTS() {
     return this.productServive.GET__ALL__PRODUCTS();

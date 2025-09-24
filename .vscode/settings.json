@@ -1,7 +1,7 @@
 {
-  "editor.fontFamily": "Consolas",
-  "editor.fontWeight": "800",
-  "editor.letterSpacing": 0.2,
+  "editor.fontFamily": "Consolas ligaturized v3",
+  "editor.fontWeight": "700",
+  "editor.letterSpacing": 0,
   "editor.lineHeight": 1.6,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
@@ -509,6 +509,6 @@
     }
   },
   "terminal.integrated.fontSize": 15,
-  "workbench.colorTheme": "GitHub Dark Default",
+  "workbench.colorTheme": "Min Theme+",
   "postman.settings.dotenv-detection-notification-visibility": false
 }
