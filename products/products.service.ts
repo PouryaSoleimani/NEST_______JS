@@ -7,7 +7,6 @@ import { ProductsRepository } from "./products.repository";
 
 @Injectable()
 export class ProductsService {
-  
   productsRepo: ProductsRepository;
   constructor() {
     this.productsRepo = new ProductsRepository();
