@@ -8,6 +8,9 @@ import { ProductsService } from "src/products/products.service";
 import { ProductsRepository } from "src/products/products.repository";
 import { UsersService } from "./users/user.service";
 import { UsersRepository } from "./users/user.repo";
+import { ArticlesController } from "./articles/articles.controller";
+import { ArticlesService } from "./articles/articles.service";
+import { ArticlesRepository } from "./articles/articles.repository";
 
 @Module({
   controllers: [
@@ -16,8 +19,16 @@ import { UsersRepository } from "./users/user.repo";
     PostsController,
     ProductsController,
     CategoriesController,
+    ArticlesController,
   ],
   imports: [],
-  providers: [ProductsService, ProductsRepository, UsersService, UsersRepository]
+  providers: [
+    ProductsService,
+    ProductsRepository,
+    UsersService,
+    UsersRepository,
+    ArticlesService,
+    ArticlesRepository,
+  ],
 })
-export class MainModule { }
+export class MainModule {}

@@ -1,10 +1,16 @@
-import { Controller, Get } from "@nestjs/common";
+import { BadRequestException, Controller, Get } from "@nestjs/common";
+import { ArticlesService } from "./articles.service";
 
 @Controller("/api/articles")
 export class ArticlesController {
+  constructor(public ArticlesService: ArticlesService) {}
   @Get("/")
   GET__ALL__ARTICLES() {
-    return "Hello from ArticlesController";
+    const result = this.ArticlesService.GET__ALL__ARTICLES();
+    if (!result) {
+      throw new BadRequestException("BAD REQUEST");
+    }
+    return result;
   }
   @Get("/:id")
   GET__SINGLE__ARTICLE() {
