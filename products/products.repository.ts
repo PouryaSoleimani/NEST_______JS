@@ -9,6 +9,7 @@ type SingleProductType = {
 };
 @Injectable()
 export class ProductsRepository {
+
   FIND__ALL__PRODUCTS() {
     const content = readFileSync("__data__\\products.json", "utf-8");
     const parsedContent = JSON.parse(content);

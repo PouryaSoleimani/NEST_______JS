@@ -1,12 +1,21 @@
 // ? MAIN CONTROLLER
 import { Controller, Get } from "@nestjs/common";
-@Controller("/api")
+@Controller()
 export class AppController {
   @Get()
-  getAllDatas() {
+  getHello(): string {
+    return 'NestJS Server is running! Go to /api for endpoints';
+  }
+  @Get('/api')
+  getApiInfo(): object {
     return {
-      message: "HELLO FROM NEST JS",
-      data: [],
+      message: 'Welcome to API',
+      endpoints: {
+        users: '/api/users',
+        posts: '/api/posts',
+        products: '/api/products',
+        categories: '/api/categories'
+      }
     };
   }
 }
