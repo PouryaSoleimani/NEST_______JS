@@ -27,13 +27,13 @@ export class ArticlesRepository {
       };
     }
   }
-  DELETE__SINGLE__ARTICLE(id: number) {
+  DELETE___SINGLE___ARTICLE(id: number) {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
-    const single___article = parsedData.find((item: any) => item.id == id);
+    const single___article = parsedData.find((item: any) => +item.id == +id);
     const filteredArray = parsedData.filter((item: any) => item.id !== id);
-    writeFileSync("__data__\\articles.json", "filterefilteredArrayd");
-    if (single___article && filteredArray) {
+    writeFileSync("__data__\\articles.json", JSON.stringify(filteredArray));
+    if (single___article) {
       return {
         ok: true,
         message: "SINGLE____ARTICLE____ROUTE____DELETE",

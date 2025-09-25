@@ -1,8 +1,1 @@
-[
-  { "id": 1, "title": "REACT___VS___VUE", "author": "MAMAD" },
-  { "id": 2, "title": "REACT___VS___ANGULAR", "author": "REZA" },
-  { "id": 3, "title": "REACT___VS___NEXT", "author": "MOHSEN" },
-  { "id": 4, "title": "REACT___VS___SVELTE", "author": "ALI" },
-  { "id": 5, "title": "REACT___VS___SOLID", "author": "AKBAR" },
-  { "id": 6, "title": "REACT___VS___ALPINE", "author": "JAFAR" }
-]
+[{"id":1,"title":"REACT___VS___VUE","author":"MAMAD"},{"id":2,"title":"REACT___VS___ANGULAR","author":"REZA"},{"id":3,"title":"REACT___VS___NEXT","author":"MOHSEN"}]
