@@ -1,5 +1,12 @@
-import { BadRequestException, Controller, Get } from "@nestjs/common";
+import {
+  BadRequestException,
+  Controller,
+  Get,
+  NotFoundException,
+  Param,
+} from "@nestjs/common";
 import { ArticlesService } from "./articles.service";
+import { NotFoundError } from "rxjs";
 
 @Controller("/api/articles")
 export class ArticlesController {
@@ -13,8 +20,12 @@ export class ArticlesController {
     return result;
   }
   @Get("/:id")
-  GET__SINGLE__ARTICLE() {
-    return "Hello from ArticlesController";
+  GET__SINGLE__ARTICLE(@Param("id") single__article__id: number | string) {
+    const result = this.ArticlesService.GET__SINGLE__ARTICLE(+single__article__id);
+    if (!result) {
+      throw new NotFoundException("ARTICLE NOT FOUND !!!");
+    }
+    return result;
   }
   @Get("/:id")
   DELETE__SINGLE__ARTICLE() {

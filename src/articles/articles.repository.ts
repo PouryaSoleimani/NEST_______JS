@@ -15,6 +15,17 @@ export class ArticlesRepository {
       };
     }
   }
-  // GET__SINGLE__ARTICLE() {}
+  GET__SINGLE__ARTICLE(id: number) {
+    const data = readFileSync("__data__\\articles.json", "utf-8");
+    const parsedData = JSON.parse(data);
+    const single__article = parsedData.find((item: any) => item.id == id);
+    if (single__article) {
+      return {
+        ok: true,
+        message: "SINGLE___ARTICLE____ROUTE",
+        data: single__article,
+      };
+    }
+  }
   // DELETE__SINGLE__ARTICLE() {}
 }

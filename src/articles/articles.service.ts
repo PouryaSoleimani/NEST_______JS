@@ -8,8 +8,8 @@ export class ArticlesService {
   GET__ALL__ARTICLES() {
     return this.articlesRepo.GET__ALL__ARTICLES();
   }
-  GET__SINGLE__ARTICLE() {
-    return "Hello from ArticlesController";
+  GET__SINGLE__ARTICLE(id: number) {
+    return this.articlesRepo.GET__SINGLE__ARTICLE(+id);
   }
   DELETE__SINGLE__ARTICLE() {
     return "Hello from ArticlesController";
