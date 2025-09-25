@@ -6,7 +6,7 @@ export class UsersRepository {
   FIND__ALL__USERS() {
     const usersBuffer = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(usersBuffer);
-    const hasLength = parsedData.length > 0 ? true : false
+    const hasLength = parsedData.length > 0 ? true : false;
     if (hasLength) {
       return {
         ok: true,
@@ -34,10 +34,7 @@ export class UsersRepository {
     const parsedData = JSON.parse(bufferedData);
     const ObjectToAdd = { id: parsedData.length + 1, ...body };
     parsedData.push(ObjectToAdd);
-    const result = writeFileSync(
-      "__data__//users.json",
-      JSON.stringify(parsedData),
-    );
+    const result = writeFileSync("__data__//users.json", JSON.stringify(parsedData));
     return {
       ok: true,
       message: "201 | USER CREATED",
@@ -51,10 +48,7 @@ export class UsersRepository {
     const parsedData = JSON.parse(bufferedData);
     const isUserAvailabe = parsedData.some((item: any) => item.id == id);
     const newArray = parsedData.filter((item: any) => +item.id !== +id);
-    const newContent = writeFileSync(
-      "__data__\\users.json",
-      JSON.stringify(newArray),
-    );
+    writeFileSync("__data__\\users.json", JSON.stringify(newArray));
     if (isUserAvailabe) {
       return {
         ok: true,
