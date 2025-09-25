@@ -41,4 +41,18 @@ export class ArticlesRepository {
       };
     }
   }
+  CREATE___SINGLE____USER(body: any) {
+    const data = readFileSync("__data__\\articles.json", "utf-8");
+    const parsedData = JSON.parse(data);
+    const DTO = { id: parsedData.length + 1, ...body };
+    const newData = parsedData.push(DTO);
+    writeFileSync("__data__\\articles.json", JSON.stringify(newData));
+    if (body) {
+      return {
+        ok: true,
+        message: "201 | USER___CREATED___SUCCESSFULYY 🤍",
+        data: DTO,
+      };
+    }
+  }
 }
