@@ -6,7 +6,7 @@ import { ProductsRepository } from "./products.repository";
 @Module({
   imports: [],
   controllers: [ProductsController],
-  providers: [ProductsService],
+  providers: [ProductsService, ProductsRepository], // چیزهایی که INJECTABLE هستند
   exports: [],
 })
 export class ProductsModuleModule { }

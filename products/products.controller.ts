@@ -13,9 +13,8 @@ import { ProductsService } from "./products.service";
 
 @Controller("/api/products")
 export class ProductsController {
-  productServive: ProductsService;
 
-  constructor(public service: ProductsService) { }
+  constructor(public productServive: ProductsService) { }
 
   @Get("/")
   GET__ALL__PRODUCTS() {

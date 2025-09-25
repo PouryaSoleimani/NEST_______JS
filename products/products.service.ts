@@ -7,9 +7,8 @@ import { ProductsRepository } from "./products.repository";
 
 @Injectable()
 export class ProductsService {
-  productsRepo: ProductsRepository;
 
-  constructor(public repo: ProductsRepository) { }
+  constructor(public productsRepo: ProductsRepository) { }
 
   CREATE__NEW__PRODUCT(createProductsDto: CreateSingleProductDTO) {
     return this.productsRepo.CREATE__PRODUCT(createProductsDto);

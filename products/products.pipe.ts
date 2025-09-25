@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { IsBoolean, IsNumber, IsOptional, IsString } from "class-validator";
 
-@Injectable()
+
 export class CreateSingleProductDTO {
   @IsOptional()
   @IsNumber()
@@ -13,7 +13,6 @@ export class CreateSingleProductDTO {
   @IsBoolean()
   isAvailable: boolean;
 }
-@Injectable()
 export class UpdateSingleProductDTO {
   @IsOptional()
   @IsNumber()

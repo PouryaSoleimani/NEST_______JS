@@ -4,6 +4,8 @@ import { UsersController } from "./users/user.controller";
 import { PostsController } from "./posts/posts.controller";
 import { CategoriesController } from "./categories/categories.controller";
 import { ProductsController } from "products/products.controller";
+import { ProductsService } from "products/products.service";
+import { ProductsRepository } from "products/products.repository";
 
 @Module({
   controllers: [
@@ -14,5 +16,6 @@ import { ProductsController } from "products/products.controller";
     CategoriesController,
   ],
   imports: [],
+  providers: [ProductsService, ProductsRepository]
 })
 export class MainModule { }
