@@ -13,7 +13,7 @@ import { ProductsService } from "./products.service";
 export class ProductsController {
   productServive: ProductsService;
 
-  constructor(public repo: ProductsService) {}
+  constructor(public repo: ProductsService) { }
 
   @Get("/")
   GET__ALL__PRODUCTS() {
