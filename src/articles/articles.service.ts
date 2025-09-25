@@ -5,12 +5,12 @@ import { ArticlesRepository } from "./articles.repository";
 export class ArticlesService {
   constructor(public articlesRepo: ArticlesRepository) {}
 
-  GET__ALL__ARTICLES() {
-    return this.articlesRepo.GET__ALL__ARTICLES();
+  GET_ALL_ARTICLES() {
+    return this.articlesRepo.GET___ALL___ARTICLES();
   }
 
   GET__SINGLE__ARTICLE(id: number) {
-    return this.articlesRepo.GET__SINGLE__ARTICLE(+id);
+    return this.articlesRepo.GET____SINGLE____ARTICLE(+id);
   }
 
   DELETE__SINGLE__ARTICLE(id: number) {
@@ -18,6 +18,6 @@ export class ArticlesService {
   }
 
   CREATE__SINGLE__ARTICLE(body: any) {
-    return this.articlesRepo.GET__SINGLE__ARTICLE(body);
+    return this.articlesRepo.CREATE___SINGLE____USER(body);
   }
 }

@@ -3,19 +3,16 @@ import { readFileSync, writeFileSync } from "fs";
 
 @Injectable()
 export class ArticlesRepository {
-  GET__ALL__ARTICLES() {
+  GET___ALL___ARTICLES() {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
-    const hasLength = parsedData.length > 0 ? true : false;
-    if (hasLength) {
-      return {
-        ok: true,
-        message: "ALL____ARTICLES____ROUTE",
-        data: parsedData,
-      };
-    }
+    return {
+      ok: true,
+      message: "ALL____ARTICLES____ROUTE",
+      data: parsedData,
+    };
   }
-  GET__SINGLE__ARTICLE(id: number) {
+  GET____SINGLE____ARTICLE(id: number) {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
     const single__article = parsedData.find((item: any) => item.id == id);
@@ -45,9 +42,9 @@ export class ArticlesRepository {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
     const DTO = { id: parsedData.length + 1, ...body };
-    const newData = parsedData.push(DTO);
-    writeFileSync("__data__\\articles.json", JSON.stringify(newData));
-    if (body) {
+    parsedData.push(DTO);
+    writeFileSync("__data__\\articles.json", JSON.stringify(parsedData));
+    if (body && DTO) {
       return {
         ok: true,
         message: "201 | USER___CREATED___SUCCESSFULYY 🤍",
