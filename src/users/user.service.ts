@@ -1,10 +1,11 @@
-import { UserRepository } from "./user.repo";
+import { Injectable } from "@nestjs/common";
+import { UsersRepository } from "./user.repo";
 
+@Injectable()
 export class UsersService {
-  usersRepo: UserRepository;
-  constructor() {
-    this.usersRepo = new UserRepository();
-  }
+
+  constructor(public usersRepo: UsersRepository) { }
+
   GET__ALL__USERS() {
     return this.usersRepo.FIND__ALL__USERS();
   }

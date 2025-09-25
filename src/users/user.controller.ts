@@ -1,4 +1,5 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   Delete,
@@ -13,11 +14,7 @@ import { UsersService } from "./user.service";
 
 @Controller("/api/users")
 export class UsersController {
-  usersService: UsersService;
-
-  constructor() {
-    this.usersService = new UsersService();
-  }
+  constructor(public usersService: UsersService) {}
 
   @Get("/")
   async GET__ALL__USERS() {
@@ -41,8 +38,16 @@ export class UsersController {
   }
 
   @Post("/")
-  CREATE__SINGLE__USER(@Body() single_user_req_body: CreateSingleUserDTO) {
-    return this.usersService.CREATE__SINGLE__USER(single_user_req_body);
+  async CREATE__SINGLE__USER(
+    @Body()
+    single_user_req_body: CreateSingleUserDTO,
+  ) {
+    const result = this.usersService.CREATE__SINGLE__USER(single_user_req_body);
+    if (!result) {
+      throw new BadRequestException("BAD REQUEST !!!");
+    } else {
+      return result;
+    }
   }
 
   @Delete("/:id")

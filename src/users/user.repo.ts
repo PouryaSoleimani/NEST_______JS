@@ -1,11 +1,13 @@
+import { Injectable } from "@nestjs/common";
 import { readFileSync, writeFileSync } from "fs";
 
-export class UserRepository {
+@Injectable()
+export class UsersRepository {
   FIND__ALL__USERS() {
     const usersBuffer = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(usersBuffer);
-    const isAllowed = true;
-    if (isAllowed) {
+    const hasLength = parsedData.length > 0 ? true : false
+    if (hasLength) {
       return {
         ok: true,
         message: "ALL__USERS__GET__ROUTE",

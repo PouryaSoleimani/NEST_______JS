@@ -6,6 +6,8 @@ import { CategoriesController } from "./categories/categories.controller";
 import { ProductsController } from "src/products/products.controller";
 import { ProductsService } from "src/products/products.service";
 import { ProductsRepository } from "src/products/products.repository";
+import { UsersService } from "./users/user.service";
+import { UsersRepository } from "./users/user.repo";
 
 @Module({
   controllers: [
@@ -16,6 +18,6 @@ import { ProductsRepository } from "src/products/products.repository";
     CategoriesController,
   ],
   imports: [],
-  providers: [ProductsService, ProductsRepository]
+  providers: [ProductsService, ProductsRepository, UsersService, UsersRepository]
 })
 export class MainModule { }
