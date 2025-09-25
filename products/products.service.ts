@@ -9,7 +9,7 @@ import { ProductsRepository } from "./products.repository";
 export class ProductsService {
   productsRepo: ProductsRepository;
 
-  constructor(public repo: ProductsRepository) {}
+  constructor(public repo: ProductsRepository) { }
 
   CREATE__NEW__PRODUCT(createProductsDto: CreateSingleProductDTO) {
     return this.productsRepo.CREATE__PRODUCT(createProductsDto);
@@ -27,7 +27,7 @@ export class ProductsService {
     id: number,
     updateProductsDto: UpdateSingleProductDTO,
   ) {
-    return `This action updates a #id products`; 
+    return `This action updates a #id products`;
   }
 
   REMOVE__SINGLE__PRODUCT(id: number) {

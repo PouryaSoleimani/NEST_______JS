@@ -2,6 +2,7 @@ import {
   Body,
   Controller,
   Get,
+  Injectable,
   Param,
   ParseIntPipe,
   Post,
@@ -9,11 +10,12 @@ import {
 import { CreateSingleProductDTO } from "./products.pipe";
 import { ProductsService } from "./products.service";
 
+
 @Controller("/api/products")
 export class ProductsController {
   productServive: ProductsService;
 
-  constructor(public repo: ProductsService) { }
+  constructor(public service: ProductsService) { }
 
   @Get("/")
   GET__ALL__PRODUCTS() {

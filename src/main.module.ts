@@ -15,4 +15,4 @@ import { ProductsController } from "products/products.controller";
   ],
   imports: [],
 })
-export class MainModule {}
+export class MainModule { }
