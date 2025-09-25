@@ -17,7 +17,7 @@ export class ProductsController {
   // ADDING SERVICE
   constructor(public productServive: ProductsService) { }
 
-  @Get("/") 
+  @Get("/")
   GET__ALL__PRODUCTS() {
     return this.productServive.GET__ALL__PRODUCTS();
   }
