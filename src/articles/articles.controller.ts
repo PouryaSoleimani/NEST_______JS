@@ -28,7 +28,11 @@ export class ArticlesController {
     return result;
   }
   @Get("/:id")
-  DELETE__SINGLE__ARTICLE() {
-    return "Hello from ArticlesController";
+  DELETE__SINGLE__ARTICLE(@Param("id") single__article__id: number | string) {
+    const result = this.ArticlesService.DELETE__SINGLE__ARTICLE(+single__article__id);
+    if (!result) {
+      throw new NotFoundException("ARTICLE NOT FOUND");
+    }
+    return result;
   }
 }

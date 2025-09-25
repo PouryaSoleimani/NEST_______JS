@@ -1,5 +1,5 @@
 import { Injectable } from "@nestjs/common";
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 
 @Injectable()
 export class ArticlesRepository {
@@ -27,5 +27,18 @@ export class ArticlesRepository {
       };
     }
   }
-  // DELETE__SINGLE__ARTICLE() {}
+  DELETE__SINGLE__ARTICLE(id: number) {
+    const data = readFileSync("__data__\\articles.json", "utf-8");
+    const parsedData = JSON.parse(data);
+    const single___article = parsedData.find((item: any) => item.id == id);
+    const filteredArray = parsedData.filter((item: any) => item.id !== id);
+    writeFileSync("__data__\\articles.json", "filterefilteredArrayd");
+    if (single___article && filteredArray) {
+      return {
+        ok: true,
+        message: "SINGLE____ARTICLE____ROUTE____DELETE",
+        data: filteredArray,
+      };
+    }
+  }
 }

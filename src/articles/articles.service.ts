@@ -11,7 +11,7 @@ export class ArticlesService {
   GET__SINGLE__ARTICLE(id: number) {
     return this.articlesRepo.GET__SINGLE__ARTICLE(+id);
   }
-  DELETE__SINGLE__ARTICLE() {
-    return "Hello from ArticlesController";
+  DELETE__SINGLE__ARTICLE(id: number) {
+    return this.articlesRepo.DELETE__SINGLE__ARTICLE(+id);
   }
 }
