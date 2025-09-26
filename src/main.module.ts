@@ -19,7 +19,7 @@ import { ProductsRepository } from "./products/products.repository";
     CategoriesController,
     ArticlesController,
   ],
-  imports: [ArticlesService],
+  imports: [],
   providers: [
     ProductsService,
     ProductsRepository,

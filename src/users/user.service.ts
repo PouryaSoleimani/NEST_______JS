@@ -17,4 +17,8 @@ export class UsersService {
   DELETE__SINGLE__USER(id: number) {
     return this.usersRepo.DELETE__SINGLE__USER(id);
   }
+
+  GET___SINGLE___USER___ARTICLE(id: number) {
+    return this.usersRepo.FIND__SINGLE___USER___ARTICLE(+id);
+  }
 }

@@ -1,4 +1,5 @@
 import { Injectable } from "@nestjs/common";
+import { isNotEmpty } from "class-validator";
 import { readFileSync, writeFileSync } from "fs";
 
 @Injectable()
@@ -35,7 +36,7 @@ export class UsersRepository {
     const ObjectToAdd = { id: parsedData.length + 1, ...body };
     parsedData.push(ObjectToAdd);
     const result = writeFileSync("__data__//users.json", JSON.stringify(parsedData));
-    
+
     return {
       ok: true,
       message: "201 | USER CREATED",
@@ -55,6 +56,19 @@ export class UsersRepository {
         ok: true,
         message: "203 | USER DELETED SUCCESSFULLY",
         data: newArray,
+      };
+    }
+  }
+
+  FIND__SINGLE___USER___ARTICLE(id: number) {
+    const users = readFileSync("__data__\\users.json", "utf-8");
+    const parsedData = JSON.parse(users);
+    const single__user = parsedData.find((item: any) => item.id == id);
+    if (single__user) {
+      return {
+        ok: true,
+        message: "USER FOUND :)",
+        data: single__user,
       };
     }
   }

@@ -1,8 +1,10 @@
 import { Injectable } from "@nestjs/common";
 import { readFileSync, writeFileSync } from "fs";
+import { UsersService } from "src/users/user.service";
 
 @Injectable()
 export class ArticlesRepository {
+
   GET___ALL___ARTICLES() {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);

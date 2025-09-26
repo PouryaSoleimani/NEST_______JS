@@ -59,4 +59,9 @@ export class UsersController {
       return result;
     }
   }
+
+  @Get("/articles-users")
+  async GET__USERS___ARTICLES(@Param("id") single__user__article) {
+    return this.usersService.GET___SINGLE___USER___ARTICLE(+single__user__article);
+  }
 }
