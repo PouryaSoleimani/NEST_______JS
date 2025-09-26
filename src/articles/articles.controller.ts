@@ -9,7 +9,6 @@ import {
   Post,
 } from "@nestjs/common";
 import { ArticlesService } from "./articles.service";
-import { NotFoundError } from "rxjs";
 import { CreateNewArticleDTO } from "./aticles.pipe";
 
 @Controller("/api/articles")

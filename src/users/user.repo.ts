@@ -35,6 +35,7 @@ export class UsersRepository {
     const ObjectToAdd = { id: parsedData.length + 1, ...body };
     parsedData.push(ObjectToAdd);
     const result = writeFileSync("__data__//users.json", JSON.stringify(parsedData));
+    
     return {
       ok: true,
       message: "201 | USER CREATED",
