@@ -16,7 +16,7 @@ import { UsersService } from "src/users/user.service";
 export class ArticlesController {
   constructor(
     public ArticlesService: ArticlesService,
-    public UsersService: UsersService,
+    public UsersService: UsersService, //^ STEP 3
   ) {}
 
   @Get("/")
