@@ -8,6 +8,6 @@ import { ArticlesService } from "src/articles/articles.service";
   imports: [ArticlesService],
   controllers: [ProductsController],
   providers: [ProductsService, ProductsRepository], // چیزهایی که INJECTABLE هستند
-  exports: [],
+  exports: [ProductsService],
 })
 export class ProductsModuleModule {}

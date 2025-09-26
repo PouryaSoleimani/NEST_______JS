@@ -1,15 +1,11 @@
 import { Injectable } from "@nestjs/common";
-import {
-  CreateSingleProductDTO,
-  UpdateSingleProductDTO,
-} from "./products.pipe";
+import { CreateSingleProductDTO, UpdateSingleProductDTO } from "./products.pipe";
 import { ProductsRepository } from "./products.repository";
 
 @Injectable()
 export class ProductsService {
-
   // ADDING REPOSITORY
-  constructor(public productsRepo: ProductsRepository) { }
+  constructor(public productsRepo: ProductsRepository) {}
 
   CREATE__NEW__PRODUCT(createProductsDto: CreateSingleProductDTO) {
     return this.productsRepo.CREATE__PRODUCT(createProductsDto);
@@ -23,10 +19,7 @@ export class ProductsService {
     return this.productsRepo.FIND__SINGLE__PRODUCT(+single_product_id);
   }
 
-  UPDATE__SINGLE__PRODUCT(
-    id: number,
-    updateProductsDto: UpdateSingleProductDTO,
-  ) {
+  UPDATE__SINGLE__PRODUCT(id: number, updateProductsDto: UpdateSingleProductDTO) {
     return `This action updates a #id products`;
   }
 

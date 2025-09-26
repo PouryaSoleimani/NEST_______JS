@@ -13,7 +13,6 @@ import { ArticlesService } from "src/articles/articles.service";
 
 @Controller("/api/products")
 export class ProductsController {
-  // ADDING SERVICE
   constructor(
     public productServive: ProductsService,
     public ArticlesService: ArticlesService,

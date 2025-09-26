@@ -11,10 +11,14 @@ import {
 } from "@nestjs/common";
 import { CreateSingleUserDTO } from "src/users/users.pipe";
 import { UsersService } from "./user.service";
+import { ProductsService } from "src/products/products.service";
 
 @Controller("/api/users")
 export class UsersController {
-  constructor(public usersService: UsersService) {}
+  constructor(
+    public usersService: UsersService,
+    public ProductService: ProductsService,
+  ) {}
 
   @Get("/")
   async GET__ALL__USERS() {
@@ -63,5 +67,15 @@ export class UsersController {
   @Get("/articles-users")
   async GET__USERS___ARTICLES(@Param("id") single__user__article) {
     return this.usersService.GET___SINGLE___USER___ARTICLE(+single__user__article);
+  }
+
+  @Get("/users-products")
+  GET___ALL___PRODUCTS___USERS() {
+    const result = this.ProductService.GET__ALL__PRODUCTS();
+    if (!result) {
+      throw new BadRequestException("BAD REQUEST");
+    } else {
+      return result;
+    }
   }
 }
