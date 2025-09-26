@@ -4,14 +4,13 @@ import { UsersService } from "src/users/user.service";
 
 @Injectable()
 export class ArticlesRepository {
-
   GET___ALL___ARTICLES() {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
     return {
       ok: true,
       message: "ALL____ARTICLES____ROUTE",
-      data: parsedData,
+      ARTICLES: parsedData,
     };
   }
   GET____SINGLE____ARTICLE(id: number) {

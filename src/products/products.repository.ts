@@ -9,7 +9,6 @@ type SingleProductType = {
 };
 @Injectable()
 export class ProductsRepository {
-
   FIND__ALL__PRODUCTS() {
     const content = readFileSync("__data__\\products.json", "utf-8");
     const parsedContent = JSON.parse(content);
@@ -23,9 +22,7 @@ export class ProductsRepository {
   FIND__SINGLE__PRODUCT(ID: number) {
     const content = readFileSync("__data__\\products.json", "utf-8");
     const parsedContent = JSON.parse(content);
-    const singleProduct = parsedContent.find(
-      (item: SingleProductType) => item.id === ID,
-    );
+    const singleProduct = parsedContent.find((item: SingleProductType) => item.id === ID);
 
     return {
       ok: true,

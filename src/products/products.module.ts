@@ -1,12 +1,13 @@
-import { ProductsController } from './products.controller';
+import { ProductsController } from "./products.controller";
 import { Module } from "@nestjs/common";
 import { ProductsService } from "./products.service";
 import { ProductsRepository } from "./products.repository";
+import { ArticlesService } from "src/articles/articles.service";
 
 @Module({
-  imports: [],
+  imports: [ArticlesService],
   controllers: [ProductsController],
   providers: [ProductsService, ProductsRepository], // چیزهایی که INJECTABLE هستند
   exports: [],
 })
-export class ProductsModuleModule { }
+export class ProductsModuleModule {}
