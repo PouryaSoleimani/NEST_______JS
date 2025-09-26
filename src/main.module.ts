@@ -11,6 +11,7 @@ import { CategoriesController } from "./categories/categories.controller";
 import { ProductsService } from "./products/products.service";
 import { ProductsRepository } from "./products/products.repository";
 import { CategoriesService } from "./categories/categories.service";
+import { CategoriesRepository } from "./categories/categories.repository";
 
 @Module({
   controllers: [
@@ -29,6 +30,7 @@ import { CategoriesService } from "./categories/categories.service";
     ArticlesService,
     ArticlesRepository,
     CategoriesService,
+    CategoriesRepository,
   ],
 })
 export class MainModule {}

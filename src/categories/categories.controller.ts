@@ -1,7 +1,7 @@
 import { BadRequestException, Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { CategoriesPostDTO } from "./categories.pipe.js";
-import { ArticlesService } from "src/articles/articles.service.js";
 import { CategoriesService } from "./categories.service.js";
+import { ArticlesService } from "src/articles/articles.service";
 
 @Controller("/api/categories")
 export class CategoriesController {
@@ -21,7 +21,7 @@ export class CategoriesController {
   }
 
   @Get("/:id")
-  GET___SINGLE___CATEGORY(@Param("id") single_category_id) {
+  GET___SINGLE___CATEGORY(@Param("id") single_category_id: number | string) {
     const result =
       this.CategoriesService.SERVICE_GET__SINGLE__CATEGORY(+single_category_id);
     if (!result) {

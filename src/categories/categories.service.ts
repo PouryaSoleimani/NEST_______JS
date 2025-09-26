@@ -1,4 +1,3 @@
-import { ALL__DATAS } from "../../__data__/db.js";
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { CategoriesPostDTO } from "./categories.pipe.js";
 import { CategoriesRepository } from "./categories.repository.js";
