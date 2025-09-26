@@ -1,5 +1,4 @@
 import { BadRequestException, Body, Controller, Get, Param, Post } from "@nestjs/common";
-import { ALL__DATAS } from "../../__data__/db.js";
 import { CategoriesPostDTO } from "./categories.pipe.js";
 import { ArticlesService } from "src/articles/articles.service.js";
 import { CategoriesService } from "./categories.service.js";
