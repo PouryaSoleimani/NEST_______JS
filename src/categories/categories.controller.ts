@@ -1,9 +1,12 @@
-import { Body, Controller, Get, Param, Post } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Get, Param, Post } from "@nestjs/common";
 import { ALL__DATAS } from "../../__data__/db.js";
 import { CategoriesPostDTO } from "./categories.pipe.js";
+import { ArticlesService } from "src/articles/articles.service.js";
 
 @Controller("/api/categories")
 export class CategoriesController {
+  constructor(public ArticlesService: ArticlesService) {}
+
   @Get("/")
   GET__ALL__CATEGORIES() {
     return {
@@ -20,9 +23,7 @@ export class CategoriesController {
     );
     return {
       ok: true,
-      message: _Category
-        ? "GET ALL CATEGORIES ==GET== ROUTE"
-        : "CATEGORY NOT FOUND !",
+      message: _Category ? "GET ALL CATEGORIES ==GET== ROUTE" : "CATEGORY NOT FOUND !",
       data: _Category ? _Category : null,
     };
   }
@@ -36,5 +37,15 @@ export class CategoriesController {
       body: single_category_req_body,
       data: ALL__DATAS._Categories,
     };
+  }
+
+  @Get("/articles/getAll")
+  GET__ALL__ARTICELS__IN__CATEGORIES() {
+    const result = this.ArticlesService.GET_ALL_ARTICLES();
+    if (!result) {
+      throw new BadRequestException("BAD REQUEST !!!");
+    } else {
+      return result;
+    }
   }
 }
