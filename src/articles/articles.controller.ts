@@ -59,8 +59,8 @@ export class ArticlesController {
   }
 
   @Get("/user/:id")
-  GET__SINGLE__USER(@Param("id") single__user__id) {
-    const result = this.UsersService.GET___SINGLE___USER___ARTICLE(single__user__id);
+  GET__SINGLE__USER(@Param("id") single__user__id : number) {
+    const result = this.UsersService.GET___SINGLE___USER___ARTICLE(+single__user__id);
     if (!result) {
       throw new NotFoundException("USER NOT FOUND");
     }

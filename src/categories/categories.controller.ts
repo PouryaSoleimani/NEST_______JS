@@ -12,7 +12,7 @@ export class CategoriesController {
 
   @Get("/")
   GET___ALL___CATEGORIES() {
-    const result = this.CategoriesService.GET__ALL__CATEGORIES();
+    const result = this.CategoriesService.SERVICE_GET_ALL_CATEGORIES();
     if (!result) {
       throw new BadRequestException("BAD REQUEST");
     } else {
@@ -22,7 +22,8 @@ export class CategoriesController {
 
   @Get("/:id")
   GET___SINGLE___CATEGORY(@Param("id") single_category_id) {
-    const result = this.CategoriesService.GET__SINGLE__CATEGORY(+single_category_id);
+    const result =
+      this.CategoriesService.SERVICE_GET__SINGLE__CATEGORY(+single_category_id);
     if (!result) {
       throw new BadRequestException("BAD REQUEST");
     } else {
@@ -32,7 +33,7 @@ export class CategoriesController {
 
   @Post("/create")
   CREATE_SINGLE_CATEGORY(@Body() single_category_req_body: CategoriesPostDTO) {
-    const result = this.CategoriesService.CREATE_SINGLE_CATEGORY(
+    const result = this.CategoriesService.SERVICE_CREATE_SINGLE_CATEGORY(
       single_category_req_body,
     );
     if (!result) {
