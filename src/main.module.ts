@@ -12,6 +12,9 @@ import { ProductsService } from "./products/products.service";
 import { ProductsRepository } from "./products/products.repository";
 import { CategoriesService } from "./categories/categories.service";
 import { CategoriesRepository } from "./categories/categories.repository";
+import { PlayersController } from "./players/players.controller";
+import { PlayersService } from "./players/players.service";
+import { PlayersRepository } from "./players/players.repository";
 
 @Module({
   controllers: [
@@ -20,6 +23,7 @@ import { CategoriesRepository } from "./categories/categories.repository";
     ProductsController,
     CategoriesController,
     ArticlesController,
+    PlayersController,
   ],
   imports: [],
   providers: [
@@ -31,6 +35,8 @@ import { CategoriesRepository } from "./categories/categories.repository";
     ArticlesRepository,
     CategoriesService,
     CategoriesRepository,
+    PlayersService,
+    PlayersRepository,
   ],
 })
 export class MainModule {}
