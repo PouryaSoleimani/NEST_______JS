@@ -10,4 +10,4 @@ import { ArticlesService } from "src/articles/articles.service";
   providers: [ProductsService, ProductsRepository], // چیزهایی که INJECTABLE هستند
   exports: [ProductsService],
 })
-export class ProductsModuleModule {}
+export class ProductsModule {}

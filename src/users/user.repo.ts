@@ -66,7 +66,7 @@ export class UsersRepository {
     if (single__user) {
       return {
         ok: true,
-        message: "USER FOUND IN THE ARTICLES ROUTE :)",
+        message: "USER FOUND IN THE OTHER ROUTES :)",
         data: single__user,
       };
     }
