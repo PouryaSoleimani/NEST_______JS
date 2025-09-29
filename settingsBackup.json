@@ -534,12 +534,110 @@
         }
       }
     ],
-    "[Meteora]": {
+    "[One Darker Pro]": {
       "textMateRules": [
         {
-          "scope": ["string.quoted"],
+          "name": "TYPES",
+          "scope": [
+            "support.type.primitive.tsx",
+            "support.type.primitive.jsx",
+            "support.type.primitive.js",
+            "support.type.primitive.ts",
+            "entity.name.type"
+          ],
           "settings": {
-            "foreground": "#85D0B7"
+            "foreground": "#D19A66"
+          }
+        },
+        {
+          "name": "TYPES",
+          "scope": ["variable.other.object", "variable.other.constant.object"],
+          "settings": {
+            "foreground": "#E06C75"
+          }
+        },
+        {
+          "name": "TYPES",
+          "scope": [
+            "variable.other.object.property",
+            "variable.other.property",
+            "meta.object-literal.key"
+          ],
+          "settings": {
+            "foreground": "#E5C07B"
+          }
+        },
+        {
+          "name": "RED",
+          "scope": ["source meta.export.default variable.other.readwrite"],
+          "settings": {
+            "foreground": "#61AFEF"
+          }
+        },
+        {
+          "scope": ["meta.jsx.children"],
+          "settings": {
+            "foreground": "#fefefe"
+          }
+        },
+        {
+          "scope": ["variable.language.this"],
+          "settings": {
+            "foreground": "#C678DD"
+          }
+        }
+      ]
+    },
+    "[One Darker Pro Vivid]": {
+      "textMateRules": [
+        {
+          "name": "TYPES",
+          "scope": [
+            "support.type.primitive.tsx",
+            "support.type.primitive.jsx",
+            "support.type.primitive.js",
+            "support.type.primitive.ts",
+            "entity.name.type"
+          ],
+          "settings": {
+            "foreground": "#D19A66"
+          }
+        },
+        {
+          "name": "TYPES",
+          "scope": ["variable.other.object", "variable.other.constant.object"],
+          "settings": {
+            "foreground": "#EF596F"
+          }
+        },
+        {
+          "name": "TYPES",
+          "scope": [
+            "variable.other.object.property",
+            "variable.other.property",
+            "meta.object-literal.key"
+          ],
+          "settings": {
+            "foreground": "#E5C07B"
+          }
+        },
+        {
+          "name": "RED",
+          "scope": ["source meta.export.default variable.other.readwrite"],
+          "settings": {
+            "foreground": "#61AFEF"
+          }
+        },
+        {
+          "scope": ["meta.jsx.children"],
+          "settings": {
+            "foreground": "#fefefe"
+          }
+        },
+        {
+          "scope": ["variable.language.this"],
+          "settings": {
+            "foreground": "#C678DD"
           }
         }
       ]
@@ -576,12 +674,9 @@
           }
         },
         {
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.readwrite.alias"
-          ],
+          "scope": ["variable.other.object.property", "variable.other.readwrite.alias"],
           "settings": {
-            "foreground": "#ccc",
+            "foreground": "#e6edf3",
             "fontStyle": ""
           }
         },
@@ -644,10 +739,7 @@
           }
         },
         {
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.readwrite.alias"
-          ],
+          "scope": ["variable.other.object.property", "variable.other.readwrite.alias"],
           "settings": {
             "foreground": "#E6EDF3"
           }
@@ -927,10 +1019,7 @@
       "icon": "terminal-powershell"
     },
     "Command Prompt": {
-      "path": [
-        "${env:windir}\\Sysnative\\cmd.exe",
-        "${env:windir}\\System32\\cmd.exe"
-      ],
+      "path": ["${env:windir}\\Sysnative\\cmd.exe", "${env:windir}\\System32\\cmd.exe"],
       "args": [],
       "icon": "terminal-cmd"
     },
