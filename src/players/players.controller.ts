@@ -14,4 +14,13 @@ export class PlayersController {
       return result;
     }
   }
+  @Get("/:id")
+  CONTROLLER__GET__SINGLE__PLAYER() {
+    const result = this.PlayersService.SERVICE_GET_ALL_PLAYERS();
+    if (!result) {
+      throw new NotFoundException("PLAYER NOT FOUND !!!");
+    } else {
+      return result;
+    }
+  }
 }
