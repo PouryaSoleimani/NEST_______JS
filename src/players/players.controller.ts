@@ -3,7 +3,7 @@ import { PlayersService } from "./players.service";
 
 @Controller("/api/players")
 export class PlayersController {
-  constructor(public PlayersService: PlayersService) {}
+  constructor(public PlayersService: PlayersService) { }
 
   @Get()
   CONTROLLER__GET__ALL__PLAYERS() {
@@ -14,6 +14,7 @@ export class PlayersController {
       return result;
     }
   }
+
   @Get("/:id")
   CONTROLLER__GET__SINGLE__PLAYER() {
     const result = this.PlayersService.SERVICE_GET_ALL_PLAYERS();

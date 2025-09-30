@@ -3,7 +3,7 @@ import { PlayersRepository } from "./players.repository";
 
 @Injectable()
 export class PlayersService {
-  constructor(public PlayersRepo: PlayersRepository) {}
+  constructor(public PlayersRepo: PlayersRepository) { }
 
   SERVICE_GET_ALL_PLAYERS() {
     const result = this.PlayersRepo.REPO___GET___ALL___PLAYERS();
@@ -14,4 +14,3 @@ export class PlayersService {
     }
   }
 }
- 
