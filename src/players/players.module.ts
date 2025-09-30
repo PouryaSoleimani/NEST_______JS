@@ -6,4 +6,4 @@ import { Module } from "@nestjs/common";
   controllers: [],
   providers: [PlayersService],
 })
-export class PlayersModule {}
+export class PlayersModule { }
