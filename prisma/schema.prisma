@@ -30,6 +30,8 @@ model User {
   updatedAt    DateTime @updatedAt
   role         Role     @default(USER)
   relativeCode String   @unique
+
+  // @@id([firstName, lastName])
 }
 
 model Category {
