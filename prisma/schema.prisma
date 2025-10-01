@@ -21,14 +21,15 @@ enum Role {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  user_name String   @default(value: " ali")
-  last_name String?
-  age       Int      @default(value: 18)
-  gender    String   @default(value: "MALE")
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  role      Role     @default(USER)
+  id           Int      @id @default(autoincrement())
+  user_name    String   @default(value: " ali")
+  last_name    String?
+  age          Int      @default(value: 18)
+  gender       String   @default(value: "MALE")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  role         Role     @default(USER)
+  relativeCode String   @unique
 }
 
 model Category {
