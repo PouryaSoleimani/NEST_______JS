@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException } from "@nestjs/common";
+import { Controller, Get, NotFoundException, Post } from "@nestjs/common";
 import { PlayersService } from "./players.service";
 
 @Controller("/api/players")
@@ -23,5 +23,9 @@ export class PlayersController {
     } else {
       return result;
     }
+  }
+  @Post('/:id')
+  POST__NEW___SINGLE__PLAYER() {
+    return 'NEW PLAYER ROUTE'
   }
 }
