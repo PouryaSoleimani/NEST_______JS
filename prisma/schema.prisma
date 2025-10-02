@@ -38,3 +38,35 @@ model Category {
   id    Int    @id @default(autoincrement())
   title String @default(value: "TITLE")
 }
+
+enum ProductEnum {
+  SHOES
+  BAGS
+  T_SHIRTS
+  PANTS
+}
+
+enum GenderEnum {
+  MALE
+  FEMALE
+}
+
+enum CategoryEnum {
+  SPORT
+  CLASSIC
+  CASUAL
+  FASHION
+}
+
+model Product {
+  id          Int          @id @default(autoincrement())
+  title       String       @default(value: "UNKNOW PRODUCT")
+  price       Int?
+  age         Int?         @default(value: 18)
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  type        ProductEnum
+  gender      GenderEnum
+  isAvailable Boolean      @default(value: false)
+  category    CategoryEnum
+}
