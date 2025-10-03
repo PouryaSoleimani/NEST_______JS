@@ -1,4 +1,4 @@
-import { Controller, Get, NotFoundException } from '@nestjs/common';
+import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
 import { PostsService } from './posts.service';
 
 @Controller("/api/posts")
@@ -12,6 +12,15 @@ export class PostsController {
     } else {
       return result;
     }
+  }
 
+  @Get('/:id')
+  GET__SINGLE__POST(@Param('id') single_post_id: number | string) {
+    const result = this.postsService.SERVICE__GET__SINGLE__POST(+single_post_id)
+    if (!result) {
+      throw new NotFoundException('EXPECTED POST NOT FOUND IN DATABASE ...')
+    } else {
+      return result;
+    }
   }
 }
