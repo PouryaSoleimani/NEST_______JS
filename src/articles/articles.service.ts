@@ -17,7 +17,7 @@ export class ArticlesService {
     return this.articlesRepo.DELETE___SINGLE___ARTICLE(+id);
   }
 
-  CREATE__SINGLE__ARTICLE(body: any) {
+  CREATE__SINGLE__USER(body: any) {
     return this.articlesRepo.CREATE___SINGLE____USER(body);
   }
 }

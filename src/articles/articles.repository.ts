@@ -1,9 +1,10 @@
 import { Injectable } from "@nestjs/common";
+import { PrismaClient } from "./../../generated/prisma";
 import { readFileSync, writeFileSync } from "fs";
 import { UsersService } from "src/users/user.service";
-
 @Injectable()
 export class ArticlesRepository {
+  prisma = new PrismaClient();
   GET___ALL___ARTICLES() {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
@@ -47,6 +48,7 @@ export class ArticlesRepository {
     const parsedData = JSON.parse(data);
     const DTO = { id: parsedData.length + 1, ...body };
     parsedData.push(DTO);
+
     writeFileSync("__data__\\articles.json", JSON.stringify(parsedData));
     if (body && DTO) {
       return {

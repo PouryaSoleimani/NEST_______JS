@@ -45,19 +45,15 @@ export class ArticlesController {
       return result;
     }
   }
-
   @Post("/")
   CREATE___NEW___ARTILCE(@Body() single__article__req__body: CreateNewArticleDTO) {
-    const result = this.ArticlesService.CREATE__SINGLE__ARTICLE(
-      single__article__req__body,
-    );
+    const result = this.ArticlesService.CREATE__SINGLE__USER(single__article__req__body);
     if (!result) {
       throw new BadRequestException("BAD REQUEST ! , PLEASE DOUBLE AND CHECK AGAIN");
     } else {
       return result;
     }
   }
-
   @Get("/user/:id")
   GET__SINGLE__USER(@Param("id") single__user__id: number) {
     const result = this.UsersService.GET___SINGLE___USER___ARTICLE(+single__user__id);
