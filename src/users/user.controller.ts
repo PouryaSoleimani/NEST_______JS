@@ -18,10 +18,10 @@ export class UsersController {
   constructor(
     public usersService: UsersService,
     public ProductService: ProductsService,
-  ) { }
+  ) {}
 
   @Get("/")
-  async GET__ALL__USERS() {
+  GET__ALL__USERS() {
     const result = this.usersService.GET__ALL__USERS();
     if (!result) {
       throw new NotAcceptableException(
@@ -42,10 +42,7 @@ export class UsersController {
   }
 
   @Post("/")
-  async CREATE__SINGLE__USER(
-    @Body()
-    single_user_req_body: CreateSingleUserDTO,
-  ) {
+  CREATE__SINGLE__USER(@Body() single_user_req_body: CreateSingleUserDTO) {
     const result = this.usersService.CREATE__SINGLE__USER(single_user_req_body);
     if (!result) {
       throw new BadRequestException("BAD REQUEST !!!");
