@@ -1,4 +1,3 @@
-
 import { Injectable } from '@nestjs/common';
 import { PostsRepository } from './posts.repository';
 
@@ -13,4 +12,5 @@ export class PostsService {
   SERVICE__GET__SINGLE__POST(id: number) {
     return this.postsRepo.GET__SINGLE__POST(+id)
   }
+
 }

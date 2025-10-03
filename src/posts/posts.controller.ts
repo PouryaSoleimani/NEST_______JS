@@ -1,9 +1,10 @@
 import { Controller, Get, NotFoundException, Param } from '@nestjs/common';
 import { PostsService } from './posts.service';
+import { CategoriesService } from 'src/categories/categories.service';
 
 @Controller("/api/posts")
 export class PostsController {
-  constructor(public postsService: PostsService) { }
+  constructor(public postsService: PostsService, public categoriesService: CategoriesService) { }
   @Get()
   GET__ALL__POSTS() {
     const result = this.postsService.SERVICE__GET__ALL__POSTS()
@@ -22,5 +23,10 @@ export class PostsController {
     } else {
       return result;
     }
+  }
+
+  @Get('/get/categories')
+  GET___ALL__CATEGORIES() {
+    return this.categoriesService.SERVICE_GET_ALL_CATEGORIES()
   }
 }
