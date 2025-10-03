@@ -11,4 +11,4 @@ import { ProductsModule } from "src/products/products.module";
   exports: [UsersService],
   imports: [ProductsModule],
 })
-export class UsersModule {}
+export class UsersModule { }
