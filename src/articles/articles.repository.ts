@@ -13,6 +13,7 @@ export class ArticlesRepository {
       ARTICLES: parsedData,
     };
   }
+
   GET____SINGLE____ARTICLE(id: number) {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
@@ -25,6 +26,7 @@ export class ArticlesRepository {
       };
     }
   }
+
   DELETE___SINGLE___ARTICLE(id: number) {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
@@ -39,6 +41,7 @@ export class ArticlesRepository {
       };
     }
   }
+
   CREATE___SINGLE____USER(body: any) {
     const data = readFileSync("__data__\\articles.json", "utf-8");
     const parsedData = JSON.parse(data);
