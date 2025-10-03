@@ -15,6 +15,9 @@ import { CategoriesRepository } from "./categories/categories.repository";
 import { PlayersController } from "./players/players.controller";
 import { PlayersService } from "./players/players.service";
 import { PlayersRepository } from "./players/players.repository";
+import { PostsController } from "./posts/posts.controller";
+import { PostsService } from "./posts/posts.service";
+import { PostsRepository } from "./posts/posts.repository";
 
 @Module({
   controllers: [
@@ -24,6 +27,7 @@ import { PlayersRepository } from "./players/players.repository";
     CategoriesController,
     ArticlesController,
     PlayersController,
+    PostsController
   ],
   imports: [],
   providers: [
@@ -37,6 +41,8 @@ import { PlayersRepository } from "./players/players.repository";
     CategoriesRepository,
     PlayersService,
     PlayersRepository,
+    PostsService,
+    PostsRepository
   ],
 })
-export class MainModule {}
+export class MainModule { }
