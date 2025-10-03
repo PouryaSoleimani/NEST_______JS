@@ -8,7 +8,7 @@ export class CategoriesController {
   constructor(
     public CategoriesService: CategoriesService,
     public ArticlesService: ArticlesService,
-  ) {}
+  ) { }
 
   @Get("/")
   GET___ALL___CATEGORIES() {

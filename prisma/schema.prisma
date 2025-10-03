@@ -21,22 +21,21 @@ enum Role {
 }
 
 model User {
-  id           Int      @id @default(autoincrement())
-  user_name    String   @default(value: " ali")
-  last_name    String?
-  age          Int      @default(value: 18)
-  gender       String   @default(value: "MALE")
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
-  role         Role     @default(USER)
-  relativeCode String   @unique
-
-  // @@id([firstName, lastName])
+  id        Int      @id @default(autoincrement())
+  user_name String   @default(value: " ali")
+  last_name String   @default(value: "ahmadi")
+  gender    String   @default(value: "MALE")
+  age       Int      @default(value: 18)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Category {
-  id    Int    @id @default(autoincrement())
-  title String @default(value: "TITLE")
+  id           Int    @id @default(autoincrement())
+  title        String @default(value: "TITLE")
+  role         Role   @default(USER)
+  relativeCode String @unique
+  // @@id([firstName, lastName])
 }
 
 enum ProductEnum {

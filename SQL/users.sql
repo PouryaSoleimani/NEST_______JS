@@ -12,7 +12,7 @@ insert into users (first_name, last_name, gender, age) values ('Ingunna', 'O''Ca
 insert into users (first_name, last_name, gender, age) values ('Irwin', 'Hedau', 'Male', 51);
 insert into users (first_name, last_name, gender, age) values ('Christiana', 'Pavia', 'Female', 66);
 insert into users (first_name, last_name, gender, age) values ('Tedie', 'Schuchmacher', 'Male', 50);
-insert into users (first_name, last_name, gender, age) values ('Geoff', 'Von Welldun', 'Male', 65);
+insert into users (first_name, last_name, gender, age)  values ('Geoff', 'Von Welldun', 'Male', 65);
 insert into users (first_name, last_name, gender, age) values ('Price', 'Fardy', 'Male', 68);
 insert into users (first_name, last_name, gender, age) values ('Gerta', 'Housecroft', 'Female', 33);
 insert into users (first_name, last_name, gender, age) values ('Doris', 'Giottini', 'Polygender', 25);
