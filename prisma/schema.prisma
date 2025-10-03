@@ -25,6 +25,7 @@ model User {
   user_name String   @default(value: " ali")
   last_name String   @default(value: "ahmadi")
   gender    String   @default(value: "MALE")
+  email     String   @unique
   age       Int      @default(value: 18)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

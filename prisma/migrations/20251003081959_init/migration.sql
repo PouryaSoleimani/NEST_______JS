@@ -41,4 +41,3 @@ CREATE TABLE "public"."Product" (
 );
 -- CreateIndex
 CREATE UNIQUE INDEX "Category_relativeCode_key" ON "public"."Category"("relativeCode");
--
