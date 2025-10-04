@@ -3,7 +3,7 @@ import { UsersRepository } from "./user.repo";
 
 @Injectable()
 export class UsersService {
-  constructor(public usersRepo: UsersRepository) { }
+  constructor(public usersRepo: UsersRepository) {}
 
   GET__ALL__USERS() {
     return this.usersRepo.FIND__ALL__USERS();
