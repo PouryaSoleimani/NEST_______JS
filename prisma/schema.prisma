@@ -15,18 +15,20 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  fullName  String   @db.VarChar(30)
-  age       Int
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-  Blog      Blog[]
+  id        Int       @id @default(autoincrement())
+  email     String    @unique
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  Article   Article[]
 }
 
-model Blog {
+model Article {
   id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(50)
+  title     String
+  content   String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt()
-  User      User[]
+  updatedAt DateTime @updatedAt
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
 }
