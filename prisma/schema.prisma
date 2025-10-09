@@ -28,6 +28,5 @@ model Blog {
   title     String   @db.VarChar(50)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt()
-  userId    Int      @unique
-  User      User     @relation(fields: [userId], references: [id])
+  User      User[]
 }
