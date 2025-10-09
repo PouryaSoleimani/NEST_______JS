@@ -18,7 +18,7 @@ export class UsersController {
   constructor(
     public usersService: UsersService,
     public ProductService: ProductsService,
-  ) {}
+  ) { }
 
   @Get("/")
   GET__ALL__USERS() {

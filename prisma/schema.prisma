@@ -14,21 +14,20 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// MY CODES -------------------------------------------------------------------------------------------------------------
 model User {
   id        Int      @id @default(autoincrement())
   fullName  String   @db.VarChar(30)
   age       Int
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  Post      Post?
+  updatedAt DateTime @updatedAt()
+  Blog      Blog[]
 }
 
-model Post {
+model Blog {
   id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(20)
+  title     String   @db.VarChar(50)
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  updatedAt DateTime @updatedAt()
   userId    Int      @unique
   User      User     @relation(fields: [userId], references: [id])
 }

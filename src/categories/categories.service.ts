@@ -4,7 +4,7 @@ import { CategoriesRepository } from "./categories.repository.js";
 
 @Injectable()
 export class CategoriesService {
-  constructor(public categoriesRepository: CategoriesRepository) {}
+  constructor(public categoriesRepository: CategoriesRepository) { }
 
   SERVICE_GET_ALL_CATEGORIES() {
     const result = this.categoriesRepository.GET__ALL__CATEGORIES();

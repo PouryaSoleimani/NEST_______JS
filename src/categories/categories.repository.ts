@@ -4,6 +4,7 @@ import { CategoriesPostDTO } from "./categories.pipe.js";
 
 @Injectable()
 export class CategoriesRepository {
+
   GET__ALL__CATEGORIES() {
     return {
       ok: true,

@@ -4,7 +4,7 @@ import { readFileSync, writeFileSync } from "fs";
 
 @Injectable()
 export class UsersRepository {
-  constructor(public prisma: PrismaClient) {}
+  constructor(public prisma: PrismaClient) { }
   FIND__ALL__USERS() {
     const usersBuffer = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(usersBuffer);
