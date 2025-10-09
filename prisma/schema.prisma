@@ -15,58 +15,12 @@ datasource db {
 }
 
 // MY CODES -------------------------------------------------------------------------------------------------------------
-enum Role {
-  USER
-  ADMIN
-}
-
 model User {
-  id        Int      @id @default(autoincrement())
-  user_name String   @default(value: " ali")
-  last_name String   @default(value: "ahmadi")
-  gender    String   @default(value: "MALE")
-  email     String   @unique
-  age       Int      @default(value: 18)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
-model Category {
-  id           Int    @id @default(autoincrement())
-  title        String @default(value: "TITLE")
-  role         Role   @default(USER)
-  relativeCode String @unique
-  // @@id([firstName, lastName])
-}
-
-enum ProductEnum {
-  SHOES
-  BAGS
-  T_SHIRTS
-  PANTS
-}
-
-enum GenderEnum {
-  MALE
-  FEMALE
-}
-
-enum CategoryEnum {
-  SPORT
-  CLASSIC
-  CASUAL
-  FASHION
-}
-
-model Product {
-  id          Int          @id @default(autoincrement())
-  title       String       @default(value: "UNKNOW PRODUCT")
-  price       Int?
-  age         Int?         @default(value: 18)
-  createdAt   DateTime     @default(now())
-  updatedAt   DateTime     @updatedAt
-  type        ProductEnum
-  gender      GenderEnum
-  isAvailable Boolean      @default(value: false)
-  category    CategoryEnum
+  id          Int      @id @default(autoincrement())
+  name        String   @db.VarChar(50)
+  age         Int      @db.Integer
+  job         String   @db.VarChar(50)
+  phoneNumber String   @db.VarChar(11)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
