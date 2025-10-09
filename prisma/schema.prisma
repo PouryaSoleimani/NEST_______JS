@@ -14,21 +14,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum ROLE {
+  ADMIN
+  USER
+}
+
 model User {
   id        Int       @id @default(autoincrement())
-  email     String    @unique
-  password  String
+  name      String
+  age       Int?
+  job       String?
+  password  String?
+  role      ROLE      @default(USER)
+  Article   Article[]
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
-  Article   Article[]
 }
 
 model Article {
   id        Int      @id @default(autoincrement())
   title     String
   content   String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
   userId    Int
   user      User     @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
