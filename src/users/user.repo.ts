@@ -1,10 +1,9 @@
 import { Injectable } from "@nestjs/common";
-import { PrismaClient } from "@prisma/client";
 import { readFileSync, writeFileSync } from "fs";
 
 @Injectable()
 export class UsersRepository {
-  constructor(public prisma: PrismaClient) { }
+
   FIND__ALL__USERS() {
     const usersBuffer = readFileSync("__data__\\users.json", "utf-8");
     const parsedData = JSON.parse(usersBuffer);
@@ -36,9 +35,6 @@ export class UsersRepository {
     const parsedData = JSON.parse(bufferedData);
     const ObjectToAdd = { id: parsedData.length + 1, ...body };
     parsedData.push(ObjectToAdd);
-    const new_user = await this.prisma.user.create({
-      data: { email: body.name + "@gmail.com" },
-    });
     const result = writeFileSync("__data__//users.json", JSON.stringify(parsedData));
     return {
       ok: true,

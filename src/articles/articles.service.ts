@@ -3,7 +3,7 @@ import { ArticlesRepository } from "./articles.repository";
 
 @Injectable()
 export class ArticlesService {
-  constructor(public articlesRepo: ArticlesRepository) {}
+  constructor(public articlesRepo: ArticlesRepository) { }
 
   GET_ALL_ARTICLES() {
     return this.articlesRepo.GET___ALL___ARTICLES();
