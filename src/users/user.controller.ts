@@ -87,7 +87,7 @@ export class UsersController {
   @Get('/prisma-users')
   async getUsers() {
     return this.prisma.user.findMany({
-      include: { posts: true },
+      include: { Blog: true },
     });
   }
 }
