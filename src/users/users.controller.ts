@@ -1,11 +1,15 @@
 import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
+import { PrismaService } from 'prisma/prisma.service';
 
 @Controller('/api/users')
 export class UsersController {
 
+  constructor(public prisma: PrismaService) { }
+  
   @Get('/')
   GET__ALL__USERS() {
-    return 'ALL USERS'
+    const users = []
+    return users
   }
 
   @Get('/:id')
