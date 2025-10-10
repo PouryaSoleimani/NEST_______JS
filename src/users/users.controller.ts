@@ -13,7 +13,6 @@ export class UsersController {
     return 'ALL USERS'
   }
 
-
   @Post('/:id')
   CREATE__USER() {
     return 'ALL USERS'
