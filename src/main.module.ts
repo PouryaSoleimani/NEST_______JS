@@ -18,8 +18,8 @@ import { PlayersRepository } from "./players/players.repository";
 import { PostsController } from "./posts/posts.controller";
 import { PostsService } from "./posts/posts.service";
 import { PostsRepository } from "./posts/posts.repository";
-import { PrismaService } from "prisma/prisma.service";
 import { UsersModule } from "./users/user.module";
+import { PrismaService } from "prisma/prisma.service";
 
 @Module({
   controllers: [
@@ -31,7 +31,7 @@ import { UsersModule } from "./users/user.module";
     PlayersController,
     PostsController
   ],
-  imports: [UsersModule],
+  imports: [],
   providers: [
     ProductsService,
     ProductsRepository,
