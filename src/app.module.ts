@@ -1,4 +1,4 @@
-import { PrismaModule } from './../prisma/prisma.module';
+// import { PrismaModule } from './../prisma/prisma.module';
 import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { UsersController } from "./users/user.controller";
@@ -32,11 +32,11 @@ import { AtriclesModule } from "./articles/atricles.module";
     PlayersController,
     PostsController
   ],
-  imports: [
-        PrismaModule, ],
+  imports: [UsersModule],
   providers: [
     ProductsService,
     ProductsRepository,
+    AtriclesModule,
     UsersService,
     UsersRepository,
     ArticlesService,

@@ -12,12 +12,14 @@ import {
 import { CreateSingleUserDTO } from "src/users/users.pipe";
 import { UsersService } from "./user.service";
 import { ProductsService } from "src/products/products.service";
+import { PrismaService } from "prisma/prisma.service";
 
 @Controller("/api/users")
 export class UsersController {
   constructor(
     public usersService: UsersService,
     public ProductService: ProductsService,
+    private prisma: PrismaService
   ) { }
 
   @Get("/")
@@ -74,5 +76,18 @@ export class UsersController {
     } else {
       return result;
     }
+  }
+
+  @Post('/prisma-create')
+  async CREATE__PRISMA__USER() {
+    return this.prisma.user.create({
+      data: { name: 'MAMAD' },
+    });
+  }
+  @Get('/prisma-users')
+  async getUsers() {
+    return this.prisma.user.findMany({
+      include: { posts: true },
+    });
   }
 }
