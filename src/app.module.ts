@@ -19,8 +19,6 @@ import { PostsController } from "./posts/posts.controller";
 import { PostsService } from "./posts/posts.service";
 import { PostsRepository } from "./posts/posts.repository";
 import { UsersModule } from "./users/user.module";
-import { PrismaService } from "src/prisma/prisma.service";
-import { PrismaModule } from "./prisma/prisma.module";
 import { AtriclesModule } from "./articles/atricles.module";
 
 @Module({
@@ -33,7 +31,7 @@ import { AtriclesModule } from "./articles/atricles.module";
     PlayersController,
     PostsController
   ],
-  imports: [PrismaModule],
+  imports: [],
   providers: [
     ProductsService,
     ProductsRepository,
@@ -47,7 +45,6 @@ import { AtriclesModule } from "./articles/atricles.module";
     PlayersRepository,
     PostsService,
     PostsRepository,
-    PrismaService
   ],
 })
 export class AppModule { }
