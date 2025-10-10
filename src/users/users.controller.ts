@@ -1,11 +1,10 @@
 import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
-import { PrismaService } from 'prisma/prisma.service';
 import { UsersService } from './users.service';
 
 @Controller('/api/users')
 export class UsersController {
 
-  constructor(public prisma: PrismaService, private service: UsersService) { }
+  constructor(private service: UsersService) { }
 
   @Get('/')
   GET__ALL__USERS() {

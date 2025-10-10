@@ -1,4 +1,3 @@
-import { PrismaModule } from './../prisma/prisma.module';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './users/users.service';
 // import { PrismaModule } from './../prisma/prisma.module';
@@ -20,7 +19,6 @@ import { PostsController } from "./posts/posts.controller";
 import { PostsService } from "./posts/posts.service";
 import { PostsRepository } from "./posts/posts.repository";
 import { AtriclesModule } from "./articles/atricles.module";
-import { PrismaService } from 'prisma/prisma.service';
 
 @Module({
   controllers: [
@@ -31,7 +29,7 @@ import { PrismaService } from 'prisma/prisma.service';
     PlayersController,
     PostsController
   ],
-  imports: [PrismaModule, UsersModule,],
+  imports: [UsersModule,],
   providers: [
     UsersService,
     ProductsService,
@@ -45,7 +43,7 @@ import { PrismaService } from 'prisma/prisma.service';
     PlayersRepository,
     PostsService,
     PostsRepository,
-    PrismaService,
+
   ],
 })
 export class AppModule { }
