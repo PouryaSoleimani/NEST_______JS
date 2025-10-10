@@ -10,14 +10,12 @@ import {
 } from "@nestjs/common";
 import { ArticlesService } from "./articles.service";
 import { CreateNewArticleDTO } from "./aticles.pipe";
-import { UsersService } from "src/users/user.service";
 
 @Controller("/api/articles")
 export class ArticlesController {
   constructor(
     public ArticlesService: ArticlesService,
-    public UsersService: UsersService, //^ STEP 3
-  ) {}
+  ) { }
 
   @Get("/")
   GET__ALL__ARTICLES() {
@@ -56,10 +54,6 @@ export class ArticlesController {
   }
   @Get("/user/:id")
   GET__SINGLE__USER(@Param("id") single__user__id: number) {
-    const result = this.UsersService.GET___SINGLE___USER___ARTICLE(+single__user__id);
-    if (!result) {
-      throw new NotFoundException("USER NOT FOUND");
-    }
-    return result;
+    return 'GET___SINGLE___USER'
   }
 }
