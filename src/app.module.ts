@@ -20,6 +20,7 @@ import { PostsController } from "./posts/posts.controller";
 import { PostsService } from "./posts/posts.service";
 import { PostsRepository } from "./posts/posts.repository";
 import { AtriclesModule } from "./articles/atricles.module";
+import { PrismaService } from 'prisma/prisma.service';
 
 @Module({
   controllers: [
@@ -44,6 +45,7 @@ import { AtriclesModule } from "./articles/atricles.module";
     PlayersRepository,
     PostsService,
     PostsRepository,
+    PrismaService,
   ],
 })
 export class AppModule { }
