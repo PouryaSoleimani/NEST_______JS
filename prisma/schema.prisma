@@ -20,23 +20,22 @@ enum ROLE {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  name      String
-  age       Int?
-  job       String?
-  password  String?
-  role      ROLE      @default(USER)
-  Article   Article[]
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
+  id        Int      @id @default(autoincrement())
+  full_name String   @db.VarChar(30)
+  age       Int
+  email     String   @db.VarChar(50)
+  password  String
+  role      ROLE     @default(USER)
+  Blog      Blog[]
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model Article {
+model Blog {
   id        Int      @id @default(autoincrement())
-  title     String
-  content   String
-  userId    Int
-  user      User     @relation(fields: [userId], references: [id])
+  title     String   @db.VarChar(50)
+  body      String
+  User      User[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

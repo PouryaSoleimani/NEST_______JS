@@ -10,4 +10,4 @@ import { ArticlesRepository } from "./articles.repository";
   providers: [ArticlesService, ArticlesRepository],
   exports: [AtriclesModule],
 })
-export class AtriclesModule {}
+export class AtriclesModule { }
