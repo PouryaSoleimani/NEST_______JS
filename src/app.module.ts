@@ -1,9 +1,8 @@
+import { UsersModule } from './users/users.module';
+import { UsersService } from './users/users.service';
 // import { PrismaModule } from './../prisma/prisma.module';
 import { Module } from "@nestjs/common";
 import { AppController } from "./app.controller";
-import { UsersController } from "./users/user.controller";
-import { UsersService } from "./users/user.service";
-import { UsersRepository } from "./users/user.repo";
 import { ArticlesController } from "./articles/articles.controller";
 import { ArticlesService } from "./articles/articles.service";
 import { ArticlesRepository } from "./articles/articles.repository";
@@ -19,26 +18,24 @@ import { PlayersRepository } from "./players/players.repository";
 import { PostsController } from "./posts/posts.controller";
 import { PostsService } from "./posts/posts.service";
 import { PostsRepository } from "./posts/posts.repository";
-import { UsersModule } from "./users/user.module";
 import { AtriclesModule } from "./articles/atricles.module";
 
 @Module({
   controllers: [
     AppController,
-    UsersController,
     ProductsController,
     CategoriesController,
     ArticlesController,
     PlayersController,
     PostsController
   ],
-  imports: [],
+  imports: [
+    UsersModule,],
   providers: [
+    UsersService,
     ProductsService,
     ProductsRepository,
     AtriclesModule,
-    UsersService,
-    UsersRepository,
     ArticlesService,
     ArticlesRepository,
     CategoriesService,
