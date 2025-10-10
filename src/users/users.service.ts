@@ -3,9 +3,8 @@ import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
 export class UsersService {
-  constructor(private prisma: PrismaService) { }
+  constructor(public prisma: PrismaService) { }
   async getAll() {
-    const data = await this.prisma.user.findMany()
-    return data
+    const data = this.prisma.user.findMany()
   }
 }
