@@ -19,22 +19,22 @@ export class ProductsController {
   ) {}
 
   @Get("/")
-  GET__ALL__PRODUCTS() {
+  get_all() {
     return this.productServive.GET__ALL__PRODUCTS();
   }
 
   @Get("/:id")
-  GET__SINGLE__PRODUCT(@Param("id", ParseIntPipe) single_product_id) {
+  get_single(@Param("id", ParseIntPipe) single_product_id) {
     return this.productServive.GET__SINGLE__PRODUCT(single_product_id);
   }
 
   @Post("/")
-  CREATE__NEW__POST(@Body() single_product_req_body: CreateSingleProductDTO) {
+  create(@Body() single_product_req_body: CreateSingleProductDTO) {
     return this.productServive.CREATE__NEW__PRODUCT(single_product_req_body);
   }
 
   @Get("/articles/getAll")
-  GET___ALL__ARTICLES() {
+  get_all_articles() {
     const result = this.ArticlesService.GET_ALL_ARTICLES();
     if (!result) {
       throw new NotAcceptableException("YOUR REQUEST IS NOT ACCEPTABLE AT THE MOMENT");
