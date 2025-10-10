@@ -32,7 +32,7 @@ import { AtriclesModule } from "./articles/atricles.module";
     PlayersController,
     PostsController
   ],
-  imports: [UsersModule],
+  imports: [],
   providers: [
     ProductsService,
     ProductsRepository,
