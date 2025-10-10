@@ -1,3 +1,5 @@
+import { PrismaModule } from './prisma/prisma.module';
+import { PrismaService } from './prisma/prisma.service';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './users/users.service';
 // import { PrismaModule } from './../prisma/prisma.module';
@@ -29,8 +31,9 @@ import { AtriclesModule } from "./articles/atricles.module";
     PlayersController,
     PostsController
   ],
-  imports: [UsersModule,],
+  imports: [PrismaModule, UsersModule,],
   providers: [
+    PrismaService,
     UsersService,
     ProductsService,
     ProductsRepository,
