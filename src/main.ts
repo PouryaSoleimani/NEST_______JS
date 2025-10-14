@@ -17,10 +17,9 @@ async function bootstrap() {
   app.use(serveFavicon(path.join(__dirname, '..', 'src', 'public', 'favicon.ico')));
   // SWAGGER
   const config = new DocumentBuilder()
-    .setTitle('Cats example')
-    .setDescription('The cats API description')
+    .setTitle('NEST JS TRAINING ')
+    .setDescription('THIS IS MY SWAGGER FOR TRAINING NEST JS')
     .setVersion('1.0')
-    .addTag('cats')
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('/api/docs', app, documentFactory);
