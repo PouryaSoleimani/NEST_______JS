@@ -10,13 +10,13 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
+  full_name String   @db.VarChar(30)
   age       Int
   password  String
   role      ROLE     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   email     String   @db.VarChar(50)
-  full_name String   @db.VarChar(30)
   Blog      Blog[]
 }
 

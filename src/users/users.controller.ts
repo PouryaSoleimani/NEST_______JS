@@ -1,5 +1,6 @@
-import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
 import { UsersService } from "./users.service";
+import { CreateUserDto } from "./users.pipe";
 
 @Controller("/users")
 export class UsersController {
@@ -11,14 +12,14 @@ export class UsersController {
     return result;
   }
 
-  @Get("/:id")
-  GET__SINGLE__USER() {
-    return "ALL USERS";
+  @Post("/create")
+  CREATE__USER(@Body() body: CreateUserDto) {
+    return this.service.create(body)
   }
 
-  @Post("/:id")
-  CREATE__USER() {
-    return "ALL USERS";
+  @Get("/:id")
+  GET__SINGLE__USER(@Param('id', ParseIntPipe) id: number) {
+    return this.service.getSingle(+id)
   }
 
   @Delete("/:id")
