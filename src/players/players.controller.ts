@@ -1,7 +1,7 @@
 import { Controller, Get, NotFoundException, Post } from "@nestjs/common";
 import { PlayersService } from "./players.service";
 
-@Controller("/api/players")
+@Controller("/players")
 export class PlayersController {
   constructor(public PlayersService: PlayersService) { }
 

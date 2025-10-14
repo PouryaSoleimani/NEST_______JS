@@ -11,7 +11,7 @@ import {
 import { ArticlesService } from "./articles.service";
 import { CreateNewArticleDTO } from "./aticles.pipe";
 
-@Controller("/api/articles")
+@Controller("/articles")
 export class ArticlesController {
   constructor(
     public ArticlesService: ArticlesService,

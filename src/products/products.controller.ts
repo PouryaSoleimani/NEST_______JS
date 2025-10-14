@@ -11,7 +11,7 @@ import { CreateSingleProductDTO } from "./products.pipe";
 import { ProductsService } from "./products.service";
 import { ArticlesService } from "src/articles/articles.service";
 
-@Controller("/api/products")
+@Controller("/products")
 export class ProductsController {
   constructor(
     public productServive: ProductsService,

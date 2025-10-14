@@ -6,7 +6,7 @@ export class AppController {
   getHello(): string {
     return "NestJS Server is running! Go to /api for endpoints";
   }
-  @Get("/api")
+  @Get("/")
   getApiInfo(): object {
     return {
       message: "Welcome to API",
