@@ -1,6 +1,7 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./users.pipe";
+import { ApiProperty } from "@nestjs/swagger";
 
 @Controller("/users")
 export class UsersController {
@@ -22,9 +23,10 @@ export class UsersController {
     return this.service.getSingle(+id)
   }
 
+  @ApiProperty()
   @Delete("/:id")
-  DELETE__USER() {
-    return "ALL USERS";
+  DELETE__USER(@Param('id', ParseIntPipe) id: number) {
+    return this.service.delete(id)
   }
 
   @Put("/:id")
