@@ -1,34 +1,33 @@
-import { Controller, Delete, Get, Post, Put } from '@nestjs/common';
-import { UsersService } from './users.service';
+import { Controller, Delete, Get, Post, Put } from "@nestjs/common";
+import { UsersService } from "./users.service";
 
-@Controller('/api/users')
+@Controller("/api/users")
 export class UsersController {
+  constructor(private service: UsersService) {}
 
-  constructor(private service: UsersService) { }
-
-  @Get('/')
+  @Get("/")
   GET__ALL__USERS() {
-    const result = this.service.getAll()
-    return result
+    const result = this.service.getAll();
+    return result;
   }
 
-  @Get('/:id')
+  @Get("/:id")
   GET__SINGLE__USER() {
-    return 'ALL USERS'
+    return "ALL USERS";
   }
 
-  @Post('/:id')
+  @Post("/:id")
   CREATE__USER() {
-    return 'ALL USERS'
+    return "ALL USERS";
   }
 
-  @Delete('/:id')
+  @Delete("/:id")
   DELETE__USER() {
-    return 'ALL USERS'
+    return "ALL USERS";
   }
 
-  @Put('/:id')
+  @Put("/:id")
   UPDATE__USER() {
-    return 'ALL USERS'
+    return "ALL USERS";
   }
 }
