@@ -17,7 +17,7 @@ async function bootstrap() {
   app.use(serveFavicon(path.join(__dirname, '..', 'src', 'public', 'favicon.ico')));
   // SWAGGER
   const config = new DocumentBuilder()
-    .setTitle('NEST JS TRAINING ')
+    .setTitle('NEST JS TRAINING')
     .setDescription('THIS IS MY SWAGGER FOR TRAINING NEST JS')
     .setVersion('1.0')
     .build();
