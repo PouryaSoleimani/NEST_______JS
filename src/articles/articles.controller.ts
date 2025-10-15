@@ -13,9 +13,7 @@ import { CreateNewArticleDTO } from "./aticles.pipe";
 
 @Controller("/articles")
 export class ArticlesController {
-  constructor(
-    public ArticlesService: ArticlesService,
-  ) { }
+  constructor(public ArticlesService: ArticlesService) { }
 
   @Get("/")
   GET__ALL__ARTICLES() {
@@ -25,6 +23,8 @@ export class ArticlesController {
     }
     return result;
   }
+
+
   @Get("/:id")
   GET__SINGLE__ARTICLE(@Param("id") single__article__id: number | string) {
     const result = this.ArticlesService.GET__SINGLE__ARTICLE(+single__article__id);
@@ -43,6 +43,7 @@ export class ArticlesController {
       return result;
     }
   }
+
   @Post("/")
   CREATE___NEW___ARTILCE(@Body() single__article__req__body: CreateNewArticleDTO) {
     const result = this.ArticlesService.CREATE__SINGLE__USER(single__article__req__body);
@@ -52,6 +53,7 @@ export class ArticlesController {
       return result;
     }
   }
+
   @Get("/user/:id")
   GET__SINGLE__USER(@Param("id") single__user__id: number) {
     return 'GET___SINGLE___USER'
