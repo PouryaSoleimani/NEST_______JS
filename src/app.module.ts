@@ -39,12 +39,12 @@ import { LoggerMiddleWare } from './middlewares/logger.middleware';
   ],
 })
 
-// export class AppModule implements NestModule {
-//   configure(consumer: MiddlewareConsumer) {
-//     consumer.apply(LoggerMiddleWare)
-//       .forRoutes({ path: '/users/*', method: RequestMethod.GET })
-//   }
-// }
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleWare)
+      .forRoutes({ path: '/users/*', method: RequestMethod.GET })
+  }
+}
 
-export class AppModule { }
+// export class AppModule { }
 
