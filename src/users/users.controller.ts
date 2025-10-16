@@ -1,12 +1,13 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Post, Put, UseInterceptors } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { CreateUserDto } from "./users.pipe";
 import { ApiProperty } from "@nestjs/swagger";
+import { UserGetAllInteceptor, UserGetSingleInterceptor } from "./users.interceptor";
 
 @Controller("/users")
 export class UsersController {
   constructor(private service: UsersService) {}
-
+  @UseInterceptors(UserGetAllInteceptor)
   @Get("/")
   GET__ALL__USERS() {
     const result = this.service.getAll();
@@ -18,6 +19,7 @@ export class UsersController {
     return this.service.create(body);
   }
 
+  @UseInterceptors(UserGetSingleInterceptor)
   @Get("/:id")
   GET__SINGLE__USER(@Param("id", ParseIntPipe) id: number) {
     return this.service.getSingle(+id);
