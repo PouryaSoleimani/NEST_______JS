@@ -2,7 +2,7 @@ import { EmployeesModule } from './employees/employees.module';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './users/users.service';
 // import { PrismaModule } from './../prisma/prisma.module';
-import { Module } from "@nestjs/common";
+import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { ArticlesController } from "./articles/articles.controller";
 import { ArticlesService } from "./articles/articles.service";
@@ -16,6 +16,7 @@ import { PlayersRepository } from "./players/players.repository";
 import { AtriclesModule } from "./articles/atricles.module";
 import { PrismaModule } from './prisma/prisma.module';
 import { PrismaService } from './prisma/prisma.service';
+import { LoggerMiddleWare } from './middlewares/logger.middleware';
 
 @Module({
   controllers: [
@@ -24,8 +25,7 @@ import { PrismaService } from './prisma/prisma.service';
     ArticlesController,
     PlayersController,
   ],
-  imports: [
-    EmployeesModule, PrismaModule, UsersModule, AtriclesModule],
+  imports: [EmployeesModule, PrismaModule, UsersModule, AtriclesModule],
   providers: [
     PrismaService,
     UsersService,
@@ -38,4 +38,13 @@ import { PrismaService } from './prisma/prisma.service';
     PlayersRepository,
   ],
 })
+
+// export class AppModule implements NestModule {
+//   configure(consumer: MiddlewareConsumer) {
+//     consumer.apply(LoggerMiddleWare)
+//       .forRoutes({ path: '/users/*', method: RequestMethod.GET })
+//   }
+// }
+
 export class AppModule { }
+
