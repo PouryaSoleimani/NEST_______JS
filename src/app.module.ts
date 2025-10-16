@@ -16,8 +16,8 @@ import { PlayersRepository } from "./players/players.repository";
 import { AtriclesModule } from "./articles/atricles.module";
 import { PrismaModule } from './prisma/prisma.module';
 import { PrismaService } from './prisma/prisma.service';
-import { MainMiddleWare } from './middlewares/main.middleware';
 import { EmployeesMiddleWare } from './employees/employees.middleware';
+import { AppMiddleWare } from './app.middleware';
 
 @Module({
   controllers: [
@@ -42,7 +42,7 @@ import { EmployeesMiddleWare } from './employees/employees.middleware';
 
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(MainMiddleWare).forRoutes('/')
+    consumer.apply(AppMiddleWare).forRoutes('/')
     consumer.apply(EmployeesMiddleWare).forRoutes('/employees')
   }
 }
