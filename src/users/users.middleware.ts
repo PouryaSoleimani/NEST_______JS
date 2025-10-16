@@ -6,6 +6,7 @@ export class UsersMiddleWare implements NestMiddleware {
     console.log('👥 USERS ROUTE')
     console.log("👥 URL =>", req.url)
     console.log("👥 PATH =>", req.path)
+    req.method == 'GET' ? console.log('METHOD : GET') : console.log('METHOD : POST')
     next()
   }
 }
