@@ -16,7 +16,8 @@ import { PlayersRepository } from "./players/players.repository";
 import { AtriclesModule } from "./articles/atricles.module";
 import { PrismaModule } from './prisma/prisma.module';
 import { PrismaService } from './prisma/prisma.service';
-import { LoggerMiddleWare } from './middlewares/logger.middleware';
+import { MainMiddleWare } from './middlewares/main.middleware';
+import { EmployeesMiddleWare } from './employees/employees.middleware';
 
 @Module({
   controllers: [
@@ -41,10 +42,9 @@ import { LoggerMiddleWare } from './middlewares/logger.middleware';
 
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
-    consumer.apply(LoggerMiddleWare)
-      .forRoutes({ path: '/users/*', method: RequestMethod.GET })
+    consumer.apply(MainMiddleWare).forRoutes('/')
+    consumer.apply(EmployeesMiddleWare).forRoutes('/employees')
   }
 }
 
-// export class AppModule { }
 

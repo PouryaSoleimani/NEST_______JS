@@ -4,7 +4,6 @@ import { ValidationPipe } from "@nestjs/common";
 import serveFavicon, * as favicon from 'serve-favicon';
 import * as path from 'path';
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import { Logger } from "./middlewares/logger.middleware";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -31,7 +30,7 @@ async function bootstrap() {
 
 
   //^ LOGGER MIDDLEWARE
-  app.use(Logger)
+  
   //^PORT
   const port = process.env.PORT || 8000;
   await app.listen(port, () => {
