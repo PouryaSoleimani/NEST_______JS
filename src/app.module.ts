@@ -1,7 +1,6 @@
 import { EmployeesModule } from './employees/employees.module';
 import { UsersModule } from './users/users.module';
 import { UsersService } from './users/users.service';
-// import { PrismaModule } from './../prisma/prisma.module';
 import { MiddlewareConsumer, Module, NestModule, RequestMethod } from "@nestjs/common";
 import { AppController } from "./app.controller";
 import { ArticlesController } from "./articles/articles.controller";
@@ -43,7 +42,7 @@ import { AppMiddleWare } from './app.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes('/')
-    consumer.apply(EmployeesMiddleWare).forRoutes('/employees')
+    consumer.apply(EmployeesMiddleWare).forRoutes({ path: '/employees/*', method: RequestMethod.GET })
   }
 }
 
