@@ -1,8 +1,9 @@
 import { NestMiddleware } from "@nestjs/common";
-import { NextFunction, Request, Response } from "express";
+import { NextFunction } from "express";
+
 
 export class AppMiddleWare implements NestMiddleware {
-  use(next: NextFunction) {
+  use(req: any, res: any, next: NextFunction) {
     console.log('🚀 APP STARTED')
     next()
   }

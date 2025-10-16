@@ -17,6 +17,8 @@ import { PrismaModule } from './prisma/prisma.module';
 import { PrismaService } from './prisma/prisma.service';
 import { EmployeesMiddleWare } from './employees/employees.middleware';
 import { AppMiddleWare } from './app.middleware';
+import { PlayersMiddleware } from './players/players.middleware';
+import { UsersMiddleWare } from './users/users.middleware';
 
 @Module({
   controllers: [
@@ -42,7 +44,9 @@ import { AppMiddleWare } from './app.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes('/')
-    consumer.apply(EmployeesMiddleWare).forRoutes({ path: '/employees/*', method: RequestMethod.GET })
+    consumer.apply(EmployeesMiddleWare).forRoutes({ path: '/employees', method: RequestMethod.GET })
+    consumer.apply(PlayersMiddleware).forRoutes({ path: '/players', method: RequestMethod.GET })
+    consumer.apply(UsersMiddleWare).forRoutes({ path: '/users', method: RequestMethod.GET })
   }
 }
 
