@@ -1,12 +1,4 @@
-import {
-  Body,
-  Controller,
-  Get,
-  NotAcceptableException,
-  Param,
-  ParseIntPipe,
-  Post,
-} from "@nestjs/common";
+import { Body, Controller, Get, Post } from "@nestjs/common";
 import { CreateSingleProductDTO } from "./products.pipe";
 import { ProductsService } from "./products.service";
 import { ArticlesService } from "src/articles/articles.service";
@@ -16,7 +8,7 @@ export class ProductsController {
   constructor(
     public productServive: ProductsService,
     public ArticlesService: ArticlesService,
-  ) { }
+  ) {}
 
   @Get("/")
   get_all() {
@@ -25,12 +17,11 @@ export class ProductsController {
 
   @Get("/availables")
   get_availables() {
-    return this.productServive.getAvailables()
+    return this.productServive.getAvailables();
   }
 
   @Post("/create")
   create(@Body() body: CreateSingleProductDTO) {
-    return this.productServive.create(body)
+    return this.productServive.create(body);
   }
-
 }
