@@ -1,37 +1,36 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
-import { CreateUserDto } from './users.pipe';
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
+import { PrismaService } from "src/prisma/prisma.service";
+import { CreateUserDto } from "./users.pipe";
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) {}
 
   async getAll() {
-    const data = await this.prisma.user.findMany()
+    const data = await this.prisma.user.findMany();
     return {
       ok: true,
       message: "ALL USERS GET",
-      data: data
-    }
+      data: data,
+    };
   }
 
   async getSingle(id: number) {
     const user = await this.prisma.user.findUnique({
-      where: { id: id }
-    })
+      where: { id: id },
+    });
     if (!user) {
-      throw new NotFoundException('404 | NOT FOUND')
+      throw new NotFoundException("404 | NOT FOUND");
     } else {
       return {
         ok: true,
-        message: '200 | SINGLE USER ROUTE',
-        data: user
-      }
+        message: "200 | SINGLE USER ROUTE",
+        data: user,
+      };
     }
   }
 
   async create(body: CreateUserDto) {
-
     const result = await this.prisma.user.create({
       data: {
         full_name: body.full_name,
@@ -39,30 +38,32 @@ export class UsersService {
         email: body.email,
         password: body.password,
         role: body.role,
-      }
-    })
+      },
+    });
 
     if (!result) {
-      throw new BadRequestException('400 | BAD REQUEST')
+      throw new BadRequestException("400 | BAD REQUEST");
     } else {
-      return result
+      return {
+        ok: true,
+        message: "201 | USER CREATED",
+        newUser: result,
+      };
     }
   }
 
   async delete(id: number) {
     const result = await this.prisma.user.delete({
-      where: { id: id }
-    })
+      where: { id: id },
+    });
     if (!result) {
-      throw new NotFoundException('404 | USER NOT FOUND')
+      throw new NotFoundException("404 | USER NOT FOUND");
     } else {
       return {
         ok: true,
-        message: '203 | USER DELETED',
-        data: result
-      }
+        message: "203 | USER DELETED",
+        data: result,
+      };
     }
   }
-
 }
-
