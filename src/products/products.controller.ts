@@ -1,7 +1,8 @@
-import { Body, Controller, Get, Post } from "@nestjs/common";
+import { Body, Controller, Get, Post, UseInterceptors } from "@nestjs/common";
 import { CreateSingleProductDTO } from "./products.pipe";
 import { ProductsService } from "./products.service";
 import { ArticlesService } from "src/articles/articles.service";
+import { TransformInterceptor } from "src/interceptors/transform.interceptor";
 
 @Controller("/products")
 export class ProductsController {
@@ -15,6 +16,8 @@ export class ProductsController {
     return this.productServive.getAll();
   }
 
+  
+  @UseInterceptors(TransformInterceptor)
   @Get("/availables")
   get_availables() {
     return this.productServive.getAvailables();

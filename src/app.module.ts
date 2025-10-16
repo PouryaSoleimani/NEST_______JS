@@ -45,10 +45,10 @@ import { ProductsMiddleware } from './products/product.middleware';
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes('/')
-    consumer.apply(EmployeesMiddleWare).forRoutes({ path: 'employees/*', method: RequestMethod.GET })
-    consumer.apply(PlayersMiddleware).forRoutes({ path: 'players/*', method: RequestMethod.GET })
-    consumer.apply(UsersMiddleWare).forRoutes({ path: 'users/*', method: RequestMethod.GET })
-    consumer.apply(ProductsMiddleware).forRoutes({ path: 'products/*', method: RequestMethod.ALL })
+    consumer.apply(EmployeesMiddleWare).forRoutes({ path: 'employees/*path', method: RequestMethod.GET })
+    consumer.apply(PlayersMiddleware).forRoutes({ path: 'players/*path', method: RequestMethod.GET })
+    consumer.apply(UsersMiddleWare).forRoutes({ path: 'users/*path', method: RequestMethod.GET })
+    consumer.apply(ProductsMiddleware).forRoutes({ path: 'products/*path', method: RequestMethod.ALL })
   }
 }
 
