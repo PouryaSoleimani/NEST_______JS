@@ -1,11 +1,11 @@
-import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException, UseInterceptors } from "@nestjs/common";
 import { CreateSingleProductDTO, UpdateSingleProductDTO } from "./products.pipe";
 import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
 export class ProductsService {
   //^ PRISMA
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
 
   async getAll() {
     const allProducts = await this.prisma.product.findMany();
