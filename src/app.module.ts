@@ -19,7 +19,7 @@ import { EmployeesMiddleWare } from './employees/employees.middleware';
 import { AppMiddleWare } from './app.middleware';
 import { PlayersMiddleware } from './players/players.middleware';
 import { UsersMiddleWare } from './users/users.middleware';
-import { ProductsMiddleware } from './products/product.middleware';
+import { ProductsMiddleware } from './products/products.middleware';
 
 @Module({
   controllers: [
