@@ -19,6 +19,7 @@ import { EmployeesMiddleWare } from './employees/employees.middleware';
 import { AppMiddleWare } from './app.middleware';
 import { PlayersMiddleware } from './players/players.middleware';
 import { UsersMiddleWare } from './users/users.middleware';
+import { ProductsMiddleware } from './products/product.middleware';
 
 @Module({
   controllers: [
@@ -47,6 +48,7 @@ export class AppModule implements NestModule {
     consumer.apply(EmployeesMiddleWare).forRoutes({ path: '/employees', method: RequestMethod.GET })
     consumer.apply(PlayersMiddleware).forRoutes({ path: '/players', method: RequestMethod.GET })
     consumer.apply(UsersMiddleWare).forRoutes({ path: '/users', method: RequestMethod.GET })
+    consumer.apply(ProductsMiddleware).forRoutes({ path: 'products/*', method: RequestMethod.ALL })
   }
 }
 
