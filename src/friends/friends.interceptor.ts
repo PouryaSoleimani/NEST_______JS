@@ -1,6 +1,5 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from "@nestjs/common";
 import { Observable, map } from "rxjs";
-import { tap } from "rxjs/operators";
 
 @Injectable()
 export class FriendsGetAllInterceptor implements NestInterceptor {
@@ -53,8 +52,8 @@ export class FriendsGetSingleInterceptor implements NestInterceptor {
       map((data) => {
         return {
           ok: true,
-          message: "GET SINGLE FRIEND ROUTE",
-          data: { id: data.data.id, fullname: data.data.fullname },
+          message: "GET SINGLE FRIEND ROUTE || INTERCEPTOR",
+          data: { id: data.data.id, name: data.data.name },
         };
       }),
     );
