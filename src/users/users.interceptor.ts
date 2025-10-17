@@ -32,7 +32,11 @@ export class UserGetSingleInterceptor implements NestInterceptor {
         return {
           ok: true,
           message: "USER GET SINGLE INTERCEPTOR",
-          data: { id: data.data.id, full_name: data.data.full_name, role: data.data.role },
+          data: {
+            id: data.data.id,
+            full_name: data.data.full_name,
+            role: data.data.role,
+          },
         };
       }),
     );
