@@ -7,6 +7,7 @@ import { UserGetAllInteceptor, UserGetSingleInterceptor } from "./users.intercep
 @Controller("/users")
 export class UsersController {
   constructor(private service: UsersService) {}
+
   @UseInterceptors(UserGetAllInteceptor)
   @Get("/")
   GET__ALL__USERS() {
