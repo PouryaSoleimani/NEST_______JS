@@ -1,5 +1,6 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
+import { CreateSingleFriendDTO } from "./friends.pipe";
 
 @Injectable()
 export class FriendsService {
@@ -18,7 +19,7 @@ export class FriendsService {
     }
   }
 
-  async create(body: any) {
+  async create(body: CreateSingleFriendDTO) {
     const newFriend = await this.prisma.friend.create({
       data: {
         name: body.name,
@@ -26,5 +27,14 @@ export class FriendsService {
         gender: body.gender,
       },
     });
+    if (!newFriend) {
+      throw new BadRequestException("400 | BAD REQUEST");
+    } else {
+      return {
+        ok: true,
+        message: "201 | NEW FRIEND CREATED",
+        data: newFriend,
+      };
+    }
   }
 }
