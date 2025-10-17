@@ -1,3 +1,4 @@
+import { FriendsModule } from "./friends/friends.module";
 //^ APP MODULE =====================================================================================
 import { EmployeesModule } from "./employees/employees.module";
 import { UsersModule } from "./users/users.module";
@@ -26,7 +27,7 @@ import { UserGetSingleInterceptor } from "./users/users.interceptor";
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
-  imports: [EmployeesModule, PrismaModule, UsersModule, AtriclesModule],
+  imports: [FriendsModule, EmployeesModule, PrismaModule, UsersModule, AtriclesModule],
   providers: [
     PrismaService,
     UsersService,
