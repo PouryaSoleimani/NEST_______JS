@@ -5,7 +5,10 @@ import { tap } from "rxjs/operators";
 @Injectable()
 export class FriendsGetAllInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+    // BEFORE ROUTE HANDLER
     console.log("Before...");
+
+    // AFTER ROUTE HANDLER
     return next.handle().pipe(
       map((data) => {
         return {
@@ -25,6 +28,7 @@ export class FriendsGetAllInterceptor implements NestInterceptor {
   }
 }
 
+@Injectable()
 export class FriendsCreateInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(
