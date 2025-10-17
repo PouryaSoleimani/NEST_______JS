@@ -1,8 +1,12 @@
-/*
-https://docs.nestjs.com/controllers#controllers
-*/
+import { Controller, Get } from "@nestjs/common";
+import { FriendsService } from "./friends.service";
 
-import { Controller } from '@nestjs/common';
+@Controller("/friends")
+export class FriendsController {
+  constructor(private readonly service: FriendsService) {}
 
-@Controller()
-export class FriendsController {}
+  @Get("")
+  getAll() {
+    return this.service.getAll();
+  }
+}

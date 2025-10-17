@@ -38,7 +38,7 @@ import { UserGetSingleInterceptor } from "./users/users.interceptor";
     ArticlesRepository,
     PlayersService,
     PlayersRepository,
-    { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor },
+    // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, SETTING AN INTERCEPTOR GLOBALLY
   ],
 })
 export class AppModule implements NestModule {
