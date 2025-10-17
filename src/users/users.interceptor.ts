@@ -1,4 +1,4 @@
-import { CallHandler, ExecutionContext, NestInterceptor } from "@nestjs/common";
+import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from "@nestjs/common";
 import { userInfo } from "os";
 import { map, Observable } from "rxjs";
 
@@ -24,7 +24,7 @@ export class UserGetAllInteceptor implements NestInterceptor {
     );
   }
 }
-
+@Injectable()
 export class UserGetSingleInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(

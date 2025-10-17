@@ -1,3 +1,4 @@
+//^ APP MODULE =====================================================================================
 import { EmployeesModule } from "./employees/employees.module";
 import { UsersModule } from "./users/users.module";
 import { UsersService } from "./users/users.service";
@@ -20,6 +21,8 @@ import { AppMiddleWare } from "./app.middleware";
 import { PlayersMiddleware } from "./players/players.middleware";
 import { UsersMiddleWare } from "./users/users.middleware";
 import { ProductsMiddleware } from "./products/products.middleware";
+import { APP_INTERCEPTOR } from "@nestjs/core";
+import { UserGetSingleInterceptor } from "./users/users.interceptor";
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
@@ -34,6 +37,7 @@ import { ProductsMiddleware } from "./products/products.middleware";
     ArticlesRepository,
     PlayersService,
     PlayersRepository,
+    { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor },
   ],
 })
 export class AppModule implements NestModule {
