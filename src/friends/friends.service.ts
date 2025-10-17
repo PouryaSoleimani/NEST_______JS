@@ -19,6 +19,22 @@ export class FriendsService {
     }
   }
 
+  async getSingle(id: number) {
+    const friend = await this.prisma.friend.findUnique({
+      where: { id: id },
+    });
+
+    if (!friend) {
+      throw new NotFoundException("FRIEND NOT FOUND");
+    } else {
+      return {
+        ok: true,
+        message: "SINGLE FRIEND ROUTE",
+        data: friend,
+      };
+    }
+  }
+
   async create(body: CreateSingleFriendDTO) {
     const newFriend = await this.prisma.friend.create({
       data: {

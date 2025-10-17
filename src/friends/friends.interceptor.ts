@@ -45,3 +45,18 @@ export class FriendsCreateInterceptor implements NestInterceptor {
     );
   }
 }
+
+@Injectable()
+export class FriendsGetSingleInterceptor implements NestInterceptor {
+  intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
+    return next.handle().pipe(
+      map((data) => {
+        return {
+          ok: true,
+          message: "GET SINGLE FRIEND ROUTE",
+          data: { id: data.data.id, fullname: data.data.fullname },
+        };
+      }),
+    );
+  }
+}

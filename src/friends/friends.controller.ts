@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Get, Param, ParseIntPipe, Post, UseInterceptors } from "@nestjs/common";
 import { FriendsService } from "./friends.service";
 import { CreateSingleFriendDTO } from "./friends.pipe";
 import { FriendsCreateInterceptor, FriendsGetAllInterceptor } from "./friends.interceptor";
@@ -11,6 +11,11 @@ export class FriendsController {
   @Get("")
   getAll() {
     return this.service.getAll();
+  }
+
+  @Get("/:id")
+  getSingle(@Param("id", ParseIntPipe) id: number) {
+    return this.service.getSingle(id);
   }
 
   @UseInterceptors(FriendsCreateInterceptor)
