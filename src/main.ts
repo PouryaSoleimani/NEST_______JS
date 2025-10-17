@@ -28,8 +28,6 @@ async function bootstrap() {
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("/api/v1/docs", app, documentFactory);
 
-  //^ LOGGER MIDDLEWARE
-
   //^PORT
   const port = process.env.PORT || 8000;
   await app.listen(port, () => {
