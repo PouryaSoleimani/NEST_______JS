@@ -1,4 +1,5 @@
 import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from "@nestjs/common";
+import { Friend } from "generated/prisma";
 import { Observable, map } from "rxjs";
 
 @Injectable()
@@ -49,11 +50,17 @@ export class FriendsCreateInterceptor implements NestInterceptor {
 export class FriendsGetSingleInterceptor implements NestInterceptor {
   intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(
-      map((data) => {
+      map((data: { ok: true; message: string; data: Friend }) => {
         return {
           ok: true,
           message: "GET SINGLE FRIEND ROUTE || INTERCEPTOR",
-          data: { id: data.data.id, name: data.data.name },
+          data: {
+            id: data.data.id,
+            name: data.data.name,
+            age: data.data.age,
+            gender: data.data.gender,
+            status: "CAME FROM INTERCEPTOR",
+          },
         };
       }),
     );
