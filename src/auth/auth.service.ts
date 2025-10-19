@@ -3,7 +3,7 @@ import { CreateAuthDto } from "./dto/create-auth.dto";
 import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
 import * as bcrypt from "bcrypt";
-const saltOrRounds = 20;
+const saltOrRounds = 10;
 
 @Injectable()
 export class AuthService {
