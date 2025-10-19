@@ -1,21 +1,37 @@
-import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
-import { timeStamp } from 'console';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
+import { timeStamp } from "console";
+import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
 export class EmployeesService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) {}
 
   async getAll() {
-    const result = await this.prisma.employee.findMany()
+    const result = await this.prisma.employee.findMany();
     if (!result) {
-      throw new NotFoundException('404 | NO EMPLOYEES FOUND')
+      throw new NotFoundException("404 | NO EMPLOYEES FOUND");
     } else {
       return {
         ok: true,
-        message: 'EMPLOYEES LIST',
-        data: result
-      }
+        message: "EMPLOYEES LIST",
+        data: result,
+      };
+    }
+  }
+
+  async getSingle(id: number) {
+    const singleEmployee = await this.prisma.employee.findUnique({
+      where: { id: id },
+    });
+
+    if (!singleEmployee) {
+      throw new NotFoundException("404 | EMPLOYEE NOT FOUND");
+    } else {
+      return {
+        ok: true,
+        message: "200 | SINGLE EMPLOYEE ROUTE",
+        data: singleEmployee,
+      };
     }
   }
 
@@ -24,16 +40,16 @@ export class EmployeesService {
       data: {
         fullname: body.fullname,
         job: body.job,
-      }
-    })
+      },
+    });
     if (!newEmployee) {
-      throw new BadRequestException('400 | BAD REQUEST')
+      throw new BadRequestException("400 | BAD REQUEST");
     } else {
       return {
         ok: true,
-        message: '201 | NEW EMPLOYEE CREATED SUCCESSFULLY',
-        newEmployee: newEmployee
-      }
+        message: "201 | NEW EMPLOYEE CREATED SUCCESSFULLY",
+        newEmployee: newEmployee,
+      };
     }
   }
 }

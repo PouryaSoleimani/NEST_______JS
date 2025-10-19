@@ -39,7 +39,7 @@ import { FriendsMiddleware } from "./friends/friends.middleware";
     ArticlesRepository,
     PlayersService,
     PlayersRepository,
-    // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, SETTING AN INTERCEPTOR GLOBALLY
+    // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, //? SETTING AN INTERCEPTOR GLOBALLY
   ],
 })
 export class AppModule implements NestModule {
