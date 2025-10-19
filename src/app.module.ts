@@ -25,7 +25,7 @@ import { ProductsMiddleware } from "./products/products.middleware";
 import { APP_INTERCEPTOR } from "@nestjs/core";
 import { UserGetSingleInterceptor } from "./users/users.interceptor";
 import { FriendsMiddleware } from "./friends/friends.middleware";
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
