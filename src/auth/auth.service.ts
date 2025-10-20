@@ -1,8 +1,9 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException, UseGuards } from "@nestjs/common";
 import { CreateAuthDto } from "./dto/create-auth.dto";
 import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
 import * as bcrypt from "bcrypt";
+import { AuthGuard } from "./auth.guard";
 const saltOrRounds = 10;
 
 @Injectable()
@@ -33,8 +34,18 @@ export class AuthService {
     }
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  @UseGuards(AuthGuard)
+  async findAll() {
+    const allusers = await this.prisma.user.findMany();
+    if (!allusers) {
+      throw new NotFoundException("404 | USERS NOT FOUND");
+    } else {
+      return {
+        ok: true,
+        message: "ALL USERS",
+        data: allusers,
+      };
+    }
   }
 
   findOne(id: number) {
