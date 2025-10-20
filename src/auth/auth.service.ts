@@ -34,7 +34,7 @@ export class AuthService {
     }
   }
 
-  @UseGuards(AuthGuard)
+
   async findAll() {
     const allusers = await this.prisma.user.findMany();
     if (!allusers) {
