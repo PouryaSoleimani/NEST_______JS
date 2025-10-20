@@ -10,8 +10,7 @@ export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
 
   async register(body: CreateAuthDto) {
-    const password = body.password;
-    const hash = await bcrypt.hash(password, saltOrRounds);
+    const hash = await bcrypt.hash(body.password, saltOrRounds);
 
     const newUser = await this.prisma.user.create({
       data: {
