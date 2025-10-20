@@ -40,7 +40,8 @@ import { AuthModule } from "./auth/auth.module";
     ArticlesRepository,
     PlayersService,
     PlayersRepository,
-    // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, //? SETTING AN INTERCEPTOR GLOBALLY
+    // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, //~ SETTING AN INTERCEPTOR GLOBALLY
+    // { provide: APP_GUARD, useClass: AuthGuard }, //* SETTING A GUARD GLOBALLY
   ],
 })
 export class AppModule implements NestModule {

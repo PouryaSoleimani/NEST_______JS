@@ -12,7 +12,6 @@ export class AuthController {
   create(@Body() createAuthDto: CreateAuthDto) {
     return this.authService.register(createAuthDto);
   }
-
   @UseGuards(AuthGuard)
   @Get("/find-all")
   findAll() {
