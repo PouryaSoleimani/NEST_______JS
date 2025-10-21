@@ -6,12 +6,13 @@ import { AuthGuard } from "./auth.guard";
 
 @Controller("/auth")
 export class AuthController {
-  constructor(private readonly authService: AuthService) {}
+  constructor(private readonly authService: AuthService) { }
 
   @Post("/register")
   create(@Body() createAuthDto: CreateAuthDto) {
     return this.authService.register(createAuthDto);
   }
+
   @UseGuards(AuthGuard)
   @Get("/find-all")
   findAll() {
