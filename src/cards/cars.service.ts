@@ -1,26 +1,43 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateCarDto } from './dto/create-card.dto';
-import { UpdateCardDto } from './dto/update-card.dto';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
+import { CreateCarDto } from "./dto/create-card.dto";
+import { UpdateCardDto } from "./dto/update-card.dto";
+import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
 export class CarsService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) {}
 
-  create(createCarDto: CreateCarDto) {
-    return 'This action adds a new card';
-  }
-
-  async findAll() {
-    const allCars = await this.prisma.car.findMany()
-    if (!allCars) {
-      throw new NotFoundException('404 | USERS NOT FOUND')
+  async create(body: CreateCarDto) {
+    const newCar = await this.prisma.car.create({
+      data: {
+        title: body.title,
+        brand: body.brand,
+        color: body.color,
+        horsePower: body.horsePower,
+        make: body.make,
+      },
+    });
+    if (!newCar) {
+      throw new BadRequestException("400 | BAD REQUEST");
     } else {
       return {
         ok: true,
-        message: '201 | ALL CARS LIST :',
-        data: allCars
-      }
+        message: "201 | 🚗 NEW CAR CREATED ...",
+        data: newCar,
+      };
+    }
+  }
+
+  async findAll() {
+    const allCars = await this.prisma.car.findMany();
+    if (!allCars) {
+      throw new NotFoundException("404 | USERS NOT FOUND");
+    } else {
+      return {
+        ok: true,
+        message: "201 | ALL CARS LIST :",
+        data: allCars,
+      };
     }
   }
 
