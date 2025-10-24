@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { CreateCardDto } from './dto/create-card.dto';
+import { CreateCarDto } from './dto/create-card.dto';
 import { UpdateCardDto } from './dto/update-card.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
@@ -7,7 +7,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class CarsService {
   constructor(private readonly prisma: PrismaService) { }
 
-  create(createCardDto: CreateCardDto) {
+  create(createCarDto: CreateCarDto) {
     return 'This action adds a new card';
   }
 
