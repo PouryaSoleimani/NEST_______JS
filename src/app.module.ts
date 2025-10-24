@@ -26,7 +26,8 @@ import { APP_INTERCEPTOR } from "@nestjs/core";
 import { UserGetSingleInterceptor } from "./users/users.interceptor";
 import { FriendsMiddleware } from "./friends/friends.middleware";
 import { AuthModule } from "./auth/auth.module";
-import { CardsModule } from './cards/cars.module';
+import { CardsModule } from "./cards/cars.module";
+import { CarsMiddleware } from "./cards/cars.middleware";
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
@@ -53,5 +54,6 @@ export class AppModule implements NestModule {
     consumer.apply(UsersMiddleWare).forRoutes({ path: "users", method: RequestMethod.GET });
     consumer.apply(ProductsMiddleware).forRoutes({ path: "products", method: RequestMethod.ALL });
     consumer.apply(FriendsMiddleware).forRoutes({ path: "friends", method: RequestMethod.ALL });
+    consumer.apply(CarsMiddleware).forRoutes({ path: "cars", method: RequestMethod.ALL });
   }
 }
