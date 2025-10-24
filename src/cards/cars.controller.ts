@@ -1,5 +1,5 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common";
-import { UpdateCardDto } from "./dto/update-card.dto";
+import { UpdateCarDto } from "./dto/update-card.dto";
 import { CarsService } from "./cars.service";
 import { CreateCarDto } from "./dto/create-card.dto";
 
@@ -22,8 +22,8 @@ export class CarsController {
     return this.carsService.findOne(+id);
   }
 
-  @Patch(":id")
-  update(@Param("id") id: string, @Body() updateCardDto: UpdateCardDto) {
+  @Patch("/update/:id")
+  update(@Param("id") id: string, @Body() updateCardDto: UpdateCarDto) {
     return this.carsService.update(+id, updateCardDto);
   }
 

@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { CreateCarDto } from "./dto/create-card.dto";
-import { UpdateCardDto } from "./dto/update-card.dto";
+import { UpdateCarDto } from "./dto/update-card.dto";
 import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
@@ -41,12 +41,41 @@ export class CarsService {
     }
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} card`;
+  async findOne(id: number) {
+    const car = await this.prisma.car.findUnique({
+      where: { id: id },
+    });
+    if (!car) {
+      throw new NotFoundException("404 | CAR NOT FOUND ... ☹️");
+    } else {
+      return {
+        ok: true,
+        message: "201 | SINGLE CAR DATA",
+        data: car,
+      };
+    }
   }
 
-  update(id: number, updateCardDto: UpdateCardDto) {
-    return `This action updates a #${id} card`;
+  async update(id: number, body: UpdateCarDto) {
+    const updatedCar = await this.prisma.car.update({
+      where: { id: id },
+      data: {
+        title: body.title,
+        color: body.color,
+        brand: body.brand,
+        horsePower: body.horsePower,
+        make: body.make,
+      },
+    });
+    if (!updatedCar) {
+      throw new BadRequestException("400 | BAD REQUEST");
+    } else {
+      return {
+        ok: true,
+        message: "203 | CAR DATA UPDATED ....",
+        data : updatedCar
+      };
+    }
   }
 
   remove(id: number) {
