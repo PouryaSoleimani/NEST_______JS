@@ -73,12 +73,23 @@ export class CarsService {
       return {
         ok: true,
         message: "203 | CAR DATA UPDATED ....",
-        data : updatedCar
+        data: updatedCar,
       };
     }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} card`;
+  async remove(id: number) {
+    const deletedCar = await this.prisma.car.delete({
+      where: { id: id },
+    });
+    if (!deletedCar) {
+      throw new BadRequestException("404 | CAR NOT FOUND ...");
+    } else {
+      return {
+        ok: true,
+        message: "203  | CAR DELETED SUCCESSFULLY",
+        data: deletedCar,
+      };
+    }
   }
 }
