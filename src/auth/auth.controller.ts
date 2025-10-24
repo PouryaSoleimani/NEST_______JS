@@ -5,7 +5,6 @@ import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { LoginUserDTO } from "./dto/login-auth.dto";
 import { AuthGuard } from "@nestjs/passport";
 import { LocalAuthGuard } from "src/guards/auth.guard";
-import { Request } from "express";
 
 @Controller("/auth")
 export class AuthController {
@@ -19,7 +18,7 @@ export class AuthController {
   @Post("/login")
   @UseGuards(LocalAuthGuard)
   login(@Body() body: LoginUserDTO, @Request() req) {
-    console.log("REQUEST ==>", req.user);
+    console.log("REQUEST ==>", req.logout);
     return this.authService.login(body, req.user);
   }
   // ==================================================================================================================
