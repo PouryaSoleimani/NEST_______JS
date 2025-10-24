@@ -6,7 +6,7 @@ import * as bcrypt from "bcrypt";
 import { LoginUserDTO } from "./dto/login-auth.dto";
 
 const saltOrRounds = 10;
-
+export type UserType = { email: string; password: string };
 @Injectable()
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
@@ -35,8 +35,21 @@ export class AuthService {
     }
   }
 
-  async login(body: LoginUserDTO) {
-    return "LOGIN";
+  async login(body: LoginUserDTO, user: UserType) {
+    const userInDB = await this.prisma.user.findUnique({
+      where: { email: body.email },
+    });
+    if (userInDB) {
+      return {
+        ok: true,
+        message: "LOGGED IN SUCCESSFULLY ...",
+      };
+    } else {
+      return {
+        ok: false,
+        message: "YOU DONT HAVE AN ACCOUNT , PLEASE REGISTER FIRST",
+      };
+    }
   }
 
   async findAll() {

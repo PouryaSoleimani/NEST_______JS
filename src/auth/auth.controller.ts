@@ -16,11 +16,12 @@ export class AuthController {
   }
 
   @Post("/login")
-  @UseGuards(LocalAuthGuard) //^ FROM PASSPORT LIBRARY
-  login(@Body() body: LoginUserDTO, @Request() req: any) {
-    return this.authService.login(body);
+  @UseGuards(LocalAuthGuard)
+  login(@Body() body: LoginUserDTO, @Request() req) {
+    console.log("REQUEST ==>", req.user);
+    return this.authService.login(body, req.user);
   }
-  // ==============================================================================
+  // ==================================================================================================================
   @Get("/find-all")
   findAll() {
     return this.authService.findAll();
