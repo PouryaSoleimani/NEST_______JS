@@ -17,8 +17,8 @@ export class AuthController {
 
   @Post("/login")
   @UseGuards(LocalAuthGuard)
-  login(@Body() body: LoginUserDTO, @Request() req) {
-    console.log("REQUEST ==>", req.logout);
+  login(@Body() body: LoginUserDTO, @Request() req: any) {
+    console.log("REQUEST ==>", req);
     return this.authService.login(body, req.user);
   }
   // ==================================================================================================================
