@@ -1,28 +1,24 @@
-import { ApiProperty } from "@nestjs/swagger"
-import { IsString } from "class-validator"
+import { ApiProperty } from "@nestjs/swagger";
+import { IsNumber, IsString } from "class-validator";
 
 export class CreateCarDto {
   @ApiProperty()
   @IsString()
-  title: string
+  title: string;
 
   @ApiProperty()
   @IsString()
-  color: string
+  color: string;
 
   @ApiProperty()
   @IsString()
-  make: string
+  make: string;
 
   @ApiProperty()
   @IsString()
-  brand: string
+  brand: string;
 
   @ApiProperty()
-  @IsString()
-  horsePower: number
-
-  @ApiProperty()
-  @IsString()
-  serial: string
+  @IsNumber()
+  horsePower: number;
 }
