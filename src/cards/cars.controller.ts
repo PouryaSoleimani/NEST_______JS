@@ -1,7 +1,8 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from "@nestjs/common";
+import { Controller, Get, Post, Body, Patch, Param, Delete, UseInterceptors } from "@nestjs/common";
 import { UpdateCarDto } from "./dto/update-car.dto";
 import { CarsService } from "./cars.service";
 import { CreateCarDto } from "./dto/create-car.dto";
+import { CarsGetAllInterceptor } from "./cars.interceptor";
 
 @Controller("/cars")
 export class CarsController {
@@ -12,6 +13,7 @@ export class CarsController {
     return this.carsService.create(body);
   }
 
+  @UseInterceptors(CarsGetAllInterceptor)
   @Get("/")
   findAll() {
     return this.carsService.findAll();
