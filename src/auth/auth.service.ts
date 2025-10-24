@@ -9,7 +9,7 @@ const saltOrRounds = 10;
 
 @Injectable()
 export class AuthService {
-  constructor(private readonly prisma: PrismaService) { }
+  constructor(private readonly prisma: PrismaService) {}
 
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
@@ -36,7 +36,7 @@ export class AuthService {
   }
 
   async login(body: LoginUserDTO) {
-    return "LOGIN"
+    return "LOGIN";
   }
 
   async findAll() {
@@ -51,7 +51,6 @@ export class AuthService {
       };
     }
   }
-
 
   findOne(id: number) {
     return `This action returns a #${id} auth`;

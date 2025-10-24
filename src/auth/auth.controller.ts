@@ -11,16 +11,16 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @Post("/register")
-  register(@Body() createAuthDto: CreateAuthDto) {
-    return this.authService.register(createAuthDto);
+  register(@Body() body: CreateAuthDto) {
+    return this.authService.register(body);
   }
 
   @Post("/login")
   @UseGuards(LocalAuthGuard) //^ FROM PASSPORT LIBRARY
   login(@Body() body: LoginUserDTO, @Request() req: any) {
-    return body; 
+    return this.authService.login(body);
   }
-
+  // ==============================================================================
   @Get("/find-all")
   findAll() {
     return this.authService.findAll();
