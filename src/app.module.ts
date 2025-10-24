@@ -26,10 +26,11 @@ import { APP_INTERCEPTOR } from "@nestjs/core";
 import { UserGetSingleInterceptor } from "./users/users.interceptor";
 import { FriendsMiddleware } from "./friends/friends.middleware";
 import { AuthModule } from "./auth/auth.module";
+import { CardsModule } from './cards/cars.module';
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
-  imports: [FriendsModule, EmployeesModule, PrismaModule, UsersModule, AtriclesModule, AuthModule],
+  imports: [FriendsModule, EmployeesModule, PrismaModule, UsersModule, AtriclesModule, AuthModule, CardsModule],
   providers: [
     PrismaService,
     UsersService,
