@@ -5,6 +5,7 @@ import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { LoginUserDTO } from "./dto/login-auth.dto";
 import { AuthGuard } from "@nestjs/passport";
 import { LocalAuthGuard } from "src/guards/auth.guard";
+import { Request } from "express";
 
 @Controller("/auth")
 export class AuthController {
