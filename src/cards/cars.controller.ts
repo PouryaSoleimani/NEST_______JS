@@ -27,7 +27,7 @@ export class CarsController {
     return this.carsService.update(+id, updateCardDto);
   }
 
-  @Delete(":id")
+  @Delete("/delete/:id")
   remove(@Param("id") id: string) {
     return this.carsService.remove(+id);
   }
