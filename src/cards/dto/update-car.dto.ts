@@ -1,5 +1,5 @@
 import { ApiProperty, PartialType } from "@nestjs/swagger";
-import { CreateCarDto } from "./create-card.dto";
+import { CreateCarDto } from "./create-car.dto";
 import { IsNumber, IsOptional, IsString } from "class-validator";
 
 export class UpdateCarDto extends PartialType(CreateCarDto) {
