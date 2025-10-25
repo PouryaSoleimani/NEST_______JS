@@ -39,7 +39,7 @@ export class AuthService {
     const isUserAvailable = await this.prisma.user.findUnique({
       where: { email: user.email },
     });
-    
+
     if (isUserAvailable) {
       return {
         ok: true,
@@ -65,7 +65,7 @@ export class AuthService {
       };
     }
   }
-
+  
   async findOne(id: number) {
     return `This action returns a #${id} auth`;
   }
