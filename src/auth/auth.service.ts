@@ -16,10 +16,10 @@ export class AuthService {
 
     const newUser = await this.prisma.user.create({
       data: {
-        age: body.age,
         email: body.email,
-        full_name: body.full_name,
         password: hash,
+        full_name: body.full_name,
+        age: body.age,
         role: body.role,
       },
     });
@@ -36,10 +36,11 @@ export class AuthService {
   }
 
   async login(body: LoginUserDTO, user: UserType) {
-    const userInDB = await this.prisma.user.findUnique({
+    const isUserAvailable = await this.prisma.user.findUnique({
       where: { email: user.email },
     });
-    if (userInDB) {
+    
+    if (isUserAvailable) {
       return {
         ok: true,
         message: "LOGGED IN SUCCESSFULLY ...",

@@ -15,13 +15,14 @@ export class AuthController {
     return this.authService.register(body);
   }
 
+  //^ LOGIN ==================================================================================================================
   @Post("/login")
-  @UseGuards(LocalAuthGuard)
+  @UseGuards(LocalAuthGuard) // USE GUARD
   login(@Body() body: LoginUserDTO, @Request() req: any) {
     console.log("REQUEST ==>", req);
     return this.authService.login(body, req.user);
   }
-  // ==================================================================================================================
+
   @Get("/find-all")
   findAll() {
     return this.authService.findAll();
