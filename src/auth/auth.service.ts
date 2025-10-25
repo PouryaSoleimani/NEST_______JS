@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException, UseGuards } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException, UseGuards } from "@nestjs/common";
 import { CreateAuthDto } from "./dto/create-auth.dto";
 import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
@@ -53,6 +53,21 @@ export class AuthService {
     }
   }
 
+  async validate(email: string, password: string) {
+    const isUserRegistered = await this.prisma.user.findUnique({
+      where: { email: email },
+    });
+    if (!isUserRegistered) {
+      throw new UnauthorizedException();
+    } else {
+      return {
+        ok: true,
+        message: "LOGGED IN ",
+        data: isUserRegistered,
+      };
+    }
+  }
+
   async findAll() {
     const allusers = await this.prisma.user.findMany();
     if (!allusers) {
@@ -65,7 +80,7 @@ export class AuthService {
       };
     }
   }
-  
+
   async findOne(id: number) {
     return `This action returns a #${id} auth`;
   }
