@@ -18,11 +18,10 @@ export class AuthController {
   @Post("/login")
   @UseGuards(LocalAuthGuard) // USE GUARD
   login(@Body() body: LoginUserDTO, @Request() req: any) {
-    console.log("REQUEST ==>", req);
     return this.authService.login(body, req.user);
   }
 
-  @Get("/find-all") 
+  @Get("/find-all")
   findAll() {
     return this.authService.findAll();
   }

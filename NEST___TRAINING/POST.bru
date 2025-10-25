@@ -1,0 +1,22 @@
+meta {
+  name: POST
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8000/api/v1/auth/login
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "email":"hamedasdasd@gmail.com",
+    "password":"adasdasdasd"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

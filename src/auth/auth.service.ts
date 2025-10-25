@@ -37,9 +37,8 @@ export class AuthService {
 
   async login(body: LoginUserDTO, user: UserType) {
     const isUserAvailable = await this.prisma.user.findUnique({
-      where: { email: user.email },
+      where: { email: body.email },
     });
-
     if (isUserAvailable) {
       return {
         ok: true,
@@ -53,19 +52,11 @@ export class AuthService {
     }
   }
 
-  async validate(email: string, password: string) {
+  async validate(EMAIL: string, password: string) {
     const isUserRegistered = await this.prisma.user.findUnique({
-      where: { email: email },
+      where: { email: EMAIL },
     });
-    if (!isUserRegistered) {
-      throw new UnauthorizedException();
-    } else {
-      return {
-        ok: true,
-        message: "LOGGED IN ",
-        data: isUserRegistered,
-      };
-    }
+    return isUserRegistered;
   }
 
   async findAll() {
