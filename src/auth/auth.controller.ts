@@ -22,7 +22,7 @@ export class AuthController {
     return this.authService.login(body, req.user);
   }
 
-  @Get("/find-all")
+  @Get("/find-all") 
   findAll() {
     return this.authService.findAll();
   }
