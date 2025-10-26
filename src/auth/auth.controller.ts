@@ -16,7 +16,7 @@ export class AuthController {
 
   //^ LOGIN ==================================================================================================================
   @Post("/login")
-  @UseGuards(LocalAuthGuard) // USE GUARD
+  @UseGuards(LocalAuthGuard) // <-- Using LocalGuard here ...
   login(@Body() body: LoginUserDTO, @Request() req: any) {
     return this.authService.login(body, req.user);
   }
