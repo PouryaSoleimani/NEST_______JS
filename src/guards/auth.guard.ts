@@ -4,9 +4,7 @@ import { Observable } from "rxjs";
 
 @Injectable()
 export class AuthGuardGetAll implements CanActivate {
-  canActivate(
-    context: ExecutionContext,
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const req = context.switchToHttp().getRequest();
     const res = context.switchToHttp().getResponse();
     console.log("AUTH GUARD .... ");
@@ -15,9 +13,7 @@ export class AuthGuardGetAll implements CanActivate {
 }
 
 export class AuthGuardGetSingle implements CanActivate {
-  canActivate(
-    context: ExecutionContext,
-  ): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
     const res = context.switchToHttp().getRequest();
     return true;
   }
