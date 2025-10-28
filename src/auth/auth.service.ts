@@ -53,10 +53,10 @@ export class AuthService {
   }
 
   async validate(EMAIL: string, password: string) {
-    const isUserRegistered = await this.prisma.user.findUnique({
+    const user = await this.prisma.user.findUnique({
       where: { email: EMAIL },
     });
-    return isUserRegistered;
+    return user;
   }
 
   async findAll() {
