@@ -20,5 +20,4 @@ export class AuthGuardGetSingle implements CanActivate {
 }
 
 //* LOCAL AUTH GUARD
-@Injectable()
-export class LocalAuthGuard extends AuthGuard("local") {}
+

@@ -1,15 +1,19 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsEmail, IsEnum, IsIn, IsInt, IsString } from "class-validator";
+import { IsEmail, IsEnum, IsInt, IsString } from "class-validator";
 import { ROLE } from "generated/prisma";
 
 export class CreateAuthDto {
   @ApiProperty()
   @IsString()
-  full_name: string;
+  fullname: string;
 
   @ApiProperty()
   @IsInt()
   age: number;
+
+  @ApiProperty()
+  @IsEmail()
+  email: string;
 
   @ApiProperty()
   @IsString()
@@ -18,8 +22,4 @@ export class CreateAuthDto {
   @ApiProperty()
   @IsEnum(ROLE)
   role: ROLE;
-
-  @ApiProperty()
-  @IsEmail()
-  email: string;
 }
