@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from "@nestjs/common";
+import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/common";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
@@ -35,19 +35,13 @@ export class AuthService {
     const user = await this.prisma.user.findUnique({
       where: { email: email },
     });
-    console.log("user", user);
-    // return { email, password };
-    // if (user) {
-    //   const isMatch = await bcrypt.compare(user?.password, password);
-    //   if (isMatch) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // }
-  }
-
-  async login(body: LoginAuthDto) {
-    return `This action returns all auth`;
+    if (user) {
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (isMatch) {
+        return { ok: true, message: "✅ Logged In Successfully ..." };
+      } else {
+        throw new UnauthorizedException("401 | UNAUTHORIZED");
+      }
+    }
   }
 }

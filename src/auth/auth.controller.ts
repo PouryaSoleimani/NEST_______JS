@@ -14,8 +14,8 @@ export class AuthController {
   }
 
   @Post("/login")
-  @UseGuards(LocalAuthGuard)
+  // @UseGuards(LocalAuthGuard)
   login(@Body() body: LoginAuthDto) {
-    return this.authService.login(body);
+    return this.authService.validateUser(body.email, body.password);
   }
 }
