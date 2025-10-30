@@ -2,17 +2,21 @@ import { BadRequestException, Injectable } from "@nestjs/common";
 import { CreateAuthDto } from "./dto/create-auth.dto";
 import { UpdateAuthDto } from "./dto/update-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
+import * as bcrypt from "bcrypt";
 
+const saltOrRounds = 10;
 @Injectable()
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
+
   async register(body: CreateAuthDto) {
+    const hash = await bcrypt.hash(body.password, saltOrRounds);
     const newUser = await this.prisma.user.create({
       data: {
         full_name: body.fullname,
         age: body.age,
         email: body.email,
-        password: body.password,
+        password: hash,
         role: body.role,
       },
     });
@@ -27,19 +31,21 @@ export class AuthService {
     }
   }
 
-  login() {
+  async validate(email: string, password: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { email: email },
+    });
+    if (user) {
+      const isMatch = await bcrypt.compare(user?.password, password);
+      if (isMatch) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
+  async login() {
     return `This action returns all auth`;
-  }
-
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
-
-  update(id: number, updateAuthDto: UpdateAuthDto) {
-    return `This action updates a #${id} auth`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
   }
 }
