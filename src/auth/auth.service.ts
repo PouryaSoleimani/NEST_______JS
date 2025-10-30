@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable } from "@nestjs/common";
-import { CreateAuthDto } from "./dto/create-auth.dto";
-import { UpdateAuthDto } from "./dto/update-auth.dto";
+import { CreateAuthDto } from "./DTO/register-auth.dto";
+import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
 import * as bcrypt from "bcrypt";
 
@@ -31,21 +31,23 @@ export class AuthService {
     }
   }
 
-  async validate(email: string, password: string) {
+  async validateUser(email: string, password: string) {
     const user = await this.prisma.user.findUnique({
       where: { email: email },
     });
-    if (user) {
-      const isMatch = await bcrypt.compare(user?.password, password);
-      if (isMatch) {
-        return true;
-      } else {
-        return false;
-      }
-    }
+    console.log("user", user);
+    // return { email, password };
+    // if (user) {
+    //   const isMatch = await bcrypt.compare(user?.password, password);
+    //   if (isMatch) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // }
   }
 
-  async login() {
+  async login(body: LoginAuthDto) {
     return `This action returns all auth`;
   }
 }

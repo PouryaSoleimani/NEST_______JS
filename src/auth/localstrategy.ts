@@ -8,15 +8,8 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
       usernameField: "email",
     });
   }
-  validate(email: string, password: string) {
-    const isValidate = this.service.validate(email, password);
-    if (!isValidate) {
-      throw new UnauthorizedException();
-    } else {
-      return {
-        ok: true,
-        message: "✅ Logged In successfully ...",
-      };
-    }
+
+  async validate(email: string, password: string) {
+    return await this.service?.validateUser(email, password);
   }
 }
