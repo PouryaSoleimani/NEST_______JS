@@ -29,7 +29,7 @@
     "editor.semanticHighlighting.enabled": false
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.semanticHighlighting.enabled": false
   },
   "workbench.colorCustomizations": {
