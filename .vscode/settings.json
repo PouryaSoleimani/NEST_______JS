@@ -4,7 +4,7 @@
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 1.7,
   "editor.fontSize": 11,
-  "editor.bracketPairColorization.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "editor.fontVariations": false,
   "editor.fontLigatures": true,
