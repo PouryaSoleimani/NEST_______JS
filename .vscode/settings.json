@@ -1,8 +1,8 @@
 {
-  "editor.fontFamily": "'Droid Sans Mono', 'monospace', monospace",
-  "editor.fontWeight": "600",
-  "editor.letterSpacing": 0,
-  "editor.lineHeight": 21,
+  "editor.fontFamily": "Fira Code, Vazir",
+  "editor.fontWeight": "700",
+  "editor.letterSpacing": 0.3,
+  "editor.lineHeight": 1.7,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
@@ -29,7 +29,7 @@
     "editor.semanticHighlighting.enabled": false
   },
   "[typescript]": {
-    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.semanticHighlighting.enabled": false
   },
   "workbench.colorCustomizations": {
