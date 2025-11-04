@@ -1,4 +1,4 @@
-//^ APP MODULE =====================================================================================
+//^ APP MODULE =====================================================================================================
 import { FriendsModule } from "./friends/friends.module";
 import { EmployeesModule } from "./employees/employees.module";
 import { UsersModule } from "./users/users.module";

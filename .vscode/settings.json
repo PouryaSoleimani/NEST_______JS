@@ -1,8 +1,8 @@
 {
-  "editor.fontFamily": "JetBrains mono",
-  "editor.fontWeight": "600",
-  "editor.letterSpacing": 0.2,
-  "editor.lineHeight": 1.7,
+  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontWeight": "800",
+  "editor.letterSpacing": 0.3,
+  "editor.lineHeight": 21,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
@@ -12,7 +12,7 @@
   "window.zoomLevel": -1,
   "editor.minimap.enabled": false,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "monospace",
+  "terminal.integrated.fontFamily": "Noto Sans Mono",
   "terminal.integrated.fontWeight": "700",
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.drawBoldTextInBrightColors": true,
@@ -534,7 +534,7 @@
         }
       }
     ],
-    "[One Darker Pro]": {
+    "[Min]": {
       "textMateRules": [
         {
           "name": "TYPES",
@@ -934,7 +934,7 @@
   },
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
-  "bracketPairColorizer.consecutivePairColors": [
+  "RainbowBrackets.consecutivePairColors": [
     "()",
     "[]",
     "{}",
@@ -967,7 +967,7 @@
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.opacity": 1,
   "workbench.editor.editorActionsLocation": "titleBar",
-  "bracketPairColorizer.depreciation-notice": false,
+  "RainbowBrackets.depreciation-notice": false,
   "window.menuBarVisibility": "toggle",
   "editor.unicodeHighlight.allowedCharacters": {
     "۱": true
