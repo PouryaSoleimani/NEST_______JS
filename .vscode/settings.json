@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Fira Code, Vazir",
+  "editor.fontFamily": "Consolas, Vazir",
   "editor.fontWeight": "700",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 1.7,
@@ -1032,5 +1032,5 @@
     }
   },
   "terminal.integrated.fontSize": 12,
-  "workbench.colorTheme": "One Dark Pro Night Flat"
+  "workbench.colorTheme": "Default Dark Modern"
 }
