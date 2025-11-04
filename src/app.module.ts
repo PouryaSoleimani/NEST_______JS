@@ -39,7 +39,7 @@ import { AuthModule } from './auth/auth.module';
     ProductsRepository,
     AtriclesModule,
     ArticlesService,
-    ArticlesRepository,
+    ArticlesRepository, 
     PlayersService,
     PlayersRepository,
     // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, //~ SETTING AN INTERCEPTOR GLOBALLY

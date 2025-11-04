@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Consolas, Vazir",
+  "editor.fontFamily": "JetBrains mono",
   "editor.fontWeight": "600",
   "editor.letterSpacing": 0.2,
   "editor.lineHeight": 1.7,
@@ -33,7 +33,7 @@
     "editor.semanticHighlighting.enabled": false
   },
   "workbench.colorCustomizations": {
-    "[Default Dark Modern]": {
+    "[Dark Modern Fit]": {
       "editor.background": "#131313",
       "breadcrumb.background": "#131313",
       "editorGutter.background": "#131313",
@@ -558,11 +558,7 @@
         },
         {
           "name": "TYPES",
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.property",
-            "meta.object-literal.key"
-          ],
+          "scope": ["variable.other.object.property", "variable.other.property", "meta.object-literal.key"],
           "settings": {
             "foreground": "#E5C07B"
           }
@@ -612,11 +608,7 @@
         },
         {
           "name": "TYPES",
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.property",
-            "meta.object-literal.key"
-          ],
+          "scope": ["variable.other.object.property", "variable.other.property", "meta.object-literal.key"],
           "settings": {
             "foreground": "#E5C07B"
           }
@@ -771,11 +763,7 @@
     "[Vercel (Dark)]": {
       "textMateRules": [
         {
-          "scope": [
-            "support.type.primitive",
-            "entity.name.type",
-            "entity.name.type.class"
-          ],
+          "scope": ["support.type.primitive", "entity.name.type", "entity.name.type.class"],
           "settings": {
             "foreground": "#fc8b4a"
           }
@@ -835,11 +823,7 @@
     "[Min Dark]": {
       "textMateRules": [
         {
-          "scope": [
-            "entity.name.type.class",
-            "support.type.primitive",
-            "constant.language.undefined"
-          ],
+          "scope": ["entity.name.type.class", "support.type.primitive", "constant.language.undefined"],
           "settings": {
             "foreground": "#b392f0"
           }
@@ -1032,5 +1016,5 @@
     }
   },
   "terminal.integrated.fontSize": 12,
-  "workbench.colorTheme": "Default Dark Modern"
+  "workbench.colorTheme": "Min Theme+"
 }
