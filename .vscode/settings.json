@@ -1,7 +1,7 @@
 {
   "editor.fontFamily": "Consolas, Vazir",
-  "editor.fontWeight": "700",
-  "editor.letterSpacing": 0.3,
+  "editor.fontWeight": "600",
+  "editor.letterSpacing": 0.2,
   "editor.lineHeight": 1.7,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": true,
@@ -12,7 +12,7 @@
   "window.zoomLevel": -1,
   "editor.minimap.enabled": false,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "FiraCode Nerd Font Propo",
+  "terminal.integrated.fontFamily": "monospace",
   "terminal.integrated.fontWeight": "700",
   "terminal.integrated.minimumContrastRatio": 1,
   "terminal.integrated.drawBoldTextInBrightColors": true,
