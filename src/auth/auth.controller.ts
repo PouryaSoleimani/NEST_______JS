@@ -2,6 +2,7 @@ import { Controller, Get, Post, Body, Patch, Param, Delete, UseGuards } from "@n
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
+import { LocalAuthGuard } from "./auth.guard";
 
 @Controller("/auth")
 export class AuthController {
@@ -13,7 +14,7 @@ export class AuthController {
   }
 
   @Post("/login")
-  // @UseGuards(LocalAuthGuard)
+  @UseGuards(LocalAuthGuard)
   login(@Body() body: LoginAuthDto) {
     return this.authService.validateUser(body.email, body.password);
   }
