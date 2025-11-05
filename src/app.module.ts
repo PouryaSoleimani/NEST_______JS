@@ -27,11 +27,19 @@ import { UserGetSingleInterceptor } from "./users/users.interceptor";
 import { FriendsMiddleware } from "./friends/friends.middleware";
 import { CardsModule } from "./cards/cars.module";
 import { CarsMiddleware } from "./cards/cars.middleware";
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from "./auth/auth.module";
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
-  imports: [FriendsModule, EmployeesModule, PrismaModule, UsersModule, AtriclesModule, CardsModule, AuthModule],
+  imports: [
+    FriendsModule,
+    EmployeesModule,
+    PrismaModule,
+    UsersModule,
+    AtriclesModule,
+    CardsModule,
+    AuthModule,
+  ],
   providers: [
     PrismaService,
     UsersService,
@@ -39,7 +47,7 @@ import { AuthModule } from './auth/auth.module';
     ProductsRepository,
     AtriclesModule,
     ArticlesService,
-    ArticlesRepository, 
+    ArticlesRepository,
     PlayersService,
     PlayersRepository,
     // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, //~ SETTING AN INTERCEPTOR GLOBALLY

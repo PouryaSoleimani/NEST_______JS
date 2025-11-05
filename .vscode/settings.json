@@ -1,6 +1,6 @@
 {
-  "editor.fontFamily": "JetBrains Mono",
-  "editor.fontWeight": "800",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontWeight": "600",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 21,
   "editor.fontSize": 11,
@@ -185,6 +185,7 @@
       "foreground": "#f7f9fa",
       "editor.lineHighlightBackground": "#000",
       "editor.foldBackground": "#000000db",
+      "panel.border": "#696969",
       "statusBar.background": "#000",
       "menu.background": "#000",
       "editorWidget.background": "#000",
@@ -967,7 +968,6 @@
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.opacity": 1,
   "workbench.editor.editorActionsLocation": "titleBar",
-  "RainbowBrackets.depreciation-notice": false,
   "window.menuBarVisibility": "toggle",
   "editor.unicodeHighlight.allowedCharacters": {
     "۱": true
