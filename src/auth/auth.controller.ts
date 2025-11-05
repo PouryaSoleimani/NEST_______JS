@@ -12,9 +12,10 @@ export class AuthController {
     return this.authService.register(body);
   }
 
-  @Post("/login") 
+  @Post("/login")
   // @UseGuards(LocalAuthGuard)
   login(@Body() body: LoginAuthDto) {
     return this.authService.validateUser(body.email, body.password);
   }
 }
+ 

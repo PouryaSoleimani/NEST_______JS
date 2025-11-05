@@ -1,8 +1,8 @@
 {
-  "editor.fontFamily": "Fira Code",
-  "editor.fontWeight": "600",
+  "editor.fontFamily": "Noto Mono",
+  "editor.fontWeight": "800",
   "editor.letterSpacing": 0.3,
-  "editor.lineHeight": 21,
+  "editor.lineHeight": 20,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
@@ -34,14 +34,14 @@
   },
   "workbench.colorCustomizations": {
     "[Dark Modern Fit]": {
-      "editor.background": "#131313",
-      "breadcrumb.background": "#131313",
-      "editorGutter.background": "#131313",
-      "tab.activeBackground": "#131313",
-      "input.background": "#131313",
-      "tab.activeBorder": "#131313",
-      "editorGroup.emptyBackground": "#131313",
-      "tab.hoverBorder": "#13131300",
+      "editor.background": "#0a0a0a",
+      "breadcrumb.background": "#0a0a0a",
+      "editorGutter.background": "#0a0a0a",
+      "tab.activeBackground": "#0a0a0a",
+      "input.background": "#0a0a0a",
+      "tab.activeBorder": "#0a0a0a",
+      "editorGroup.emptyBackground": "#0a0a0a",
+      "tab.hoverBorder": "#0a0a0a00",
       "editorLineNumber.foreground": "#898989bf",
       "editorLineNumber.activeForeground": "#afafaf",
       "editorIndentGuide.background1": "#484848",
@@ -177,6 +177,7 @@
       "titleBar.border": "#696969",
       "sideBar.foreground": "#fff",
       "sideBar.border": "#696969",
+      "panelTitle.activeBorder": "#fff",
       "tab.inactiveForeground": "#858585",
       "activityBarTop.activeBackground": "#696969",
       "sideBarActivityBarTop.border": "#696969",
@@ -227,7 +228,8 @@
       "editorInlayHint.background": "#000000",
       "editorPane.background": "#000000",
       "editorGutter.modifiedBackground": "#ccb576a1",
-      "gitDecoration.modifiedResourceForeground": "#ccb576"
+      "gitDecoration.modifiedResourceForeground": "#ccb576",
+      "button.background": "#fabb14"
     },
     "[GitHub Dark Default]": {
       "titleBar.activeBackground": "#010409",
@@ -535,7 +537,7 @@
         }
       }
     ],
-    "[Min]": {
+    "[Min Theme+]": {
       "textMateRules": [
         {
           "name": "TYPES",
@@ -559,7 +561,10 @@
         },
         {
           "name": "TYPES",
-          "scope": ["variable.other.object.property", "variable.other.property", "meta.object-literal.key"],
+          "scope": [
+            "variable.other.object.property",
+            "variable.other.property",
+          ],
           "settings": {
             "foreground": "#E5C07B"
           }
@@ -609,7 +614,11 @@
         },
         {
           "name": "TYPES",
-          "scope": ["variable.other.object.property", "variable.other.property", "meta.object-literal.key"],
+          "scope": [
+            "variable.other.object.property",
+            "variable.other.property",
+            "meta.object-literal.key"
+          ],
           "settings": {
             "foreground": "#E5C07B"
           }
@@ -764,7 +773,11 @@
     "[Vercel (Dark)]": {
       "textMateRules": [
         {
-          "scope": ["support.type.primitive", "entity.name.type", "entity.name.type.class"],
+          "scope": [
+            "support.type.primitive",
+            "entity.name.type",
+            "entity.name.type.class"
+          ],
           "settings": {
             "foreground": "#fc8b4a"
           }
@@ -824,7 +837,11 @@
     "[Min Dark]": {
       "textMateRules": [
         {
-          "scope": ["entity.name.type.class", "support.type.primitive", "constant.language.undefined"],
+          "scope": [
+            "entity.name.type.class",
+            "support.type.primitive",
+            "constant.language.undefined"
+          ],
           "settings": {
             "foreground": "#b392f0"
           }

@@ -9,14 +9,15 @@ const saltOrRounds = 10;
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
 
+  //REGISTER
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
     const newUser = await this.prisma.user.create({
       data: {
         full_name: body.fullname,
         age: body.age,
-        email: body.email,
         password: hash,
+        email: body.email,
         role: body.role,
       },
     });
@@ -25,12 +26,13 @@ export class AuthService {
     } else {
       return {
         ok: true,
-        message: "201 | USER CREATED",
+        message: "201 | USER CREATED ...",
         data: newUser,
       };
     }
   }
 
+  // VALIDATE
   async validateUser(email: string, password: string) {
     const user = await this.prisma.user.findUnique({
       where: { email: email },
