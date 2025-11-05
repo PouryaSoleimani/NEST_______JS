@@ -1,6 +1,6 @@
 {
   "editor.fontFamily": "Noto Mono",
-  "editor.fontWeight": "800",
+  "editor.fontWeight": "900",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 20,
   "editor.fontSize": 11,
@@ -228,8 +228,7 @@
       "editorInlayHint.background": "#000000",
       "editorPane.background": "#000000",
       "editorGutter.modifiedBackground": "#ccb576a1",
-      "gitDecoration.modifiedResourceForeground": "#ccb576",
-      "button.background": "#fabb14"
+      "gitDecoration.modifiedResourceForeground": "#ccb576"
     },
     "[GitHub Dark Default]": {
       "titleBar.activeBackground": "#010409",
@@ -561,10 +560,7 @@
         },
         {
           "name": "TYPES",
-          "scope": [
-            "variable.other.object.property",
-            "variable.other.property",
-          ],
+          "scope": ["variable.other.object.property", "variable.other.property"],
           "settings": {
             "foreground": "#E5C07B"
           }

@@ -5,6 +5,7 @@ import { PrismaService } from "src/prisma/prisma.service";
 import * as bcrypt from "bcrypt";
 
 const saltOrRounds = 10;
+
 @Injectable()
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
