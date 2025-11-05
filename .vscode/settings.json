@@ -1028,6 +1028,6 @@
       "args": ["-d", "Ubuntu"]
     }
   },
-  "terminal.integrated.fontSize": 12,
+  "terminal.integrated.fontSize": 15,
   "workbench.colorTheme": "Min Theme+"
 }
