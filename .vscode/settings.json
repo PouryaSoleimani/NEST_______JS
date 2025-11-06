@@ -1,6 +1,6 @@
 {
-  "editor.fontFamily": "Noto Mono",
-  "editor.fontWeight": "900",
+  "editor.fontFamily": "Fira Code",
+  "editor.fontWeight": "700",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 21,
   "editor.fontSize": 11,
