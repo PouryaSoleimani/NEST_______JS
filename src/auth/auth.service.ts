@@ -41,7 +41,7 @@ export class AuthService {
     if (user) {
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
-        return { ok: true, message: "✅ Logged In Successfully ..." };
+        return { ok: true };
       } else {
         throw new UnauthorizedException("401 | UNAUTHORIZED");
       }
