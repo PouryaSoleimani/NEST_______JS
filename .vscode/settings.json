@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Fira code",
+  "editor.fontFamily": "Noto Sans Mono",
   "editor.fontWeight": "700",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 21,
@@ -204,7 +204,7 @@
       "sideBarSectionHeader.background": "#000",
       "sideBarSectionHeader.foreground": "#fff",
       "sideBarSectionHeader.border": "#696969",
-      "selection.background": "#e6e6e6f0",
+      "selection.background": "#9b9b9bf0",
       "editor.selectionBackground": "#63626278",
       "titleBar.activeForeground": "#fff",
       "statusBar.foreground": "#ccc",
