@@ -1,6 +1,6 @@
 {
-  "editor.fontFamily": "JetBrains Mono",
-  "editor.fontWeight": "700",
+  "editor.fontFamily": "Noto Mono",
+  "editor.fontWeight": "900",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 21,
   "editor.fontSize": 11,
@@ -34,13 +34,13 @@
   },
   "workbench.colorCustomizations": {
     "[Dark Modern Fit]": {
-      "editor.background": "#0a0a0a",
-      "breadcrumb.background": "#0a0a0a",
-      "editorGutter.background": "#0a0a0a",
-      "tab.activeBackground": "#0a0a0a",
-      "input.background": "#0a0a0a",
-      "tab.activeBorder": "#0a0a0a",
-      "editorGroup.emptyBackground": "#0a0a0a",
+      "editor.background": "#191919",
+      "breadcrumb.background": "#191919",
+      "editorGutter.background": "#191919",
+      "tab.activeBackground": "#191919",
+      "input.background": "#191919",
+      "tab.activeBorder": "#191919",
+      "editorGroup.emptyBackground": "#191919",
       "tab.hoverBorder": "#0a0a0a00",
       "editorLineNumber.foreground": "#898989bf",
       "editorLineNumber.activeForeground": "#afafaf",
@@ -492,7 +492,8 @@
           "punctuation.definition.comment",
           "keyword.control.trycatch",
           "storage.type.class",
-          "variable.language.this"
+          "variable.language.this",
+          "variable.language.super"
         ],
         "settings": {
           "fontStyle": ""
