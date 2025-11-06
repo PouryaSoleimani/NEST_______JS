@@ -1,8 +1,9 @@
-import { Controller, Post, Body, UnauthorizedException } from "@nestjs/common";
+import { Controller, Post, Body, UnauthorizedException, UseGuards } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { JwtService } from "@nestjs/jwt";
+import { JwtAuthGuard } from "./auth.guard";
 
 @Controller("/auth")
 export class AuthController {
@@ -17,7 +18,7 @@ export class AuthController {
   }
 
   @Post("/login")
-  // @UseGuards(LocalAuthGuard) // FOR USING PASSPORT-LOCAL
+  @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
   async login(@Body() body: LoginAuthDto) {
     const result = await this.authService.validateUser(body.email, body.password);
     if (result?.ok !== true) {
