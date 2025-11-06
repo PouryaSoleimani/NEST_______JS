@@ -1,5 +1,5 @@
 {
-  "editor.fontFamily": "Noto Mono",
+  "editor.fontFamily": "Consolas",
   "editor.fontWeight": "800",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 21,
@@ -228,7 +228,14 @@
       "editorInlayHint.background": "#000000",
       "editorPane.background": "#000000",
       "editorGutter.modifiedBackground": "#ccb576a1",
-      "gitDecoration.modifiedResourceForeground": "#ccb576"
+      "gitDecoration.modifiedResourceForeground": "#ccb576",
+      "button.background": "#016B61",
+      "badge.background": "#FF8040",
+      "badge.foreground": "#000",
+      "panelTitleBadge.background": "#FF8040",
+      "panelTitleBadge.foreground": "#000",
+      "activityBarBadge.background": "#FF8040",
+      "activityBarBadge.foreground": "#000"
     },
     "[GitHub Dark Default]": {
       "titleBar.activeBackground": "#010409",
@@ -968,7 +975,6 @@
   "workbench.editor.pinnedTabSizing": "normal",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "github.copilot.nextEditSuggestions.enabled": true,
-  "cody.commandCodeLenses": true,
   "diffEditor.ignoreTrimWhitespace": false,
   "editor.cursorWidth": 3,
   "editor.cursorSmoothCaretAnimation": "on",
@@ -977,7 +983,6 @@
   "editor.scrollbar.horizontalScrollbarSize": 0,
   "gitlens.views.commits.files.layout": "list",
   "extensions.ignoreRecommendations": true,
-  "cody.suggestions.mode": "autocomplete",
   "editor.tabSize": 2,
   "material-icon-theme.folders.theme": "specific",
   "material-icon-theme.opacity": 1,
@@ -1009,7 +1014,6 @@
     "C:\\Users\\Persian\\AppData\\Local\\Temp\\postman-http-request-pre-request.instructions.md": true
   },
   "postman.mcp.notifications.postmanMCP": false,
-  "window.border": "",
   "workbench.sideBar.location": "right",
   "terminal.integrated.profiles.windows": {
     "PowerShell": {
