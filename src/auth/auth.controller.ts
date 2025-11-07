@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UnauthorizedException, UseGuards } from "@nestjs/common";
+import { Controller, Post, Body, UnauthorizedException, UseGuards, Get } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
@@ -18,7 +18,7 @@ export class AuthController {
   }
 
   @Post("/login")
-  @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
+  // @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
   async login(@Body() body: LoginAuthDto) {
     const result = await this.authService.validateUser(body.email, body.password);
     if (result?.ok !== true) {
@@ -31,5 +31,12 @@ export class AuthController {
       };
     }
   }
+
+
+  //^ USING JWT GUARD
+  @UseGuards(JwtAuthGuard)
+  @Get("/users")
+  getUsers() {
+    return "USERS ROUTE";
+  }
 }
- 

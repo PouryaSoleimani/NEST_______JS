@@ -15,3 +15,4 @@ export class JwtStrategy extends PassportStrategy(JWT_STRATEGY) {
     return await this.service?.validateUser(email, password);
   }
 }
+ 
