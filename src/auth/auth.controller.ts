@@ -1,9 +1,9 @@
-import { Controller, Post, Body, UnauthorizedException, UseGuards, Get } from "@nestjs/common";
+import { Controller, Post, Body, UnauthorizedException, UseGuards, Get, Request } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { JwtService } from "@nestjs/jwt";
-import { JwtAuthGuard } from "./auth.guard";
+import { JwtAuthGuard } from "./jwt.guard";
 
 @Controller("/auth")
 export class AuthController {
@@ -32,11 +32,14 @@ export class AuthController {
     }
   }
 
-
   //^ USING JWT GUARD
   @UseGuards(JwtAuthGuard)
   @Get("/users")
-  getUsers() {
-    return "USERS ROUTE";
+  getUsers(@Request() req: any) {
+    return {
+      ok: true,
+      message: "USERS ROUTE",
+      user: req.user,
+    };
   }
 }
