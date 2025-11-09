@@ -35,11 +35,10 @@ export class AuthController {
   //^ USING JWT GUARD
   @UseGuards(JwtAuthGuard)
   @Get("/users")
-  getUsers(@Request() req: any) {
+  getUsers() {
     return {
       ok: true,
       message: "USERS ROUTE",
-      user: req.user,
     };
   }
 }
