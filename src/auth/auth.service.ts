@@ -47,16 +47,5 @@ export class AuthService {
     }
   }
 
-  async getAllEmployees() {
-    const employees = await this.prisma.employee.findMany();
-    if (!employees || employees.length === 0) {
-      throw new NotFoundException("404 | NO EMPLOYEES FOUND");
-    } else {
-      return {
-        ok: true,
-        message: "ALL EMPLOYEES",
-        data: employees,
-      };
-    }
-  }
+
 }
