@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
 import * as bcrypt from "bcrypt";
@@ -8,7 +8,7 @@ const saltOrRounds = 10;
 @Injectable()
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
- 
+
   //REGISTER
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
@@ -44,6 +44,19 @@ export class AuthService {
       } else {
         throw new UnauthorizedException("401 | UNAUTHORIZED");
       }
+    }
+  }
+
+  async getAllEmployees() {
+    const employees = await this.prisma.employee.findMany();
+    if (!employees || employees.length === 0) {
+      throw new NotFoundException("404 | NO EMPLOYEES FOUND");
+    } else {
+      return {
+        ok: true,
+        message: "ALL EMPLOYEES",
+        data: employees,
+      };
     }
   }
 }

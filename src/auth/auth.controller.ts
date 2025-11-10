@@ -32,6 +32,10 @@ export class AuthController {
     }
   }
 
+  @Get("/employees")
+  getAllEmployees() {
+    return this.authService.getAllEmployees();
+  }
   // //^ USING JWT GUARD
   @UseGuards(JwtAuthGuard)
   @Get("/users")
