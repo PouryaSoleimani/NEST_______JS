@@ -8,7 +8,7 @@ const saltOrRounds = 10;
 @Injectable()
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
-
+ 
   //REGISTER
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
