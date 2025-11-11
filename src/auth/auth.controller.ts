@@ -1,4 +1,4 @@
-import { Controller, Post, Body, UnauthorizedException, UseGuards, Get, Request } from "@nestjs/common";
+import { Controller, Post, Body, UnauthorizedException, UseGuards, Get, Request, NotFoundException } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
@@ -34,13 +34,24 @@ export class AuthController {
 
   // //^ USING JWT GUARD
   @UseGuards(JwtAuthGuard)
-  @Get("/users")
-  getUser(@Request() req: any) {
+  @Get("/profile-infos")
+  async getUser(@Request() req: any) {
     console.log(req.user);
+    const infos = await this.authService.userInfos(req.user);
+    if (!infos) {
+      throw new NotFoundException();
+    }
     return {
       ok: true,
-      message: "ALL USERS",
-      user: req.user,
+      message: "USER INFOS :",
+      userInfo: {
+        email: infos?.email,
+        fullname: infos?.full_name,
+        age: infos?.age,
+        role: infos?.role,
+        createdAt: infos?.createdAt,
+        updatedAt: infos?.updatedAt,
+      },
     };
   }
 }
