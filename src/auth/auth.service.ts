@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable, NotFoundException, UnauthorizedException } from "@nestjs/common";
+import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/common";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
 import * as bcrypt from "bcrypt";
