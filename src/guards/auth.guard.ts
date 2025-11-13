@@ -13,7 +13,9 @@ export class AuthGuardGetAll implements CanActivate {
 }
 
 export class AuthGuardGetSingle implements CanActivate {
-  canActivate(context: ExecutionContext): boolean | Promise<boolean> | Observable<boolean> {
+  canActivate(
+    context: ExecutionContext,
+  ): boolean | Promise<boolean> | Observable<boolean> {
     const res = context.switchToHttp().getRequest();
     return true;
   }

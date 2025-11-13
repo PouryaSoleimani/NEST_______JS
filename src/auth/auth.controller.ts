@@ -14,6 +14,7 @@ import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { JwtService } from "@nestjs/jwt";
 import { JwtAuthGuard } from "./jwt.guard";
 import { RolesDecorator } from "src/deocrators/roles.decorator";
+import { RoleGuard } from "src/guards/roles.guard";
 
 @Controller("/auth")
 export class AuthController {
@@ -30,7 +31,11 @@ export class AuthController {
   // @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
   @Post("/login")
   async login(@Body() body: LoginAuthDto) {
-    const token = this.jwtService.sign({ email: body.email, password: body.password });
+    const token = this.jwtService.sign({
+      email: body.email,
+      password: body.password,
+      role: body.role,
+    });
     const result = await this.authService.validateUser(body.email, body.password);
 
     if (result?.ok) {
@@ -49,7 +54,7 @@ export class AuthController {
   }
 
   // USING JWT GUARD
-  @UseGuards(JwtAuthGuard)
+  @UseGuards(JwtAuthGuard, RoleGuard)
   @RolesDecorator("ADMIN")
   @Get("/profile-infos")
   async getUser(@Request() req: any) {

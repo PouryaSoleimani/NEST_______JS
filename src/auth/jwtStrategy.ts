@@ -20,7 +20,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         "You Dont have Access to this page , Please login first",
       );
     }
-    return { email: payload.email, password: payload.password };
+    return { email: payload.email, password: payload.password, role: payload.role };
   }
 }
   

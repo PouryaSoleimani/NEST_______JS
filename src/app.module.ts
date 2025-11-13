@@ -22,12 +22,13 @@ import { AppMiddleWare } from "./app.middleware";
 import { PlayersMiddleware } from "./players/players.middleware";
 import { UsersMiddleWare } from "./users/users.middleware";
 import { ProductsMiddleware } from "./products/products.middleware";
-import { APP_INTERCEPTOR } from "@nestjs/core";
+import { APP_GUARD, APP_INTERCEPTOR } from "@nestjs/core";
 import { UserGetSingleInterceptor } from "./users/users.interceptor";
 import { FriendsMiddleware } from "./friends/friends.middleware";
 import { CardsModule } from "./cards/cars.module";
 import { CarsMiddleware } from "./cards/cars.middleware";
 import { AuthModule } from "./auth/auth.module";
+import { RoleGuard } from "./guards/roles.guard";
 
 @Module({
   controllers: [AppController, ProductsController, ArticlesController, PlayersController],
@@ -51,17 +52,27 @@ import { AuthModule } from "./auth/auth.module";
     PlayersService,
     PlayersRepository,
     // { provide: APP_INTERCEPTOR, useClass: UserGetSingleInterceptor }, //~ SETTING AN INTERCEPTOR GLOBALLY
-    // { provide: APP_GUARD, useClass: AuthGuard }, //* SETTING A GUARD GLOBALLY
+    // { provide: APP_GUARD, useClass: RoleGuard }, //* SETTING A GUARD GLOBALLY
   ],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes("/");
-    consumer.apply(EmployeesMiddleWare).forRoutes({ path: "employees", method: RequestMethod.GET });
-    consumer.apply(PlayersMiddleware).forRoutes({ path: "players", method: RequestMethod.GET });
-    consumer.apply(UsersMiddleWare).forRoutes({ path: "users", method: RequestMethod.GET });
-    consumer.apply(ProductsMiddleware).forRoutes({ path: "products", method: RequestMethod.ALL });
-    consumer.apply(FriendsMiddleware).forRoutes({ path: "friends", method: RequestMethod.ALL });
+    consumer
+      .apply(EmployeesMiddleWare)
+      .forRoutes({ path: "employees", method: RequestMethod.GET });
+    consumer
+      .apply(PlayersMiddleware)
+      .forRoutes({ path: "players", method: RequestMethod.GET });
+    consumer
+      .apply(UsersMiddleWare)
+      .forRoutes({ path: "users", method: RequestMethod.GET });
+    consumer
+      .apply(ProductsMiddleware)
+      .forRoutes({ path: "products", method: RequestMethod.ALL });
+    consumer
+      .apply(FriendsMiddleware)
+      .forRoutes({ path: "friends", method: RequestMethod.ALL });
     consumer.apply(CarsMiddleware).forRoutes({ path: "cars", method: RequestMethod.ALL });
   }
 }
