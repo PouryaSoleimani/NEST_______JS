@@ -77,9 +77,11 @@ export class AuthService {
       where: { email: email },
       data: { token: null },
     });
+
     if (!result) {
       throw new BadRequestException();
     }
+    
     return {
       ok: true,
       message: "logged out ...",
