@@ -1,4 +1,12 @@
-import { Controller, Post, Body, UnauthorizedException, UseGuards, Get, Request, NotFoundException } from "@nestjs/common";
+import {
+  Controller,
+  Post,
+  Body,
+  UnauthorizedException,
+  UseGuards,
+  Get,
+  Request,
+} from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
@@ -39,7 +47,7 @@ export class AuthController {
     }
   }
 
-  // //^ USING JWT GUARD
+  // USING JWT GUARD
   @UseGuards(JwtAuthGuard)
   @Get("/profile-infos")
   async getUser(@Request() req: any) {
@@ -69,4 +77,4 @@ export class AuthController {
   async logout(@Request() req: any) {
     return this.authService.removeToken(req.body.email);
   }
-}  
+}
