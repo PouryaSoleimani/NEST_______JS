@@ -1,3 +1,4 @@
+//^ AUTH SERVICE ============================================================================================
 import { BadRequestException, Injectable, UnauthorizedException } from "@nestjs/common";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { PrismaService } from "src/prisma/prisma.service";
@@ -9,7 +10,6 @@ const saltOrRounds = 10;
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
 
-  // REGISTER
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
     const newUser = await this.prisma.user.create({
@@ -32,14 +32,13 @@ export class AuthService {
     }
   }
 
-  // VALIDATE
   async validateUser(email: string, password: string) {
     const user = await this.prisma.user.findUnique({
       where: { email: email },
     });
     if (user) {
       const isMatch = await bcrypt.compare(password, user.password);
-      if (isMatch || user.token !== null) {
+      if (isMatch) {
         return { ok: true, user: user };
       } else {
         throw new UnauthorizedException("401 | UNAUTHORIZED");
@@ -65,7 +64,6 @@ export class AuthService {
     });
   }
 
-  // USER INFOS
   async userInfos(user: any) {
     console.log("email", user.email);
     const infos = await this.prisma.user.findUnique({

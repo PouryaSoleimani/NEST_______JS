@@ -1,3 +1,4 @@
+//^ AUTH CONTROLLLER ======================================================================
 import {
   Controller,
   Post,
@@ -25,11 +26,10 @@ export class AuthController {
     return this.authService.register(body);
   }
 
-  @Post("/login")
   // @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
+  @Post("/login")
   async login(@Body() body: LoginAuthDto) {
     const token = this.jwtService.sign({ email: body.email, password: body.password });
-
     const result = await this.authService.validateUser(body.email, body.password);
 
     if (result?.ok) {
