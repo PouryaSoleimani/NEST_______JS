@@ -7,12 +7,14 @@ import {
   UseGuards,
   Get,
   Request,
+  SetMetadata,
 } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { JwtService } from "@nestjs/jwt";
 import { JwtAuthGuard } from "./jwt.guard";
+import { RolesDecorator } from "src/deocrators/role.decorator";
 
 @Controller("/auth")
 export class AuthController {
@@ -45,10 +47,11 @@ export class AuthController {
         token: token,
       };
     }
-  }
+  } 
 
   // USING JWT GUARD
   @UseGuards(JwtAuthGuard)
+  @RolesDecorator("ADMIN")
   @Get("/profile-infos")
   async getUser(@Request() req: any) {
     const isValid = await this.authService.validateUserToken(req.user.email);

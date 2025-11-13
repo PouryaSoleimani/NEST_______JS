@@ -65,7 +65,7 @@ export class AuthService {
   }
 
   async userInfos(user: any) {
-    console.log("email", user.email);
+    // console.log("email", user.email);
     const infos = await this.prisma.user.findUnique({
       where: { email: user.email },
     });
@@ -81,7 +81,7 @@ export class AuthService {
     if (!result) {
       throw new BadRequestException();
     }
-    
+
     return {
       ok: true,
       message: "logged out ...",
