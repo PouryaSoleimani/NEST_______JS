@@ -7,7 +7,6 @@ import {
   UseGuards,
   Get,
   Request,
-  SetMetadata,
 } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
