@@ -61,8 +61,8 @@ export class AuthController {
     }
   }
 
-  // USING JWT GUARD
-  @RolesDecorator("ADMIN")
+
+  @RolesDecorator("ADMIN","USER")
   @UseGuards(JwtAuthGuard, RoleGuard)
   @Get("/profile-infos")
   async getUser(@Request() req: any) {
