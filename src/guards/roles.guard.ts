@@ -2,6 +2,7 @@ import { CanActivate, ExecutionContext, Injectable } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 @Injectable()
 export class RoleGuard implements CanActivate {
+  //REFLECTOR
   constructor(private reflector: Reflector) {}
 
   canActivate(context: ExecutionContext) {
@@ -11,6 +12,7 @@ export class RoleGuard implements CanActivate {
 
     console.log("USER ROLE ==>", role);
     console.log("GET ==>", getHandler);
+
     const isValid = getHandler.some((item: any) => item === role);
 
     if (isValid == true) {
