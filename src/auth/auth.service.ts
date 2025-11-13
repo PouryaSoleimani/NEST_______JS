@@ -31,6 +31,7 @@ export class AuthService {
       };
     }
   }
+  
   //^ VALIDATE
   async validateUser(email: string, password: string) {
     const user = await this.prisma.user.findUnique({
@@ -39,12 +40,20 @@ export class AuthService {
     if (user) {
       const isMatch = await bcrypt.compare(password, user.password);
       if (isMatch) {
-        return { ok: true };
+        return { ok: true, user: user };
       } else {
         throw new UnauthorizedException("401 | UNAUTHORIZED");
       }
     }
   }
+
+  async addToken(id: number, token: string) {
+    await this.prisma.user.update({
+      where: { id: id },
+      data: { token: token },
+    });
+  }
+
   //^ USER INFOS
   async userInfos(user: any) {
     console.log("email", user.email);
