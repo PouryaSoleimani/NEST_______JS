@@ -47,6 +47,17 @@ export class AuthService {
     }
   }
 
+  async validateUserToken(email: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { email : email },
+    });
+    if (user?.token == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   async addToken(id: number, token: string) {
     await this.prisma.user.update({
       where: { id: id },

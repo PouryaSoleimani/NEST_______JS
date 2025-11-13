@@ -20,10 +20,11 @@ export class AuthController {
   @Post("/login")
   // @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
   async login(@Body() body: LoginAuthDto) {
-    const result = await this.authService.validateUser(body.email, body.password);
     const token = this.jwtService.sign({ email: body.email, password: body.password });
 
-    if (result) {
+    const result = await this.authService.validateUser(body.email, body.password);
+
+    if (result?.ok) {
       await this.authService.addToken(result?.user.id, token);
     }
 
@@ -42,11 +43,13 @@ export class AuthController {
   @UseGuards(JwtAuthGuard)
   @Get("/profile-infos")
   async getUser(@Request() req: any) {
-    console.log(req.user);
+    const isValid = await this.authService.validateUserToken(req.user.email);
     const infos = await this.authService.userInfos(req.user);
-    if (!infos) {
-      throw new NotFoundException();
+
+    if (!infos || !isValid) {
+      throw new UnauthorizedException("YOU MUST LOG IN FIRST TO HAVE ACCESS");
     }
+
     return {
       ok: true,
       message: "USER INFOS :",
