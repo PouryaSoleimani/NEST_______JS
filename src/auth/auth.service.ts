@@ -31,7 +31,7 @@ export class AuthService {
       };
     }
   }
-  
+
   //^ VALIDATE
   async validateUser(email: string, password: string) {
     const user = await this.prisma.user.findUnique({
@@ -39,7 +39,7 @@ export class AuthService {
     });
     if (user) {
       const isMatch = await bcrypt.compare(password, user.password);
-      if (isMatch) {
+      if (isMatch || user.token !== null) {
         return { ok: true, user: user };
       } else {
         throw new UnauthorizedException("401 | UNAUTHORIZED");
@@ -61,5 +61,19 @@ export class AuthService {
       where: { email: user.email },
     });
     return infos;
+  }
+
+  async removeToken(email: string) {
+    const result = await this.prisma.user.update({
+      where: { email: email },
+      data: { token: null },
+    });
+    if (!result) {
+      throw new BadRequestException();
+    }
+    return {
+      ok: true,
+      message: "logged out ...",
+    };
   }
 }

@@ -20,11 +20,13 @@ export class AuthController {
   @Post("/login")
   // @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
   async login(@Body() body: LoginAuthDto) {
-    const result = await this.authService.validateUser(body.email, body.password); 
+    const result = await this.authService.validateUser(body.email, body.password);
     const token = this.jwtService.sign({ email: body.email, password: body.password });
-    if(result){
+
+    if (result) {
       await this.authService.addToken(result?.user.id, token);
     }
+
     if (result?.ok !== true) {
       throw new UnauthorizedException("403 | UNAUTHORIZED");
     } else {
@@ -58,4 +60,10 @@ export class AuthController {
       },
     };
   }
-} 
+
+  @UseGuards(JwtAuthGuard)
+  @Post("/logout")
+  async logout(@Request() req: any) {
+    return this.authService.removeToken(req.body.email);
+  }
+}  

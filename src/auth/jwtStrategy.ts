@@ -11,6 +11,7 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       secretOrKey: "POURYA__SECRET",
     });
   }
+
   async validate(payload: any) {
     return { email: payload.email, password: payload.password };
   }
