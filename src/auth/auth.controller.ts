@@ -13,7 +13,7 @@ import { CreateAuthDto } from "./DTO/register-auth.dto";
 import { LoginAuthDto } from "./DTO/login-auth.dto";
 import { JwtService } from "@nestjs/jwt";
 import { JwtAuthGuard } from "./jwt.guard";
-import { RolesDecorator } from "src/deocrators/role.decorator";
+import { RolesDecorator } from "src/deocrators/roles.decorator";
 
 @Controller("/auth")
 export class AuthController {
