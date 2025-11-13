@@ -47,7 +47,7 @@ export class AuthController {
         token: token,
       };
     }
-  } 
+  }
 
   // USING JWT GUARD
   @UseGuards(JwtAuthGuard)
