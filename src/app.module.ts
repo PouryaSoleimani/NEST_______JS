@@ -58,9 +58,9 @@ import { RoleGuard } from "./guards/roles.guard";
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes("/");
-    consumer
-      .apply(EmployeesMiddleWare)
-      .forRoutes({ path: "employees", method: RequestMethod.GET });
+consumer
+  .apply(EmployeesMiddleWare)
+  .forRoutes({ path: "employees", method: RequestMethod.GET });
     consumer
       .apply(PlayersMiddleware)
       .forRoutes({ path: "players", method: RequestMethod.GET });

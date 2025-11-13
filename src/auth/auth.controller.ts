@@ -7,6 +7,7 @@ import {
   UseGuards,
   Get,
   Request,
+  NotFoundException,
 } from "@nestjs/common";
 import { AuthService } from "./auth.service";
 import { CreateAuthDto } from "./DTO/register-auth.dto";
@@ -31,11 +32,18 @@ export class AuthController {
   // @UseGuards(JwtAuthGuard) // FOR USING PASSPORT STRATEGIES AND AUTH GUARDS
   @Post("/login")
   async login(@Body() body: LoginAuthDto) {
+    const user = await this.authService.findUser(body.email);
+    
+    if (!user) {
+      throw new NotFoundException("404 | USER NOT FOUND");
+    }
+
     const token = this.jwtService.sign({
       email: body.email,
       password: body.password,
-      role: body.role,
+      role: user.role,
     });
+
     const result = await this.authService.validateUser(body.email, body.password);
 
     if (result?.ok) {
@@ -54,8 +62,8 @@ export class AuthController {
   }
 
   // USING JWT GUARD
-  @UseGuards(JwtAuthGuard, RoleGuard)
   @RolesDecorator("ADMIN")
+  @UseGuards(JwtAuthGuard, RoleGuard)
   @Get("/profile-infos")
   async getUser(@Request() req: any) {
     const isValid = await this.authService.validateUserToken(req.user.email);

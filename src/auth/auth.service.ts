@@ -10,6 +10,12 @@ const saltOrRounds = 10;
 export class AuthService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async findUser(email: string) {
+    const user = await this.prisma.user.findUnique({
+      where: { email },
+    });
+    return user;
+  }
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
     const newUser = await this.prisma.user.create({
