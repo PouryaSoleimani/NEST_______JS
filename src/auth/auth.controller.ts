@@ -33,7 +33,7 @@ export class AuthController {
   @Post("/login")
   async login(@Body() body: LoginAuthDto) {
     const user = await this.authService.findUser(body.email);
-    
+
     if (!user) {
       throw new NotFoundException("404 | USER NOT FOUND");
     }
