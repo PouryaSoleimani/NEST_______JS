@@ -1,8 +1,7 @@
-import { Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Get, Param, Post, Res, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import path from "node:path";
-
 @Controller("/files")
 export class FilesController {
   @Get("/get-all")
@@ -10,7 +9,7 @@ export class FilesController {
     return "GET ALL FILES";
   }
 
-  //^ UPLOAD FILE
+  //^ UPLOAD FILE ___________________________________________________________________________________________________________
   @Post("/upload")
   @UseInterceptors(
     FileInterceptor("image", {
@@ -20,8 +19,19 @@ export class FilesController {
           const fileName = path.parse(file.originalname).name;
           const extension = path.parse(file.originalname).ext;
           cb(null, `${fileName}-${Date.now()}${extension}`);
+          console.info(req);
         },
       }),
+      // VALIDATIONS
+      fileFilter: (req, file, cb) => {
+        const extension = path.parse(file.originalname).ext;
+        if (extension != ".jpg") {
+          return cb(new BadRequestException("400 | BAD REQUEST"), false);
+        }
+        console.info(req);
+        return cb(null, true);
+      },
+      limits: { fileSize: 30000 },
     }),
   ) // 1
   uploadFile(@Body() body: any, @UploadedFile() file: Express.Multer.File) {
@@ -32,9 +42,9 @@ export class FilesController {
     };
   }
 
-  //GET IMAGE
+  //^ GET IMAGE _________________________________________________________________________________________________________
   @Get("/image/:image")
-  showImage(@Param("image") img: string) {
-    return { img };
+  showImage(@Param("image") img: string, @Res() res: any) {
+    return res.sendFile(img, { root: "./uploads" });
   }
 }
