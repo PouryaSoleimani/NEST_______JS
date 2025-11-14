@@ -1,6 +1,6 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { ValidationPipe } from "@nestjs/common";
+import { ValidationPipe, VersioningType } from "@nestjs/common";
 import serveFavicon, * as favicon from "serve-favicon";
 import * as path from "path";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
@@ -11,7 +11,7 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe());
 
   //^ GLOBAL PREFIX
-  app.setGlobalPrefix("/api/v1");
+  app.setGlobalPrefix("/api");
 
   //^ CORS
   app.enableCors();
@@ -26,7 +26,13 @@ async function bootstrap() {
     .setVersion("1.0")
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup("/api/v1/docs", app, documentFactory);
+  SwaggerModule.setup("/api/docs", app, documentFactory);
+
+  //^ VERSIONING
+  app.enableVersioning({
+    defaultVersion: "1",
+    type: VersioningType.URI,
+  });
 
   //^PORT
   const port = process.env.PORT || 8000;

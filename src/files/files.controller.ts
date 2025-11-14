@@ -1,12 +1,20 @@
-import { BadRequestException, Body, Controller, Get, Param, Post, Res, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { BadRequestException, Body, Controller, Get, Param, Post, Res, UploadedFile, UseInterceptors, Version } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import path from "node:path";
+
 @Controller("/files")
 export class FilesController {
   @Get("/get-all")
+  @Version("1")
   getAll() {
-    return "GET ALL FILES";
+    return "GET ALL FILES --VERSION 1 F";
+  }
+
+  @Get("/get-all")
+  @Version("2")
+  getAll2() {
+    return "V2";
   }
 
   //^ UPLOAD FILE ___________________________________________________________________________________________________________
@@ -25,7 +33,8 @@ export class FilesController {
       // VALIDATIONS
       fileFilter: (req, file, cb) => {
         const extension = path.parse(file.originalname).ext;
-        if (extension != ".jpg") {
+        const size = file.size;
+        if (extension != ".jpg" || size >= 30000) {
           return cb(new BadRequestException("400 | BAD REQUEST"), false);
         }
         console.info(req);
