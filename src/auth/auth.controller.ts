@@ -85,7 +85,7 @@ export class AuthController {
       },
     };
   }
-
+ 
   @UseGuards(JwtAuthGuard)
   @Post("/logout")
   async logout(@Request() req: any) {
