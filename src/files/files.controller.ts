@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Get, Param, Post, UploadedFile, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import path from "node:path";
@@ -10,6 +10,7 @@ export class FilesController {
     return "GET ALL FILES";
   }
 
+  //^ UPLOAD FILE
   @Post("/upload")
   @UseInterceptors(
     FileInterceptor("image", {
@@ -29,5 +30,11 @@ export class FilesController {
       body: body,
       file: file, // 3
     };
+  }
+
+  //GET IMAGE
+  @Get("/image/:image")
+  showImage(@Param("image") img: string) {
+    return { img };
   }
 }
