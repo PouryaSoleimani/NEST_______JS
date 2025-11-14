@@ -1,3 +1,5 @@
+import { FilesModule } from "./files/files.module";
+import { FilesController } from "./files/files.controller";
 //^ APP MODULE =====================================================================================================
 import { FriendsModule } from "./friends/friends.module";
 import { EmployeesModule } from "./employees/employees.module";
@@ -31,8 +33,15 @@ import { AuthModule } from "./auth/auth.module";
 import { RoleGuard } from "./guards/roles.guard";
 
 @Module({
-  controllers: [AppController, ProductsController, ArticlesController, PlayersController],
+  controllers: [
+    FilesController,
+    AppController,
+    ProductsController,
+    ArticlesController,
+    PlayersController,
+  ],
   imports: [
+    FilesModule,
     FriendsModule,
     EmployeesModule,
     PrismaModule,
@@ -58,9 +67,9 @@ import { RoleGuard } from "./guards/roles.guard";
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes("/");
-consumer
-  .apply(EmployeesMiddleWare)
-  .forRoutes({ path: "employees", method: RequestMethod.GET });
+    consumer
+      .apply(EmployeesMiddleWare)
+      .forRoutes({ path: "employees", method: RequestMethod.GET });
     consumer
       .apply(PlayersMiddleware)
       .forRoutes({ path: "players", method: RequestMethod.GET });
