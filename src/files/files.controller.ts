@@ -15,11 +15,11 @@ export class FilesController {
     FileInterceptor("image", {
       storage: diskStorage({
         destination: "./uploads",
-        filename:(req , file,cb) => {
+        filename: (req, file, cb) => {
           const fileName = path.parse(file.originalname).name;
           const extension = path.parse(file.originalname).ext;
-          cb(null, `${fileName}-${Date.now}${extension}`);
-        }
+          cb(null, `${fileName}-${Date.now()}${extension}`);
+        },
       }),
     }),
   ) // 1
