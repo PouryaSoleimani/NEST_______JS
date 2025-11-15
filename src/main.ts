@@ -1,9 +1,11 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { ValidationPipe, VersioningType } from "@nestjs/common";
+import { RequestMethod, ValidationPipe, VersioningType } from "@nestjs/common";
 import serveFavicon, * as favicon from "serve-favicon";
 import * as path from "path";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
+import { METHODS } from "http";
+import helmet from "helmet";
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { cors: true });
@@ -14,7 +16,12 @@ async function bootstrap() {
   app.setGlobalPrefix("/api");
 
   //^ CORS
-  app.enableCors();
+  app.enableCors({
+    origin: ["https://webprog.io"],
+    methods: RequestMethod.ALL,
+  });
+
+  app.use(helmet()); // HELMET IMPROVES SECURITY IN OUR PROJECTS
 
   //^ FAVICON
   app.use(serveFavicon(path.join(__dirname, "..", "src", "public", "favicon.ico")));
