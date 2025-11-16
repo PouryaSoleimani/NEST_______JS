@@ -1,14 +1,18 @@
 import { NestFactory } from "@nestjs/core";
 import { AppModule } from "./app.module";
-import { RequestMethod, ValidationPipe, VersioningType } from "@nestjs/common";
+import { ValidationPipe, VersioningType } from "@nestjs/common";
 import serveFavicon, * as favicon from "serve-favicon";
 import * as path from "path";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
-import { METHODS } from "http";
 import helmet from "helmet";
+import { NestExpressApplication } from "@nestjs/platform-express";
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
+  // ^ VIEW RENDERING
+  app.setBaseViewsDir(path.join(__dirname, "..", "views"));
+  app.useStaticAssets(path.join(__dirname, "..", "public"));
+  app.setViewEngine("hbs");
   //^ GLOBAL PIPES
   app.useGlobalPipes(new ValidationPipe());
 
@@ -18,7 +22,6 @@ async function bootstrap() {
   //^ CORS
   app.enableCors({
     origin: ["https://webprog.io"],
-    methods: RequestMethod.ALL,
   });
 
   app.use(helmet()); // HELMET IMPROVES SECURITY IN OUR PROJECTS
