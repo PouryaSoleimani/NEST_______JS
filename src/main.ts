@@ -9,27 +9,29 @@ import { NestExpressApplication } from "@nestjs/platform-express";
 
 async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
-  // ^ VIEW RENDERING
+
+  // VIEW RENDERING
   app.setBaseViewsDir(path.join(__dirname, "..", "views"));
   app.useStaticAssets(path.join(__dirname, "..", "public"));
   app.setViewEngine("hbs");
-  //^ GLOBAL PIPES
+
+  // GLOBAL PIPES
   app.useGlobalPipes(new ValidationPipe());
 
-  //^ GLOBAL PREFIX
+  // GLOBAL PREFIX
   app.setGlobalPrefix("/api");
 
-  //^ CORS
+  // CORS
   app.enableCors({
     origin: ["https://webprog.io"],
   });
 
   app.use(helmet()); // HELMET IMPROVES SECURITY IN OUR PROJECTS
 
-  //^ FAVICON
+  // FAVICON
   app.use(serveFavicon(path.join(__dirname, "..", "src", "public", "favicon.ico")));
 
-  //^ SWAGGER
+  // SWAGGER
   const config = new DocumentBuilder()
     .setTitle("NEST JS TRAINING")
     .setDescription("THIS IS MY SWAGGER FOR TRAINING NEST JS")
@@ -38,13 +40,13 @@ async function bootstrap() {
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup("/api/docs", app, documentFactory);
 
-  //^ VERSIONING
+  // VERSIONING
   app.enableVersioning({
     defaultVersion: "1",
     type: VersioningType.URI,
   });
 
-  //^PORT
+  // PORT
   const port = process.env.PORT || 8000;
   await app.listen(port, () => {
     console.log(`🖥️  SERVER IS LISTENING AT PORT ${port}`);
