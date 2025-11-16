@@ -11,6 +11,7 @@ async function bootstrap() {
   const app = await NestFactory.create<NestExpressApplication>(AppModule, { cors: true });
 
   // VIEW RENDERING
+  // npm i hbs - (handlebars)
   app.setBaseViewsDir(path.join(__dirname, "..", "views"));
   app.useStaticAssets(path.join(__dirname, "..", "public"));
   app.setViewEngine("hbs");

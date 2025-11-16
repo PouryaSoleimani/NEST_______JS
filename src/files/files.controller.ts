@@ -1,4 +1,16 @@
-import { BadRequestException, Body, Controller, Get, Param, Post, Render, Res, UploadedFile, UseInterceptors, Version } from "@nestjs/common";
+import {
+  BadRequestException,
+  Body,
+  Controller,
+  Get,
+  Param,
+  Post,
+  Render,
+  Res,
+  UploadedFile,
+  UseInterceptors,
+  Version,
+} from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import path from "node:path";
@@ -17,7 +29,7 @@ export class FilesController {
     return "V2";
   }
 
-  //^ UPLOAD FILE ___________________________________________________________________________________________________________
+  // UPLOAD FILE ___________________________________________________________________________________________________________
   @Post("/upload")
   @UseInterceptors(
     FileInterceptor("image", {
@@ -51,19 +63,16 @@ export class FilesController {
     };
   }
 
-  //^ GET IMAGE _________________________________________________________________________________________________________
+  // GET IMAGE _________________________________________________________________________________________________________
   @Get("/image/:image")
   showImage(@Param("image") img: string, @Res() res: any) {
     return res.sendFile(img, { root: "./uploads" });
   }
 
-  //^ RENDER HTML VIEW PAGE
+  // RENDER HTML VIEW PAGE _________________________________________________________________________________________________________
   @Get("get-html")
   @Render("index")
   renderHtml() {
-    return {
-      name: "pourya",
-      age: 32,
-    };
+    return { name: "pourya", age: 32 };
   }
 }
