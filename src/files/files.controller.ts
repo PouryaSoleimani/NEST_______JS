@@ -20,7 +20,7 @@ export class FilesController {
   @Get("/get-all")
   @Version("1")
   getAll() {
-    return "GET ALL FILES --VERSION 1 F";
+    return "GET ALL FILES --VERSION 1";
   }
 
   @Get("/get-all")
