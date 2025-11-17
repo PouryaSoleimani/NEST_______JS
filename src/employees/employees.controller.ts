@@ -1,6 +1,17 @@
-import { Body, Controller, Get, Param, ParseIntPipe, Post, UseInterceptors } from "@nestjs/common";
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseIntPipe,
+  Post,
+  UseInterceptors,
+} from "@nestjs/common";
 import { EmployeesService } from "./employees.service";
-import { EmployeesGetAllInterceptor, EmployeesGetSingleInterceptor } from "./employees.interceptor";
+import {
+  EmployeesGetAllInterceptor,
+  EmployeesGetSingleInterceptor,
+} from "./employees.interceptor";
 
 @Controller("/employees")
 export class EmployeesController {

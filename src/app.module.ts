@@ -31,6 +31,7 @@ import { CardsModule } from "./cards/cars.module";
 import { CarsMiddleware } from "./cards/cars.middleware";
 import { AuthModule } from "./auth/auth.module";
 import { RoleGuard } from "./guards/roles.guard";
+import { EmployeesController } from "./employees/employees.controller";
 
 @Module({
   controllers: [
@@ -69,7 +70,7 @@ export class AppModule implements NestModule {
     consumer.apply(AppMiddleWare).forRoutes("/");
     consumer
       .apply(EmployeesMiddleWare)
-      .forRoutes({ path: "employees", method: RequestMethod.GET });
+      .forRoutes({ method: RequestMethod.ALL, path: "employees", version: "1" });
     consumer
       .apply(PlayersMiddleware)
       .forRoutes({ path: "players", method: RequestMethod.GET });
