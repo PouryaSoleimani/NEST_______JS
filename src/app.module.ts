@@ -68,6 +68,7 @@ import { EmployeesController } from "./employees/employees.controller";
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {
     consumer.apply(AppMiddleWare).forRoutes("/");
+    consumer.apply(AppMiddleWare).forRoutes("cars");
     consumer
       .apply(EmployeesMiddleWare)
       .forRoutes({ method: RequestMethod.ALL, path: "employees", version: "1" });
