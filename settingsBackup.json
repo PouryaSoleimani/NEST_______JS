@@ -133,7 +133,9 @@
       "sash.hoverBorder": "#606060",
       "activityBarBadge.background": "#fff",
       "activityBarBadge.foreground": "#000",
-      "panelTitle.activeBorder": "#fff"
+      "panelTitle.activeBorder": "#fff",
+      "button.background": "#c5c2c2",
+      "button.foreground": "#000"
     },
     "[CodeSandbox Black]": {
       "editor.background": "#131518",
@@ -407,7 +409,16 @@
           }
         },
         {
-          "scope": ["variable.other.object.property", "variable.other.property"],
+          "scope": ["string.quoted", "string.template", "string"],
+          "settings": {
+            "foreground": "#41B883"
+          }
+        },
+        {
+          "scope": [
+            "variable.other.object.property",
+            "variable.other.property"
+          ],
           "settings": {
             "foreground": "#E5C07B"
           }
@@ -430,6 +441,36 @@
           "scope": ["meta.jsx.children"],
           "settings": {
             "foreground": "#fefefe"
+          }
+        },
+        {
+          "name": "WHITE",
+          "scope": [
+            "punctuation.definition.typeparameters.begin.ts",
+            "punctuation.definition.typeparameters.begin.tsx",
+            "punctuation.definition.typeparameters.begin.js",
+            "punctuation.definition.typeparameters.begin.jsx",
+            "punctuation.definition.typeparameters.end.ts",
+            "punctuation.definition.typeparameters.end.tsx",
+            "punctuation.definition.typeparameters.end.js",
+            "punctuation.definition.typeparameters.end.jsx",
+            "punctuation.separator.parameter.ts",
+            "punctuation.separator.parameter.tsx",
+            "punctuation.separator.parameter.jsx",
+            "punctuation.separator.parameter.js",
+            "punctuation.definition.template-expression",
+            "punctuation.definition.string.template",
+            "punctuation.terminator.statement.ts",
+            "punctuation.terminator.statement.tsx",
+            "punctuation.terminator.statement.js",
+            "punctuation.terminator.statement.jsx",
+            "punctuation.definition.template-expression.begin",
+            "punctuation.definition.template-expression.end",
+            "keyword.operator.terraform",
+            "keyword.operator.list_type.prisma"
+          ],
+          "settings": {
+            "foreground": "#fff"
           }
         }
       ]
@@ -472,7 +513,8 @@
             "variable.other.readwrite.tsx",
             "variable.other.readwrite.ts",
             "variable.other.readwrite.js",
-            "variable.other.readwrite.jsx"
+            "variable.other.readwrite.jsx",
+            "variable.parameter"
           ],
           "settings": {
             "foreground": "#E06C75"
@@ -481,16 +523,7 @@
         {
           "scope": [
             "meta.jsx.children",
-            "variable.parameter",
             "variable.object.property",
-            "punctuation.definition.typeparameters.begin.ts",
-            "punctuation.definition.typeparameters.begin.tsx",
-            "punctuation.definition.typeparameters.begin.js",
-            "punctuation.definition.typeparameters.begin.jsx",
-            "punctuation.definition.typeparameters.end.ts",
-            "punctuation.definition.typeparameters.end.tsx",
-            "punctuation.definition.typeparameters.end.js",
-            "punctuation.definition.typeparameters.end.jsx",
             "meta.object-literal.key"
           ],
           "settings": {
@@ -499,7 +532,35 @@
         },
         {
           "name": "BLUE",
-          "scope": ["source.tsx meta.export.default.tsx variable.other.readwrite.tsx"],
+          "scope": [
+            "punctuation.definition.typeparameters.begin.ts",
+            "punctuation.definition.typeparameters.begin.tsx",
+            "punctuation.definition.typeparameters.begin.js",
+            "punctuation.definition.typeparameters.begin.jsx",
+            "punctuation.definition.typeparameters.end.ts",
+            "punctuation.definition.typeparameters.end.tsx",
+            "punctuation.definition.typeparameters.end.js",
+            "punctuation.definition.typeparameters.end.jsx",
+            "punctuation.separator.parameter.ts",
+            "punctuation.separator.parameter.tsx",
+            "punctuation.separator.parameter.jsx",
+            "punctuation.separator.parameter.js",
+            "punctuation.definition.template-expression",
+            "punctuation.definition.string.template",
+            "punctuation.terminator.statement.ts",
+            "punctuation.terminator.statement.tsx",
+            "punctuation.terminator.statement.js",
+            "punctuation.terminator.statement.jsx"
+          ],
+          "settings": {
+            "foreground": "#fff"
+          }
+        },
+        {
+          "name": "BLUE",
+          "scope": [
+            "source.tsx meta.export.default.tsx variable.other.readwrite.tsx"
+          ],
           "settings": {
             "foreground": "#61AFEF"
           }
@@ -692,10 +753,16 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "RainbowBrackets.depreciation-notice": false,
-  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
-  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.linkedEditing": true,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
@@ -706,7 +773,9 @@
   },
   "window.menuBarVisibility": "toggle",
   "workbench.iconTheme": "material-icon-theme",
-  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "gitlens.views.scm.grouped.views": {
     "commits": false,
     "branches": false,
@@ -720,7 +789,9 @@
     "searchAndCompare": false,
     "launchpad": false
   },
-  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
   "[typescriptreact]": {
@@ -785,12 +856,17 @@
   "postman.mcp.notifications.postmanMCP": false,
   "workbench.editor.enablePreview": false,
   "gitlens.views.branches.branches.layout": "list",
-  "workbench.colorTheme": "CodeSandbox Black",
+  "workbench.colorTheme": "Min Theme+",
   "explorer.compactFolders": false,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.enable": true,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "eslint.run": "onType",
   "redhat.telemetry.enabled": true,
   "editor.inlineSuggest.syntaxHighlightingEnabled": true,
