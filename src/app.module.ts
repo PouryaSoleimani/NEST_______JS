@@ -87,3 +87,4 @@ export class AppModule implements NestModule {
     consumer.apply(CarsMiddleware).forRoutes({ path: "cars", method: RequestMethod.ALL });
   }
 }
+  
