@@ -1,4 +1,9 @@
-import { Injectable, NestInterceptor, ExecutionContext, CallHandler } from "@nestjs/common";
+import {
+  Injectable,
+  NestInterceptor,
+  ExecutionContext,
+  CallHandler,
+} from "@nestjs/common";
 import { Observable } from "rxjs";
 import { map, tap } from "rxjs/operators";
 
@@ -19,7 +24,10 @@ export class EmployeesGetAllInterceptor implements NestInterceptor {
 }
 
 export class EmployeesGetSingleInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
+  intercept(
+    context: ExecutionContext,
+    next: CallHandler<any>,
+  ): Observable<any> | Promise<Observable<any>> {
     return next.handle().pipe(
       map((data) => {
         return {

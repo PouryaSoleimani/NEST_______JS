@@ -37,7 +37,7 @@ export class FilesController {
         destination: "./uploads",
         filename: (req, file, cb) => {
           const fileName = path.parse(file.originalname).name;
-          const extension = path.parse(file.originalname).ext;
+          const extension = path.parse(file.originalname).ext; //image.jpg
           cb(null, `${fileName}-${Date.now()}${extension}`);
           console.info(req);
         },
@@ -46,13 +46,13 @@ export class FilesController {
       fileFilter: (req, file, cb) => {
         const extension = path.parse(file.originalname).ext;
         const size = file.size;
-        if (extension != ".jpg" || size >= 30000) {
+        if (extension != ".jpg" || size >= 10000000) {
           return cb(new BadRequestException("400 | BAD REQUEST"), false);
         }
         console.info(req);
         return cb(null, true);
       },
-      limits: { fileSize: 30000 },
+      limits: { fileSize: 10000000 },
     }),
   ) // 1
   uploadFile(@Body() body: any, @UploadedFile() file: Express.Multer.File) {
