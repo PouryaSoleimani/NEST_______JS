@@ -61,7 +61,7 @@ export class AuthController {
     }
   }
 
-  @RolesDecorator("ADMIN")
+  @RolesDecorator("ADMIN") //=> ["ADMIN"]
   @UseGuards(JwtAuthGuard, RoleGuard)
   @Get("/profile-infos")
   async getUser(@Request() req: any) {

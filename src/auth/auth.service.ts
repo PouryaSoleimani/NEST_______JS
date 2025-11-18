@@ -16,6 +16,7 @@ export class AuthService {
     });
     return user;
   }
+  
   async register(body: CreateAuthDto) {
     const hash = await bcrypt.hash(body.password, saltOrRounds);
     const newUser = await this.prisma.user.create({
