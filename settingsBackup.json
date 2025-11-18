@@ -397,7 +397,11 @@
             "variable.other.constant.tsx",
             "variable.other.constant.jsx",
             "variable.other.constant.ts",
-            "variable.other.constant.js"
+            "variable.other.constant.js",
+            "variable.other.constant.property.ts",
+            "variable.other.constant.property.tsx",
+            "variable.other.constant.property.js",
+            "variable.other.constant.property.jsx"
           ],
           "settings": {
             "foreground": "#E5C07B"
