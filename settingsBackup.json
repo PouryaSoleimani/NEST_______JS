@@ -415,7 +415,15 @@
             "variable.other.readwrite.tsx",
             "variable.other.readwrite.ts",
             "variable.other.readwrite.js",
-            "variable.other.readwrite.jsx"
+            "variable.other.readwrite.jsx",
+            "punctuation.definition.typeparameters.begin.ts",
+            "punctuation.definition.typeparameters.begin.tsx",
+            "punctuation.definition.typeparameters.begin.js",
+            "punctuation.definition.typeparameters.begin.jsx",
+            "punctuation.definition.typeparameters.end.ts",
+            "punctuation.definition.typeparameters.end.tsx",
+            "punctuation.definition.typeparameters.end.js",
+            "punctuation.definition.typeparameters.end.jsx"
           ],
           "settings": {
             "foreground": "#fefefe"
