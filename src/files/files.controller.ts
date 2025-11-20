@@ -24,7 +24,7 @@ export class FilesController {
   }
 
   @Get("/get-all")
-  @Version("2")
+  @Version("2")                                                     
   getAll2() {
     return "V2";
   }

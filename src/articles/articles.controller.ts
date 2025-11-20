@@ -13,7 +13,7 @@ import { CreateNewArticleDTO } from "./aticles.pipe";
 
 @Controller("/articles")
 export class ArticlesController {
-  constructor(public ArticlesService: ArticlesService) { }
+  constructor(public ArticlesService: ArticlesService) {}
 
   @Get("/")
   GET__ALL__ARTICLES() {
@@ -23,7 +23,6 @@ export class ArticlesController {
     }
     return result;
   }
-
 
   @Get("/:id")
   GET__SINGLE__ARTICLE(@Param("id") single__article__id: number | string) {
@@ -56,6 +55,6 @@ export class ArticlesController {
 
   @Get("/user/:id")
   GET__SINGLE__USER(@Param("id") single__user__id: number) {
-    return 'GET___SINGLE___USER'
+    return "GET___SINGLE___USER";
   }
 }
