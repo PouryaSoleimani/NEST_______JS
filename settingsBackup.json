@@ -1,18 +1,17 @@
 {
-  "editor.fontFamily": "Consolas,Vazir",
-  "editor.fontWeight": "600",
-  "editor.letterSpacing": 0.5,
-  "editor.lineHeight": 21,
+  "editor.fontFamily": "Roboto Mono,Vazir",
+  "editor.fontWeight": "700",
+  "editor.letterSpacing": 0,
+  "editor.lineHeight": 22,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "editor.fontVariations": false,
   "editor.mouseWheelZoom": true,
-  "window.commandCenter": false,
   "editor.minimap.enabled": false,
   "liveServer.settings.donotShowInfoMsg": true,
   "files.autoSave": "afterDelay",
-  "terminal.integrated.fontFamily": "Fira Code",
+  "terminal.integrated.fontFamily": "Noto Sans Mono",
   "terminal.integrated.fontWeight": "600",
   "terminal.integrated.mouseWheelZoom": true,
   "terminal.integrated.fontLigatures.enabled": true,
@@ -22,13 +21,13 @@
   "postman.settings.dotenv-detection-notification-visibility": false,
   "workbench.colorCustomizations": {
     "[Dark Modern Fit]": {
-      "editor.background": "#141414",
-      "breadcrumb.background": "#141414",
-      "editorGutter.background": "#141414",
-      "input.background": "#141414",
-      "editorGroup.emptyBackground": "#141414",
-      "tab.activeBackground": "#141414",
-      "tab.hoverBackground": "#141414",
+      "editor.background": "#181818",
+      "breadcrumb.background": "#181818",
+      "editorGutter.background": "#181818",
+      "input.background": "#181818",
+      "editorGroup.emptyBackground": "#181818",
+      "tab.activeBackground": "#181818",
+      "tab.hoverBackground": "#181818",
       "editorLineNumber.foreground": "#8d8d8d8b",
       "editorLineNumber.activeForeground": "#c0bfbf",
       "sideBar.foreground": "#fff",
@@ -78,13 +77,13 @@
       "activityBarBadge.foreground": "#000"
     },
     "[Min Theme+]": {
-      "editor.background": "#131518",
-      "breadcrumb.background": "#131518",
-      "editorGutter.background": "#131518",
-      "input.background": "#131518",
-      "editorGroup.emptyBackground": "#131518",
-      "tab.activeBackground": "#131518",
-      "tab.hoverBackground": "#131518",
+      "editor.background": "#11171d",
+      "breadcrumb.background": "#11171d",
+      "editorGutter.background": "#11171d",
+      "input.background": "#11171d",
+      "editorGroup.emptyBackground": "#11171d",
+      "tab.activeBackground": "#11171d",
+      "tab.hoverBackground": "#11171d",
       "editorLineNumber.foreground": "#8d8d8d8b",
       "editorLineNumber.activeForeground": "#c0bfbf",
       "sideBar.foreground": "#fff",
@@ -134,17 +133,17 @@
       "activityBarBadge.background": "#fff",
       "activityBarBadge.foreground": "#000",
       "panelTitle.activeBorder": "#fff",
-      "button.background": "#c5c2c2",
+      "button.background": "#b3b3b3",
       "button.foreground": "#000"
     },
-    "[CodeSandbox Black]": {
-      "editor.background": "#131518",
-      "breadcrumb.background": "#131518",
-      "editorGutter.background": "#131518",
-      "input.background": "#131518",
-      "editorGroup.emptyBackground": "#131518",
-      "tab.activeBackground": "#131518",
-      "tab.hoverBackground": "#131518",
+    "[Cursor Dark]": {
+      "editor.background": "#181818",
+      "breadcrumb.background": "#181818",
+      "editorGutter.background": "#181818",
+      "input.background": "#181818",
+      "editorGroup.emptyBackground": "#181818",
+      "tab.activeBackground": "#181818",
+      "tab.hoverBackground": "#181818",
       "editorLineNumber.foreground": "#8d8d8d8b",
       "editorLineNumber.activeForeground": "#c0bfbf",
       "sideBar.foreground": "#fff",
@@ -193,7 +192,9 @@
       "sash.hoverBorder": "#606060",
       "activityBarBadge.background": "#fff",
       "activityBarBadge.foreground": "#000",
-      "panelTitle.activeBorder": "#fff"
+      "panelTitle.activeBorder": "#fff",
+      "button.background": "#b3b3b3",
+      "button.foreground": "#000"
     },
     "[GitHub Dark Default]": {
       "titleBar.activeBackground": "#010409",
@@ -287,7 +288,9 @@
       "sash.hoverBorder": "#606060",
       "activityBarBadge.background": "#fff",
       "activityBarBadge.foreground": "#000",
-      "panelTitle.activeBorder": "#fff"
+      "panelTitle.activeBorder": "#fff",
+      "button.background": "#b3b3b3",
+      "button.foreground": "#000"
     }
   },
   "editor.tokenColorCustomizations": {
@@ -347,7 +350,6 @@
         "scope": [
           "punctuation.definition.tag.begin",
           "punctuation.definition.tag.end",
-          "meta.tag",
           "punctuation",
           "meta.brace.round",
           "source",
@@ -409,7 +411,7 @@
           }
         },
         {
-          "scope": ["string.quoted", "string.template", "string"],
+          "scope": ["string.quoted", "string.template", "string", "source.ini"],
           "settings": {
             "foreground": "#41B883"
           }
@@ -417,7 +419,9 @@
         {
           "scope": [
             "variable.other.object.property",
-            "variable.other.property"
+            "support.variable.property",
+            "variable.other.property",
+            "variable.other.constant.property"
           ],
           "settings": {
             "foreground": "#E5C07B"
@@ -438,7 +442,7 @@
           }
         },
         {
-          "scope": ["meta.jsx.children"],
+          "scope": ["meta.jsx.children", "support.type.property-name.css"],
           "settings": {
             "foreground": "#fefefe"
           }
@@ -475,102 +479,10 @@
         }
       ]
     },
-    "[CodeSandbox Black]": {
-      "textMateRules": [
-        {
-          "name": "TYPES",
-          "scope": [
-            "support.type.primitive.tsx",
-            "support.type.primitive.jsx",
-            "support.type.primitive.js",
-            "support.type.primitive.ts",
-            "entity.name.type"
-          ],
-          "settings": {
-            "foreground": "#D19A66"
-          }
-        },
-        {
-          "name": "TYPES",
-          "scope": [
-            "variable.other.constant.tsx",
-            "variable.other.constant.jsx",
-            "variable.other.constant.ts",
-            "variable.other.constant.js",
-            "variable.other.property",
-            "variable.other.constant.property.ts",
-            "variable.other.constant.property.tsx",
-            "variable.other.constant.property.js",
-            "variable.other.constant.property.jsx"
-          ],
-          "settings": {
-            "foreground": "#E5C07B"
-          }
-        },
-        {
-          "name": "TYPES",
-          "scope": [
-            "variable.other.readwrite.tsx",
-            "variable.other.readwrite.ts",
-            "variable.other.readwrite.js",
-            "variable.other.readwrite.jsx",
-            "variable.parameter"
-          ],
-          "settings": {
-            "foreground": "#E06C75"
-          }
-        },
-        {
-          "scope": [
-            "meta.jsx.children",
-            "variable.object.property",
-            "meta.object-literal.key"
-          ],
-          "settings": {
-            "foreground": "#fefefe"
-          }
-        },
-        {
-          "name": "BLUE",
-          "scope": [
-            "punctuation.definition.typeparameters.begin.ts",
-            "punctuation.definition.typeparameters.begin.tsx",
-            "punctuation.definition.typeparameters.begin.js",
-            "punctuation.definition.typeparameters.begin.jsx",
-            "punctuation.definition.typeparameters.end.ts",
-            "punctuation.definition.typeparameters.end.tsx",
-            "punctuation.definition.typeparameters.end.js",
-            "punctuation.definition.typeparameters.end.jsx",
-            "punctuation.separator.parameter.ts",
-            "punctuation.separator.parameter.tsx",
-            "punctuation.separator.parameter.jsx",
-            "punctuation.separator.parameter.js",
-            "punctuation.definition.template-expression",
-            "punctuation.definition.string.template",
-            "punctuation.terminator.statement.ts",
-            "punctuation.terminator.statement.tsx",
-            "punctuation.terminator.statement.js",
-            "punctuation.terminator.statement.jsx"
-          ],
-          "settings": {
-            "foreground": "#fff"
-          }
-        },
-        {
-          "name": "BLUE",
-          "scope": [
-            "source.tsx meta.export.default.tsx variable.other.readwrite.tsx"
-          ],
-          "settings": {
-            "foreground": "#61AFEF"
-          }
-        }
-      ]
-    },
     "[GitHub Dark Default]": {
       "textMateRules": [
         {
-          "scope": ["variable.parameter", "variable.other.object"],
+          "scope": ["variable.parameter"],
           "settings": {
             "foreground": "#79c0ff"
           }
@@ -579,8 +491,7 @@
           "scope": [
             "support.variable.property",
             "variable.parameter.key.prisma",
-            "variable.other.property",
-            "punctuation"
+            "variable.other.property"
           ],
           "settings": {
             "foreground": "#fafafa"
@@ -600,7 +511,6 @@
             "variable.language.relations.prisma",
             "entity.name.type.interface",
             "constant.language.boolean.false",
-            "constant.language.boolean.true",
             "constant.language.null",
             "entity.name.type"
           ],
@@ -626,8 +536,7 @@
             "keyword.operator.type.annotation",
             "punctuation.definition.typeparameters.begin",
             "punctuation.definition.typeparameters.end",
-            "punctuation.terminator.statement",
-            "keyword.operator.relational"
+            "punctuation.terminator.statement"
           ],
           "settings": {
             "foreground": "#F97583"
@@ -753,16 +662,10 @@
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "[css]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "RainbowBrackets.depreciation-notice": false,
-  "[html]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "editor.linkedEditing": true,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
@@ -773,9 +676,7 @@
   },
   "window.menuBarVisibility": "toggle",
   "workbench.iconTheme": "material-icon-theme",
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "gitlens.views.scm.grouped.views": {
     "commits": false,
     "branches": false,
@@ -789,9 +690,7 @@
     "searchAndCompare": false,
     "launchpad": false
   },
-  "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "editor.inlineSuggest.suppressSuggestions": true,
   "git.enableSmartCommit": true,
   "[typescriptreact]": {
@@ -856,20 +755,15 @@
   "postman.mcp.notifications.postmanMCP": false,
   "workbench.editor.enablePreview": false,
   "gitlens.views.branches.branches.layout": "list",
-  "workbench.colorTheme": "Min Theme+",
   "explorer.compactFolders": false,
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.enable": true,
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact"
-  ],
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
   "eslint.run": "onType",
   "redhat.telemetry.enabled": true,
   "editor.inlineSuggest.syntaxHighlightingEnabled": true,
   "zencoder.inlineSuggestions.enable": false,
-  "terminal.integrated.fontSize": 15
+  "terminal.integrated.fontSize": 15,
+  "workbench.colorTheme": "Min Theme+"
 }

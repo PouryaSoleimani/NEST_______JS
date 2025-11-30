@@ -50,7 +50,7 @@ async function bootstrap() {
   // PORT
   const port = process.env.PORT || 8000;
   await app.listen(port, () => {
-    console.log(`🖥️  SERVER IS LISTENING AT PORT ${port}`);
+    console.log(`🖥️  SERVER IS LISTENING AT PORT ${ port }`);
   });
 }
 bootstrap();
