@@ -32,7 +32,7 @@ export class EmployeesService {
         data: singleEmployee,
       };
     }
-  }
+  } 
 
   async create(body: any) {
     const newEmployee = await this.prisma.employee.create({
@@ -52,3 +52,4 @@ export class EmployeesService {
     }
   }
 }
+          
