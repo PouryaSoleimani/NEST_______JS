@@ -1,7 +1,7 @@
 {
-  "editor.fontFamily": "Roboto Mono , Vazir",
+  "editor.fontFamily": "Noto Sans Mono , Vazir",
   "editor.fontWeight": "600",
-  "editor.letterSpacing": 0,
+  "editor.letterSpacing": 0.3,
   "editor.lineHeight": 22,
   "editor.fontSize": 11,
   "editor.bracketPairColorization.enabled": false,
