@@ -1,10 +1,10 @@
 {
-  "editor.fontFamily": "Noto Sans Mono , Vazir",
+  "editor.fontFamily": "fira code, Vazir",
   "editor.fontWeight": "600",
   "editor.letterSpacing": 0.3,
   "editor.lineHeight": 22,
   "editor.fontSize": 11,
-  "editor.bracketPairColorization.enabled": false,
+  "editor.bracketPairColorization.enabled": true,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "editor.fontVariations": false,
   "editor.mouseWheelZoom": true,
@@ -77,13 +77,13 @@
       "activityBarBadge.foreground": "#000"
     },
     "[Min Theme+]": {
-      "editor.background": "#0a0a0e",
-      "breadcrumb.background": "#0a0a0e",
-      "editorGutter.background": "#0a0a0e",
-      "input.background": "#0a0a0e",
-      "editorGroup.emptyBackground": "#0a0a0e",
-      "tab.activeBackground": "#0a0a0e",
-      "tab.hoverBackground": "#0a0a0e",
+      "editor.background": "#151515",
+      "breadcrumb.background": "#151515",
+      "editorGutter.background": "#151515",
+      "input.background": "#151515",
+      "editorGroup.emptyBackground": "#151515",
+      "tab.activeBackground": "#151515",
+      "tab.hoverBackground": "#151515",
       "editorLineNumber.foreground": "#8d8d8d8b",
       "editorLineNumber.activeForeground": "#c0bfbf",
       "sideBar.foreground": "#fff",
@@ -541,9 +541,13 @@
     "[Min Dark]": {
       "textMateRules": [
         {
-          "scope": ["entity.name.type.class", "support.type.primitive"],
+          "scope": [
+            "entity.name.type.class",
+            "support.type.primitive",
+            "entity.name.type"
+          ],
           "settings": {
-            "foreground": "#FFA657"
+            "foreground": "#4EC9B0"
           }
         },
         {
@@ -566,7 +570,9 @@
             "keyword.operator.type.annotation",
             "punctuation.definition.typeparameters.begin",
             "punctuation.definition.typeparameters.end",
-            "punctuation.separator.dictionary.key-value.json"
+            "punctuation.separator.dictionary.key-value.json",
+            "keyword.operator.relational",
+            "variable.language.this"
           ],
           "settings": {
             "foreground": "#F97583"
@@ -576,12 +582,6 @@
           "scope": ["string.quoted", "string.template"],
           "settings": {
             "foreground": "#A5D6FF"
-          }
-        },
-        {
-          "scope": ["entity.name.type"],
-          "settings": {
-            "foreground": "#ffa657"
           }
         },
         {
@@ -607,7 +607,12 @@
             "variable.object.property",
             "meta.object-literal.key",
             "variable.other.object.property",
-            "meta.jsx.children"
+            "meta.jsx.children",
+            "support.variable.property",
+            "punctuation.definition.tag.begin",
+            "punctuation.definition.tag.end",
+            "meta.tag",
+            "support.constant.property"
           ],
           "settings": {
             "foreground": "#fefefe",
@@ -753,7 +758,12 @@
   "eslint.format.enable": true,
   "eslint.lintTask.enable": true,
   "eslint.enable": true,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
   "eslint.run": "onType",
   "redhat.telemetry.enabled": true,
   "editor.inlineSuggest.syntaxHighlightingEnabled": true,
