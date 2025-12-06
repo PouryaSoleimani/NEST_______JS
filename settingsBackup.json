@@ -1,10 +1,10 @@
 {
-  "editor.fontFamily": "Noto Sans Mono,Vazir",
+  "editor.fontFamily": "JetBrains Mono,Vazir",
   "editor.fontWeight": "700",
-  "editor.letterSpacing": 0.3,
-  "editor.lineHeight": 22,
+  "editor.letterSpacing": 0,
+  "editor.lineHeight": 23,
   "editor.fontSize": 11,
-  "editor.bracketPairColorization.enabled": true,
+  "editor.bracketPairColorization.enabled": false,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": false,
   "editor.fontVariations": false,
   "editor.mouseWheelZoom": true,
@@ -21,13 +21,13 @@
   "postman.settings.dotenv-detection-notification-visibility": false,
   "workbench.colorCustomizations": {
     "[Dark Modern Fit]": {
-      "editor.background": "#0F0F0F",
-      "breadcrumb.background": "#0F0F0F",
-      "editorGutter.background": "#0F0F0F",
-      "input.background": "#0F0F0F",
-      "editorGroup.emptyBackground": "#0F0F0F",
-      "tab.activeBackground": "#0F0F0F",
-      "tab.hoverBackground": "#0F0F0F",
+      "editor.background": "#181818",
+      "breadcrumb.background": "#181818",
+      "editorGutter.background": "#181818",
+      "input.background": "#181818",
+      "editorGroup.emptyBackground": "#181818",
+      "tab.activeBackground": "#181818",
+      "tab.hoverBackground": "#181818",
       "editorLineNumber.foreground": "#8d8d8d8b",
       "editorLineNumber.activeForeground": "#c0bfbf",
       "sideBar.foreground": "#fff",
@@ -77,13 +77,13 @@
       "activityBarBadge.foreground": "#000"
     },
     "[Min Theme+]": {
-      "editor.background": "#16191D",
-      "breadcrumb.background": "#16191D",
-      "editorGutter.background": "#16191D",
-      "input.background": "#16191D",
-      "editorGroup.emptyBackground": "#16191D",
-      "tab.activeBackground": "#16191D",
-      "tab.hoverBackground": "#16191D",
+      "editor.background": "#0D1116",
+      "breadcrumb.background": "#0D1116",
+      "editorGutter.background": "#0D1116",
+      "input.background": "#0D1116",
+      "editorGroup.emptyBackground": "#0D1116",
+      "tab.activeBackground": "#0D1116",
+      "tab.hoverBackground": "#0D1116",
       "editorLineNumber.foreground": "#8d8d8d8b",
       "editorLineNumber.activeForeground": "#c0bfbf",
       "sideBar.foreground": "#fff",
@@ -550,7 +550,7 @@
             "support.type.primitive",
             "entity.name.type"
           ],
-          "settings": {
+          "settings": {            
             "foreground": "#4EC9B0"
           }
         },
