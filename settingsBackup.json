@@ -550,7 +550,7 @@
             "support.type.primitive",
             "entity.name.type"
           ],
-          "settings": {            
+          "settings": {
             "foreground": "#4EC9B0"
           }
         },
