@@ -9,18 +9,18 @@ import { map } from "rxjs/operators";
 
 @Injectable()
 export class EmployeesGetAllInterceptor implements NestInterceptor {
-  intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
-    console.log("Before...");
-    return next.handle().pipe(
-       map((data) => {
-          return {
-             ok: true,
-             message: "GET ALL EMPLOYEES FORM INTERCEPTOR",
-             data: data.data,
-          };
-       })
-    );
-  }
+   intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
+      console.log("Before...");
+      return next.handle().pipe(
+         map((data) => {
+            return {
+               ok: true,
+               message: "GET ALL EMPLOYEES FORM INTERCEPTOR",
+               data: data.data,
+            };
+         })
+      );
+   }
 }
 
 export class EmployeesGetSingleInterceptor implements NestInterceptor {
