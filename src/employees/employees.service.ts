@@ -17,7 +17,7 @@ export class EmployeesService {
          };
       }
    }
-   
+
    async getSingle(id: number) {
       const singleEmployee = await this.prisma.employee.findUnique({
          where: { id: id },
