@@ -5,7 +5,7 @@ import { EmployeesGetAllInterceptor, EmployeesGetSingleInterceptor } from "./emp
 @Controller("/employees")
 export class EmployeesController {
    constructor(private readonly service: EmployeesService) {}
- 
+
    @UseInterceptors(EmployeesGetAllInterceptor)
    @Get("/")
    getAll() {
@@ -18,7 +18,6 @@ export class EmployeesController {
       return this.service.getSingle(+id);
    }
 
-  
    @Post("/create")
    create(@Body() body: any) {
       return this.service.create(body);
