@@ -18,9 +18,8 @@ export class EmployeesController {
       return this.service.getSingle(+id);
    }
 
-   @Post("/create")
+   @Post("/create") 
    create(@Body() body: any) {
       return this.service.create(body);
    }
 }
-
