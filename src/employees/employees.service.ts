@@ -7,6 +7,7 @@ export class EmployeesService {
 
    async getAll() {
       const result = await this.prisma.employee.findMany();
+      
       if (!result) {
          throw new NotFoundException("404 | NO EMPLOYEES FOUND");
       } else {
