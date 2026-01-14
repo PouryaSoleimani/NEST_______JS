@@ -1,30 +1,30 @@
-model Product {
-  id                Int     @id @default(autoincrement())
-  title             String
-  slug              String  @unique
-  isActive          Boolean @default(true)
-  fileId            Int?
-  factorSize        String
-  copyCount         String
-  orinetation       String
-  materialId        Int
-  // material          Material  @relation(fields: [materialId], references: [id])
-  tiraj             Int
-  printId           Int
-  // print             FormPrint @relation(fields: [printId], references: [id])
-  bindingType       String
-  countingType      String?
-  additionalService Int[]
-  eachByPrice       String
-  count             Int
-  totalPrice        String
-  deliveryTime      Int
+// model Product {
+//   id                Int     @id @default(autoincrement())
+//   title             String
+//   slug              String  @unique
+//   isActive          Boolean @default(true)
+//   fileId            Int?
+//   factorSize        String
+//   copyCount         String
+//   orinetation       String
+//   materialId        Int
+//   // material          Material  @relation(fields: [materialId], references: [id])
+//   tiraj             Int
+//   printId           Int
+//   // print             FormPrint @relation(fields: [printId], references: [id])
+//   bindingType       String
+//   countingType      String?
+//   additionalService Int[]
+//   eachByPrice       String
+//   count             Int
+//   totalPrice        String
+//   deliveryTime      Int
 
-  createdAt DateTime  @default(now())
-  updatedAt DateTime  @updatedAt
-  deletedAt DateTime?
+//   createdAt DateTime  @default(now())
+//   updatedAt DateTime  @updatedAt
+//   deletedAt DateTime?
 
-  @@index([slug, title, isActive])
-  @@map("products")
-  @@schema("product")
-}
+//   @@index([slug, title, isActive])
+//   @@map("products")
+//   @@schema("product")
+// }
