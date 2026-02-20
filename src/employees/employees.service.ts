@@ -3,7 +3,7 @@ import { PrismaService } from "src/prisma/prisma.service";
 
 @Injectable()
 export class EmployeesService {
-   constructor(private readonly prisma: PrismaService) { }
+   constructor(private readonly prisma: PrismaService) {}
 
    async getAll() {
       const result = await this.prisma.employee.findMany();
